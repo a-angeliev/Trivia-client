@@ -8,6 +8,7 @@ export default function RiddleCatalogue() {
                 <RiddleItem/>
                 <RiddleItem/>
                 <RiddleItem/>
+                <RiddleItem/>
             </span>
         </span>
     )

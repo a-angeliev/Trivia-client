@@ -1,10 +1,10 @@
-.riddleItemWrapper{
+.riddleItemWrapper {
   display: flex;
   justify-content: center;
   z-index: 2;
 }
 
-.riddleItem{
+.riddleItem {
   display: flex;
   width: 80%;
   /* height: 50px; */
@@ -13,10 +13,69 @@
   border-radius: 15px;
 }
 
-.img{
-  border: solid white 1px;
+.imgSpan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+}
+
+.img {
   width: 100px;
   height: 100px;
-  /* color: white; */
-  /* font-size: 20rem; */
+}
+
+.desc {
+  width: 70%;
+  padding-left: 1rem;
+  color: black;
+}
+
+.desc > h2 {
+  padding-top: 1rem;
+  font-size: 2rem;
+}
+
+.desc > p {
+  font-size: 1.5rem;
+}
+
+.score {
+  display: flex;
+  flex-flow: column;
+  /* justify-content: center; */
+  align-items: center;
+  width: 10%;
+  font-size: 30px;
+  color: black;
+}
+
+.scoreImg {
+  width: 100px;
+  height: 60px;
+  margin-top: 2px;
+}
+
+.devider {
+  height: 80%;
+  border: solid white 1px;
+  margin: auto 0px;
+}
+
+.playSpan{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+}
+
+.playBtn{
+  width: 70px;
+  height: 70px;
+  align-self: center;
+}
+
+.playBtn:hover{
+  width: 90px;
+  height: 90px;
 }
