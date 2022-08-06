@@ -1,0 +1,22 @@
+.riddleItemWrapper{
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+
+.riddleItem{
+  display: flex;
+  width: 80%;
+  /* height: 50px; */
+  margin: 1.2rem;
+  background-color: #989898;
+  border-radius: 15px;
+}
+
+.img{
+  border: solid white 1px;
+  width: 100px;
+  height: 100px;
+  /* color: white; */
+  /* font-size: 20rem; */
+}
