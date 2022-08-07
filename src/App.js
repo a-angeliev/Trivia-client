@@ -4,6 +4,7 @@ import RiddleCatalogue from "./components/RiddleCatalogue/RiddleCatalogue";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Logout from './components/Logout/Logout'
+import Register from './components/Register/Register'
 
 import { RiddleProvider } from "./context/riddleContext";
 import { Routes, Route } from "react-router-dom";
@@ -27,6 +28,7 @@ function App() {
                             />
                             <Route path='/login' element={<Login/>}/>
                             <Route path='/logout' element={<Logout/>}/>
+                            <Route path='/register' element={<Register/>}/>
                         </Routes>
                     </RiddleProvider>
                 </main>

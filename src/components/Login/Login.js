@@ -49,6 +49,7 @@ export default function Login() {
                     id="password"
                     placeholder="***********"
                     name="password"
+                    type="password"
                 ></input>
 
                 {/* <button>Login</button> */}
