@@ -1,19 +1,22 @@
 const request = async (method, url, data) => {
     try {
-        // let header = {"Access-Control-Allow-Origin": "*"};
         let headers = {};
+        let user = localStorage.getItem("auth")
+        
+        if(user.token){
+            headers={'X-Authorization': user.token}
+        }
+        
         let buildRequest;
         if (method === "GET") {
-            buildRequest = fetch(url, {});
+            buildRequest = fetch(url, {headers});
         } else {
-            // console.log(typeof data);
-            // console.log(JSON.stringify(data));
             buildRequest = fetch(url, {
                 method,
-                headers: { 
-                    'content-type': 'application/json',
-                    "Access-Control-Request-Headers" : "Authorization"
-                    // 'content-type': "text/plain" 
+                headers: {
+                    ...headers,
+                    "content-type": "application/json",
+                    "Access-Control-Request-Headers": "Authorization",
                 },
                 body: JSON.stringify(data),
             });

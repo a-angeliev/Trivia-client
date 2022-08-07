@@ -6,7 +6,7 @@ import { AuthContext } from "../../context/authContext";
 
 const Header = () => {
     const { user } = useContext(AuthContext);
-    console.log(user.token);
+
     return (
         <header>
             <nav className={style.navigation}>
@@ -48,7 +48,7 @@ const Header = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link className={style.navLink} to="/">
+                                <Link className={style.navLink} to="/logout">
                                     Logout
                                 </Link>
                             </li>
