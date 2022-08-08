@@ -5,6 +5,7 @@ import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Logout from './components/Logout/Logout'
 import Register from './components/Register/Register'
+import CreateEvent from "./components/CreateEvent/CreateEvent";
 
 import { RiddleProvider } from "./context/riddleContext";
 import { Routes, Route } from "react-router-dom";
@@ -21,7 +22,9 @@ function App() {
                 <main>
                     <RiddleProvider>
                         <Routes>
+
                             <Route path="/" element={<Home />} />
+                            <Route path="/riddles/:riddleId/event" element={<CreateEvent/>}/>
                             <Route
                                 path="/riddles"
                                 element={<RiddleCatalogue />}

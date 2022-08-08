@@ -1,7 +1,7 @@
 import style from "./Register.module.css";
-import { useState, useContext} from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import * as AuthService from './../../service/authService'
+import * as AuthService from "./../../service/authService";
 import { AuthContext } from "../../context/authContext";
 export default function Register() {
     let [email, setEmail] = useState("");
@@ -9,28 +9,28 @@ export default function Register() {
     let [password1, setPassword1] = useState("");
 
     const { userLogin } = useContext(AuthContext);
-    let navigate = useNavigate()
+    let navigate = useNavigate();
 
     const onSubmit = (e) => {
         e.preventDefault();
-        if(password===password1){
-            AuthService.register(email, password).then(authData=>{
-                if(authData.token){
-                    userLogin(authData)
-                    navigate('/')
-                }else{
-                    alert(JSON.stringify(authData['message']));
-                    
-                }
-            }).catch((err) => {
-                console.log(err);
-                navigate('/');
-            });
-
-        }else{
-            alert("You need to fill same passowrds!")
-            setPassword('')
-            setPassword1('')
+        if (password === password1) {
+            AuthService.register(email, password)
+                .then((authData) => {
+                    if (authData.token) {
+                        userLogin(authData);
+                        navigate("/");
+                    } else {
+                        alert(JSON.stringify(authData["message"]));
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                    navigate("/");
+                });
+        } else {
+            alert("You need to fill same passowrds!");
+            setPassword("");
+            setPassword1("");
         }
     };
 
@@ -66,8 +66,8 @@ export default function Register() {
                     Password
                 </label>
                 <input
-                value={password1}
-                onChange={(e)=> setPassword1(e.target.value)}
+                    value={password1}
+                    onChange={(e) => setPassword1(e.target.value)}
                     className={style.loginInputs}
                     id="password1"
                     placeholder="***********"

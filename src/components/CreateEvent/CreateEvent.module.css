@@ -1,0 +1,95 @@
+.loginSection {
+    width: 30%;
+    height: 50vh;
+    /* display: flex;
+    flex-flow: column; */
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 5px 5px 15px 5px #000000;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 10rem;
+}
+
+.loginForm {
+    display: flex;
+    flex-flow: column;
+    margin: auto;
+    padding-top: 30px;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+    color: white;
+}
+.loginForm>p{
+    font-size: 2rem;
+}
+
+.loginInputs {
+    width: 100%;
+    height: 3rem;
+    font-size: 2.4rem;
+}
+
+.loginLables {
+    font-size: 2.4rem;
+    margin-top: 1rem;
+}
+
+p {
+    font-size: 1.3rem;
+}
+/* //////////////// */
+
+button {
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    font-weight: 600;
+    margin: 30px 10px;
+    width: 200px;
+    padding: 10px 0;
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
+    transition: 0.4s;
+}
+
+.logBtn {
+    color: rgb(104, 85, 224);
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(104, 85, 224, 1);
+}
+
+button:hover {
+    color: white;
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+    background-color: rgba(104, 85, 224, 1);
+}
+
+.hidden{
+    display: none 
+}
+
+.show{
+    display: block
+}
+
+.endMsg{
+    display:flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    height: 20%;
+    font-size: 4rem;
+    margin: auto;
+    margin-top: 20%;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 5px 5px 15px 5px #000000;
+    border-radius: 10px;
+    
+}
+
+.endMsg > p{
+    color: white;
+    font-size: 4rem;
+}
