@@ -14,6 +14,7 @@ const request = async (method, url, data) => {
         if (method === "GET") {
             buildRequest = fetch(url, {headers});
         } else {
+            console.log(data);
             buildRequest = fetch(url, {
                 method,
                 headers: {

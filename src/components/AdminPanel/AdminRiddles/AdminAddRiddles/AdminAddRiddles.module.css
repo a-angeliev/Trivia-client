@@ -1,0 +1,24 @@
+.addRiddleWapper{
+    background-color: black;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.addRiddleSection{
+    width: 80%;
+    background-color: #4e657a;
+}
+
+.form{
+    display: flex;
+    flex-flow: column;
+    color: white;
+    font-size: 30px;
+
+}
+
+.inputSection{
+    display: flex;
+    flex-flow: column;
+}

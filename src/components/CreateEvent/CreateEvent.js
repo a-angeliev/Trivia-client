@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import * as requester from "../../service/requester";
 import style from "./CreateEvent.module.css";
 import * as riddleService from "../../service/riddleService";
+import { AuthContext } from "../../context/authContext";
 export default function CreateEvent() {
     let [questions, setQuestions] = useState("");
     let [answer, setAnswer] = useState("");
@@ -20,10 +21,8 @@ export default function CreateEvent() {
             });
         });
     }, []);
-
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log(url);
         let data = Object.fromEntries(new FormData(e.target));
         requester.post(url, data).then((res) => {
             if (res.massage && !res.end) {

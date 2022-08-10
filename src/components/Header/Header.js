@@ -1,12 +1,12 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import style from "./Header.module.css";
 
 import { AuthContext } from "../../context/authContext";
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
-
+    const { user, isAdmin } = useContext(AuthContext);
+    
     return (
         <header>
             <nav className={style.navigation}>
@@ -18,12 +18,13 @@ const Header = () => {
 
                 <ul>
                     <li>
-                        <Link className={style.navLink} to="/">
+                        <Link  
+                        className={style.navLink  } to="/">
                             About
                         </Link>
                     </li>
-                    <li>
-                        <Link className={style.navLink} to="/riddles">
+                    <li >
+                        <Link className={style.navLink } to="/riddles">
                             Riddles
                         </Link>
                     </li>
@@ -47,13 +48,23 @@ const Header = () => {
                                     Profile
                                 </Link>
                             </li>
+                            {isAdmin ? (
+                                <li>
+                                    <Link
+                                        className={style.navLink}
+                                        to="/admin-panel"
+                                    >
+                                        Admin Panel
+                                    </Link>
+                                </li>
+                            ) : null}
                             <li>
                                 <Link className={style.navLink} to="/logout">
                                     Logout
                                 </Link>
                             </li>
                         </>
-                    )}    
+                    )}
                 </ul>
             </nav>
         </header>

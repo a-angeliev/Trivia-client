@@ -7,12 +7,13 @@ export const AuthProvider  = ({children,}) =>{
     const [auth, setAuth] = useLocalStorage("auth", {})
     const userLogin = (authData) => setAuth(authData)
     const userLogout = () => setAuth({})
-
+    
     return (
         <AuthContext.Provider value={{
             user: auth,
             userLogin,
-            userLogout
+            userLogout,
+            isAdmin: auth.userRole == "admin"
         }}>
             {children}
         </AuthContext.Provider>  
