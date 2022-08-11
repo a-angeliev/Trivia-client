@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import { RiddleContext } from "../../../../context/riddleContext";
+import { useContext } from "react";
+
 export default function AdminRiddleItem({ riddle }) {
-    console.log(riddle, riddle.title);
+    const {setCurrentRiddleId} = useContext(RiddleContext)
+    setCurrentRiddleId(riddle.id)
     return (
         <tr>
             <td>{riddle.id}</td>
@@ -8,7 +12,7 @@ export default function AdminRiddleItem({ riddle }) {
             <td>{riddle.description}</td>
             <td>{riddle.number_of_questions}</td>
             <td>{riddle.price}</td>
-            <td><Link to="/admin-panel/item">go</Link></td>
+            <td><Link to={`/admin-panel/details/${riddle.id}`}>Detail: {riddle.id}</Link></td>
         </tr>
 
     );

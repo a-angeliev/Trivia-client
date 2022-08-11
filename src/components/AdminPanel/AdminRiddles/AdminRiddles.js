@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
 export default function AdminRiddles() {
     const { riddles } = useContext(RiddleContext);
-
+    
     return (
         <section className={style.adminRiddleSelectionWapper}>
             <section className={style.adminRiddleSelection}>
@@ -23,9 +23,10 @@ export default function AdminRiddles() {
                             </tr>
                         </thead>
                         <tbody>
-                            {riddles.map((x) => (
+                            {riddles.map((x) => (     
                                 <AdminRiddleItem key={x.id} riddle={x} />
-                            ))}
+                                )
+                            )}
                         </tbody>
                     </table>
                 </section>

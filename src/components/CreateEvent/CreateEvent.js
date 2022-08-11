@@ -12,6 +12,7 @@ export default function CreateEvent() {
     let [url, setUrl] = useState("");
 
     let { riddleId } = useParams();
+    
     useEffect(() => {
         riddleService.createEvent(riddleId).then((res) => {
             setUrl(res.url);
@@ -21,6 +22,7 @@ export default function CreateEvent() {
             });
         });
     }, []);
+
     const onSubmit = (e) => {
         e.preventDefault();
         let data = Object.fromEntries(new FormData(e.target));

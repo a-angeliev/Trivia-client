@@ -8,6 +8,7 @@ import Register from "./components/Register/Register";
 import CreateEvent from "./components/CreateEvent/CreateEvent";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
 import AdminAddRiddles from "./components/AdminPanel/AdminRiddles/AdminAddRiddles/AdminAddRiddles";
+import AdminRiddleDetails from "./components/AdminPanel/AdminRiddles/AdminRiddleDetails/AdminRiddleDetails";
 
 import { RiddleProvider } from "./context/riddleContext";
 import { Routes, Route } from "react-router-dom";
@@ -45,9 +46,14 @@ function App() {
                                     element={<AdminPanel />}
                                 >
                                     <Route
+                                        path="/admin-panel/details/:riddleId"
+                                        element={<AdminRiddleDetails/>}
+                                    />
+                                    <Route
                                         path="/admin-panel/item"
                                         element={<AdminAddRiddles/>}
                                     />
+                                    
                                 </Route>
                             </Routes>
                             <Footer />
