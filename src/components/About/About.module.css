@@ -1,0 +1,48 @@
+.about{
+    width: 80%;
+    height: 70vh;
+    background-color: white;
+    margin: auto;
+    margin-top: 5rem;
+    border-radius: 35px;    
+}
+
+.aboutImg{
+    width: 90px;
+    height: 90px;
+}
+.cardSection{
+    display: flex;
+}
+
+.card{
+    padding: 40px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.card >h2{
+    color: black;
+    font-size: 35px;
+    align-items: left;
+}
+.card > p {
+    font-size: 30px;
+}
+
+.lastSection{
+display: flex;
+flex-flow: column;
+align-items: center;
+}
+
+.lastSection > h2 {
+    font-size: 35px;
+    color: black;
+}
+
+.lastSection > p{
+    font-size: 30px;
+}

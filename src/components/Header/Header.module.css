@@ -39,3 +39,9 @@ li{
 }
 
 
+.logoSvg{
+  /* background-color: aqua; */
+  width: 200px;
+  scroll-behavior: smooth;
+  /* height: 150; */
+}

@@ -7,9 +7,9 @@
 .riddleItem {
   display: flex;
   width: 80%;
-  /* height: 50px; */
   margin: 1.2rem;
-  background-color: #989898;
+  /* background-color: #989898; */
+  background-color: white;
   border-radius: 15px;
 }
 
@@ -34,6 +34,7 @@
 .desc > h2 {
   padding-top: 1rem;
   font-size: 2rem;
+  color: black;
 }
 
 .desc > p {
@@ -43,7 +44,6 @@
 .score {
   display: flex;
   flex-flow: column;
-  /* justify-content: center; */
   align-items: center;
   width: 10%;
   font-size: 30px;
@@ -58,7 +58,8 @@
 
 .devider {
   height: 80%;
-  border: solid white 1px;
+  /* border: solid white 1px; */
+  border: solid black 1px;
   margin: auto 0px;
 }
 

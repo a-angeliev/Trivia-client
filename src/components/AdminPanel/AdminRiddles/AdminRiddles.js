@@ -12,13 +12,13 @@ export default function AdminRiddles() {
             <section className={style.adminRiddleSelection}>
                 <section className={style.tableWrapper}>
                     <table className={style.flTable}>
-                        <thead>
+                        <thead className={style.tHead}>
                             <tr>
-                                <th>ID</th>
-                                <th>TITLE</th>
-                                <th>DESCRIPTION</th>
-                                <th>QUESTIONS</th>
-                                <th>DIFFICALTY</th>
+                                <th>Id</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Questions</th>
+                                <th>Difficalty</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -30,11 +30,14 @@ export default function AdminRiddles() {
                         </tbody>
                     </table>
                 </section>
-                <Link className={style.addNavigateBtn} to="/admin-panel/item">
-                    Add riddle
+                <Link className='' to="/admin-panel/item">
+                    <button className=''>Add Riddle</button>
                 </Link>
             </section>
             <Outlet />
+            <section className={style.space}>
+
+            </section>
         </section>
     );
 }

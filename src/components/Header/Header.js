@@ -12,14 +12,14 @@ const Header = () => {
             <nav className={style.navigation}>
                 <div className={style.logo}>
                     <Link className={style.navLink} to="/">
-                        LOGO
+                        <img className={style.logoSvg} src={'./logo.svg'} alt="" />
                     </Link>
                 </div>
 
                 <ul>
                     <li>
                         <Link  
-                        className={style.navLink  } to="/">
+                        className={style.navLink  } to="/about">
                             About
                         </Link>
                     </li>

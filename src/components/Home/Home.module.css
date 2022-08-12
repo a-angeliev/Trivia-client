@@ -1,0 +1,96 @@
+.homeBg {
+    /* background-image: linear-gradient(-20deg,rgba(43,88,118,0.9), rgba(78,67,118,0.9 )), url("../../../public/bg.avif"); */
+    background-image: url("../../../public/bg.jpg");
+    width: 100%;
+    height: 100vh;
+    /* opacity: 0.1; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: absolute;
+    z-index: -1;
+}
+h1 {
+    /* font-size: 300px; */
+}
+h1 {
+    color: white;
+    z-index: 2;
+}
+
+.titleSection {
+    width: 40%;
+    height: 100%;
+    margin-left: 150px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.titleP {
+    font-size: 100px;
+    color: white;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 0px;
+}
+.titleH1 {
+    margin-top: 0px;
+    font-size: 100px;
+    font-weight: 500;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.titleBtn {
+    margin-top: 10rem;
+    background: none;
+    border: solid white 2px;
+    color: white;
+    border-radius: 30px;
+    font-size: 1.4rem;
+}
+
+.secoundHome {
+    width: 100%;
+    background-color: white;
+    height: 100vh;
+    display: flex;
+}
+.sectionImg {
+    display: flex;
+    justify-content: center;
+    padding-top: 13rem;
+    width: 100%;
+}
+.sectionImg > img {
+    width: 670px;
+    height: 550px;
+}
+
+.sectionDesc {
+    padding-left: 10rem;
+    padding-right: 10rem;
+    padding-top: 13rem;
+    width: 100%;
+}
+
+.sectionDesc > h2 {
+    color: black;
+    font-weight: 800;
+    text-align: left;
+    font-size: 30px;
+}
+
+.sectionDesc > p {
+    font-size: 35px;
+    color: #000;
+    text-align: left;
+}
+
+.titleBtnBlack {
+    margin-top: 10rem;
+    background: none;
+    border: solid black 2px;
+    color: black;
+    border-radius: 30px;
+    font-size: 1.4rem;
+}

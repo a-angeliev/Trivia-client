@@ -7,4 +7,5 @@ export default function Footer() {
       <p className={style.rightsText}>&copy; 2022 Copyright: Atanas Angeliev</p>
     </footer>
   );
+  // return null
 }

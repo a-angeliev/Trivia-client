@@ -9,6 +9,7 @@ import CreateEvent from "./components/CreateEvent/CreateEvent";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
 import AdminAddRiddles from "./components/AdminPanel/AdminRiddles/AdminAddRiddles/AdminAddRiddles";
 import AdminRiddleDetails from "./components/AdminPanel/AdminRiddles/AdminRiddleDetails/AdminRiddleDetails";
+import About from "./components/About/About";
 
 import { RiddleProvider } from "./context/riddleContext";
 import { Routes, Route } from "react-router-dom";
@@ -26,6 +27,7 @@ function App() {
                         <section className={style.customer}>
                             <Header />
                             <Routes>
+                                <Route path='/about' element={<About/>}/>
                                 <Route path="/" element={<Home />} />
                                 <Route
                                     path="/riddles/:riddleId/event"

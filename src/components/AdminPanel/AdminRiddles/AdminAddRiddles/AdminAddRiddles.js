@@ -55,28 +55,41 @@ export default function AdminAddRiddles() {
             <section className={style.addRiddleSection}>
                 <form onSubmit={submit} className={style.form}>
                     <label htmlFor="title">Title</label>
-                    <input name="title" type="text" id="title" />
+                    <input name="title" type="text" id="title" placeholder="Insert some short title!" />
 
                     <label htmlFor="description">Description</label>
-                    <textarea name="description" id="description"></textarea>
+                    <textarea name="description" id="description" placeholder="Here you can describe shortly about what is the quiz."></textarea>
 
-                    <label htmlFor="hardnes">Hardnes</label>
-                    <input name="hardnes" type="number" id="hardnes" />
+                    <label htmlFor="hardnes">Difficalty</label>
+                    <input name="hardnes" type="number" id="hardnes" placeholder="0 is the easiest and 100 is the most difficult "/>
 
                     <section className={style.inputSection}>
                         
                         {inputFields.map((input, index) => {
                             return (
-                                <div key={index}>
-                                    <input  onChange={event => handleFormChange(index, event)} name="question" placeholder="question" value={input.question} />
-                                    <input  onChange={event => handleFormChange(index, event)} name="answer" placeholder="answer" value={input.answer} />
-                                    <button onClick={() => removeFields(index)}>Remove</button>
+                                <div key={index} className={style.row}>
+                                    <div className={style.inputDiv}>
+
+                                    <label>Question</label>
+                                    <input className={style.input} onChange={event => handleFormChange(index, event)} name="question" placeholder="Question" value={input.question} />
+                                    
+                                    </div>
+                                    <div className={style.inputDiv}>
+
+                                    <label>Answer</label>
+                                    <input className={style.input} onChange={event => handleFormChange(index, event)} name="answer" placeholder="Answer" value={input.answer} />
+                                    </div>
+                                    {/* <button className ={style.removeBtn} onClick={() => removeFields(index)}>Remove</button> */}
+                                    <img className ={style.removeBtn} src={"../../cancel.png"} alt="trash"  onClick={() => removeFields(index)}/>
                                 </div>
                             );
                         })}
+                        <div>
                         <button onClick={addFields}>Add more</button>
+                        <button >Submit</button>
+
+                        </div>
                     </section>
-                    <button >Submit</button>
                 </form>
                 
             </section>
