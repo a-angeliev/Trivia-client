@@ -1,16 +1,21 @@
 import style from "./AdminRiddleDetails.module.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import * as riddleService from "../../../../service/riddleService";
+import { useNavigate } from "react-router-dom";
+import { RiddleContext } from "../../../../context/riddleContext";
+
 export default function AdminRiddleDetails() {
     const { riddleId } = useParams();
     const [title, setTitle] = useState("");
     const [description,  setDescription] = useState('');
     const [hardnes,  setHardnes] = useState('');
     const [inputFields, setInputFields] = useState([]);
+    const navigate = useNavigate()
+    const {riddleDelete, riddles,riddleEdit} = useContext(RiddleContext)
+
     let questions;
     let answers;
-
 
     const handleFormChangeInput = (index, event) => {
         let data = [...inputFields];
@@ -50,8 +55,32 @@ export default function AdminRiddleDetails() {
         })();
     }, [riddleId]);
   
+    const deleteRiddleHandler = (e) => {
+        e.preventDefault()
+        riddleService.DeleteRiddle(riddleId).then(res=> {
+            riddleDelete(riddleId)
+            navigate('/admin-panel')
+        })
+    }
 
+    const editRiddleHandler = (e) =>{
+        e.preventDefault()
+        let questions = [];
+        let answers = [];
 
+        inputFields.map((x)=> {
+            questions.push(x.question)
+            answers.push(x.answers)
+        })
+
+        let number_of_questions = inputFields.length
+
+        let data = {questions: questions.join('@'),answers: answers.join('@'), title, description,price: parseFloat(hardnes).toFixed(2), number_of_questions}
+        riddleService.EditRIddle(riddleId, data).then(res =>{
+            riddleEdit(riddleId, res)
+            navigate('/admin-panel')
+        })
+    }
     return (
         <section>
             <section>
@@ -83,8 +112,8 @@ export default function AdminRiddleDetails() {
                                 </div>
                             );
                         })}
-                        <button>Edit</button>
-                        <button>Delete</button>
+                        <button onClick={editRiddleHandler}>Edit</button>
+                        <button onClick={deleteRiddleHandler}>Delete</button>
                     </section>
                 </form>
             </section>

@@ -9,3 +9,7 @@ export const getOne = (riddleId) => request.get(`${baseUrl}/${riddleId}`)
 export const createEvent= (riddleId) => request.post(`${baseUrl}/${riddleId}/events`)
 
 export const CreateRiddle = (data) => request.post(`${baseUrl}`, data)
+
+export const DeleteRiddle = (id) => request.del(`${baseUrl}/${id}`)
+
+export const EditRIddle = (id, data) => request.put(`${baseUrl}/${id}`, data)

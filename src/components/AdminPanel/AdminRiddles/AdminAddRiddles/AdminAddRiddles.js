@@ -1,9 +1,13 @@
 import style from "./AdminAddRiddles.module.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { CreateRiddle } from "../../../../service/riddleService";
+import { RiddleContext } from "../../../../context/riddleContext";
+
 export default function AdminAddRiddles() {
+    let {riddleAdd} = useContext(RiddleContext)
+
     let navigate = useNavigate()
     const [inputFields, setInputFields] = useState([
         { question: "", answer: "" },
@@ -40,8 +44,11 @@ export default function AdminAddRiddles() {
         
         console.log(parseFloat(hardnes).toFixed(2));
         let data={title, description,price: parseFloat(hardnes).toFixed(2), number_of_questions, questions: questions.join("@"), answers: answers.join("@")}
-
-        CreateRiddle(data).then(res=> navigate('/admin-panel'))
+        
+        CreateRiddle(data).then(res=> {
+            riddleAdd(res)
+            navigate('/admin-panel')
+        })
     }
     return (
         <section className={style.addRiddleWapper}>
