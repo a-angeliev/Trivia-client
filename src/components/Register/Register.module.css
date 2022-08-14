@@ -1,8 +1,6 @@
 .loginSection {
     width: 30%;
     height: 50vh;
-    /* display: flex;
-    flex-flow: column; */
     background-color: rgba(0, 0, 0, 0.7);
     box-shadow: 5px 5px 15px 5px #000000;
     border-radius: 10px;

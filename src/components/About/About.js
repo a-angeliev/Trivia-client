@@ -4,7 +4,7 @@ export default function About() {
     return (
         <section className={style.about}>
             <section className={style.cardSection}>
-                <seciton className={style.card}>
+                <section className={style.card}>
                     <img className={style.aboutImg} src={"../../../1.png"} alt="" />
                     <h2>Who are we?</h2>
                     <p>
@@ -12,9 +12,9 @@ export default function About() {
                         Perspiciatis assumenda minus vel laborum possimus.
                         
                     </p>
-                </seciton>
+                </section>
 
-                <seciton className={style.card}>
+                <section className={style.card}>
                     <img className={style.aboutImg} src={"../../../2.png"} alt="" />
                     <h2>What do we want?</h2>
                     <p>
@@ -22,9 +22,9 @@ export default function About() {
                         Perspiciatis assumenda minus vel laborum possimus.
                         
                     </p>
-                </seciton>
+                </section>
 
-                <seciton className={style.card}>
+                <section className={style.card}>
                     <img className={style.aboutImg} src={"../../../3.png"} alt="" />
                     <h2>How it works?</h2>
                     <p>
@@ -32,7 +32,7 @@ export default function About() {
                         Perspiciatis assumenda minus vel laborum possimus.
                         
                     </p>
-                </seciton>
+                </section>
             </section>
             <section className={style.lastSection}>
                 <h2>Say hi!</h2>

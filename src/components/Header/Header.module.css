@@ -4,7 +4,6 @@ header{
   justify-content: center;
   font-size: 2rem;
   border: solid black 1px;
-  /* background-color: #0e241b; */
   background-color: #1b1f24;
   text-decoration: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -40,8 +39,6 @@ li{
 
 
 .logoSvg{
-  /* background-color: aqua; */
   width: 200px;
   scroll-behavior: smooth;
-  /* height: 150; */
 }

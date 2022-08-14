@@ -1,21 +1,15 @@
 .addRiddleWapper {
     background-color: white;
-    /* margin: auto; */
     display: flex;
     justify-content: center;
     border-radius: 20px;
-    /* bottom: 50px; */
-    /* margin-bottom: 30rem; */
-    /* padding-bottom: 30rem; */
 }
 
 .addRiddleSection {
     color: black;
-    /* border-radius: 20px; */
     margin: 30px;
     width: 100%;
 
-    /* background-color: #4e657a; */
 }
 
 .form {

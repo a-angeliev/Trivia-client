@@ -2,11 +2,12 @@ const request = async (method, url, data) => {
     try {
         let headers = {};
         let user = localStorage.getItem("auth")
-        if(user!= {}){
+        console.log(user);
+        if(user!== null){
+            console.log(123);
             user = JSON.parse(user)
         }
-        // console.log(JSON.parse(user)['token']);
-        if(user.token){
+        if(user? user.token: false){
             headers={'Authorization': `Bearer ${user.token}`}
         }
         

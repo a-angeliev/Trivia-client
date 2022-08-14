@@ -23,6 +23,12 @@ const Header = () => {
                             About
                         </Link>
                     </li>
+                    <li>
+                        <Link  
+                        className={style.navLink  } to="/checkout">
+                            Checkout
+                        </Link>
+                    </li>
                     <li >
                         <Link className={style.navLink } to="/riddles">
                             Riddles
@@ -43,11 +49,11 @@ const Header = () => {
                         </>
                     ) : (
                         <>
-                            <li>
+                            {/* <li>
                                 <Link className={style.navLink} to="/">
                                     Profile
                                 </Link>
-                            </li>
+                            </li> */}
                             {isAdmin ? (
                                 <li>
                                     <Link

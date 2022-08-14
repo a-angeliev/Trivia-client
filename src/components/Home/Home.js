@@ -1,9 +1,7 @@
-import Header from "../Header/Header";
 import style from "./Home.module.css";
 export default function Home() {
     return (
         <>
-            {/* <Header/> */}
             <section className={style.homeBg}>
                 <section className={style.titleSection}>
                     <p className={style.titleP}>Join today with</p>
@@ -12,9 +10,9 @@ export default function Home() {
                 </section>
             </section>
             <section className={style.secoundHome}>
-                <seciton className={style.sectionImg}>
+                <section className={style.sectionImg}>
                     <img src={'../../../homepage-img.jpg'} alt="img" />
-                </seciton>
+                </section>
                 <section className={style.sectionDesc}>
                     <h2>Why to choose us?</h2>
                     <p>

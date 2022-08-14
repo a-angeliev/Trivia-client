@@ -10,7 +10,9 @@ import AdminPanel from "./components/AdminPanel/AdminPanel";
 import AdminAddRiddles from "./components/AdminPanel/AdminRiddles/AdminAddRiddles/AdminAddRiddles";
 import AdminRiddleDetails from "./components/AdminPanel/AdminRiddles/AdminRiddleDetails/AdminRiddleDetails";
 import About from "./components/About/About";
+import Checkout from "./components/Checkout/Checkout";
 
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { RiddleProvider } from "./context/riddleContext";
 import { Routes, Route } from "react-router-dom";
 import style from "./App.module.css";
@@ -19,50 +21,59 @@ import { AuthProvider } from "./context/authContext";
 // import style from './app.css'
 
 function App() {
+    
     return (
         <>
-            <AuthProvider>
-                <RiddleProvider>
-                    <main>
-                        <section className={style.customer}>
-                            <Header />
-                            <Routes>
-                                <Route path='/about' element={<About/>}/>
-                                <Route path="/" element={<Home />} />
-                                <Route
-                                    path="/riddles/:riddleId/event"
-                                    element={<CreateEvent />}
-                                />
-                                <Route
-                                    path="/riddles"
-                                    element={<RiddleCatalogue />}
-                                />
-                                <Route path="/login" element={<Login />} />
-                                <Route path="/logout" element={<Logout />} />
-                                <Route
-                                    path="/register"
-                                    element={<Register />}
-                                />
-                                <Route
-                                    path="/admin-panel"
-                                    element={<AdminPanel />}
-                                >
+            <PayPalScriptProvider options={{"client-id": "AWfYTOnjSJgtSZaqRdR1SjIkehKuXp8GSWXGP3-K1udlWgq64mOv9znAyXa7EyLANzSmkJ-y7myqX0J8","currency":"EUR"}}>
+                <AuthProvider>
+                    <RiddleProvider>
+                        <main>
+                            <section className={style.customer}>
+                                <Header />
+                                <Routes>
+                                        <Route
+                                            path="/checkout"
+                                            element={<Checkout />}
+                                        />
+                                    <Route path="/about" element={<About />} />
+                                    <Route path="/" element={<Home />} />
                                     <Route
-                                        path="/admin-panel/details/:riddleId"
-                                        element={<AdminRiddleDetails/>}
+                                        path="/riddles/:riddleId/event"
+                                        element={<CreateEvent />}
                                     />
                                     <Route
-                                        path="/admin-panel/item"
-                                        element={<AdminAddRiddles/>}
+                                        path="/riddles"
+                                        element={<RiddleCatalogue />}
                                     />
-                                    
-                                </Route>
-                            </Routes>
-                            <Footer />
-                        </section>
-                    </main>
-                </RiddleProvider>
-            </AuthProvider>
+                                    <Route path="/login" element={<Login />} />
+                                    <Route
+                                        path="/logout"
+                                        element={<Logout />}
+                                    />
+                                    <Route
+                                        path="/register"
+                                        element={<Register />}
+                                    />
+                                    <Route
+                                        path="/admin-panel"
+                                        element={<AdminPanel />}
+                                    >
+                                        <Route
+                                            path="/admin-panel/details/:riddleId"
+                                            element={<AdminRiddleDetails />}
+                                        />
+                                        <Route
+                                            path="/admin-panel/item"
+                                            element={<AdminAddRiddles />}
+                                        />
+                                    </Route>
+                                </Routes>
+                                <Footer />
+                            </section>
+                        </main>
+                    </RiddleProvider>
+                </AuthProvider>
+            </PayPalScriptProvider>
         </>
     );
 }

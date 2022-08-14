@@ -25,8 +25,6 @@ export default function Login() {
             console.log(err);
             navigate('/');
         });
-        // // userLogin(response)
-        // console.log(authService.login(email,password))
 
     };
     return (
@@ -53,9 +51,7 @@ export default function Login() {
                     type="password"
                 ></input>
 
-                {/* <button>Login</button> */}
                 <button className={style.logBtn}>Login</button>
-                {/* <button class="reg">Sign up</button> */}
                 <p>
                     If you dont have register <a>click here</a>{" "}
                 </p>
