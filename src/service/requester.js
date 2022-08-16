@@ -2,9 +2,7 @@ const request = async (method, url, data) => {
     try {
         let headers = {};
         let user = localStorage.getItem("auth")
-        console.log(user);
         if(user!== null){
-            console.log(123);
             user = JSON.parse(user)
         }
         if(user? user.token: false){
@@ -15,7 +13,6 @@ const request = async (method, url, data) => {
         if (method === "GET") {
             buildRequest = fetch(url, {headers});
         } else {
-            console.log(data);
             buildRequest = fetch(url, {
                 method,
                 headers: {

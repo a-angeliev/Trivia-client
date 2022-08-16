@@ -14,7 +14,6 @@ export default function Checkout(props) {
         setRiddle(props.riddle);
     }, []);
 
-    console.log(props.riddle);
     const product = {
         description: `${props.riddle.title}, ID:${props.riddle.id}`,
         price: props.riddle.price,
@@ -30,7 +29,6 @@ export default function Checkout(props) {
 
             let firstHalf = response.url.slice(0, 34);
             let token = response.url.slice(34);
-            console.log(response, 332211);
             if (firstHalf == "http://localhost:3000/event?token=" && token) {
                 navigate(`/event?token=${token}`);
             } else {
@@ -85,23 +83,7 @@ export default function Checkout(props) {
                     }}
                 />
             </div>
-            <iframe
-                src={
-                    "https://www.google.com/maps/d/embed?mid=1s2us0IHZaFUf7EnZOOv9z2of-XZFpgY&hl=en&ehbc=2E312F"
-                }
-                width="640"
-                height="480"
-                frameBorder="0"
-                allowFullScreen
-            ></iframe>
-
-            <iframe
-                src={
-                    "https://www.google.com/maps/d/u/0/embed?mid=1-ZWY43yqDF89M-wWDOF7-FNtQRoFLLQ&ehbc=2E312F"
-                }
-                width="640"
-                height="480"
-            ></iframe>
+            
             
         </>
     );

@@ -17,6 +17,7 @@ const riddleReducer = (state, action) => {
         default:
             return state;
     }
+
 };
 
 export const RiddleProvider = ({ children }) => {

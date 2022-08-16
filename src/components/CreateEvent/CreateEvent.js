@@ -42,7 +42,6 @@ export default function CreateEvent() {
         // fetchData().then(err=> console.log(err))
         fetchRiddleInfo().then((err) => console.log(err));
     }, []);
-    console.log(res,12345);
 
     const onClick=(e)=>{
         e.preventDefault();
@@ -51,13 +50,7 @@ export default function CreateEvent() {
 
     return (
         <>
-        <iframe
-                src={
-                    "https://www.google.com/maps/d/u/0/embed?mid=1-ZWY43yqDF89M-wWDOF7-FNtQRoFLLQ&ehbc=2E312F"
-                }
-                width="640"
-                height="480"
-            ></iframe>
+        
             <PayPalScriptProvider
                 options={{
                     "client-id":
@@ -71,6 +64,15 @@ export default function CreateEvent() {
                 <p>Id: {res.id}</p>
                 <p>Description: {res.description}</p>
                 <p>Number_of_questions: {res.number_of_questions}</p>
+                <p>Duration: {res.duration}</p>
+                <p>Where: {res.where}</p>
+                <iframe
+                src={
+                    res.google_map
+                }
+                width="640"
+                height="480"
+            ></iframe>
                 {
                     !loadPayment? <button onClick={onClick}>Load Payment options</button>:<Checkout riddle={res} />
                 }

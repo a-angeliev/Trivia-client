@@ -41,16 +41,24 @@ export default function EventAction(props) {
                 }
             });
     };
+    
+    const onClick = (e)=>{
+        e.preventDefault()
+        let current_question = questions.current_question
+        requester
+            .get(`http://127.0.0.1:5000/event/hint/${current_question}?token=${props.urlToken}`).then(res=> alert(`The hint is: ${res}`))
+    }
 
     return (
         <>
             <section className={end ? style.hidden : style.show}>
                 <section className={style.loginSection}>
+                    <button onClick={onClick}>Hint</button>
                     <form
                         onSubmit={onSubmit}
                         display="none"
                         className={style.loginForm}
-                    >
+                    >   
                         {" "}
                         <p>
                             {questions.guessed_answer}/
