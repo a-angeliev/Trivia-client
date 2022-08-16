@@ -11,11 +11,38 @@ export default function AdminRiddleDetails() {
     const [description, setDescription] = useState("");
     const [hardnes, setHardnes] = useState("");
     const [inputFields, setInputFields] = useState([]);
+    // const [status, setStatus] = useState("");
     const navigate = useNavigate();
     const { riddleDelete, riddles, riddleEdit } = useContext(RiddleContext);
 
     let questions;
     let answers;
+
+  
+    // const handlerFormChangeSelect = (e) =>{
+    //     setStatus(e.target.value);
+    //     console.log(321);
+    //     console.log(status);
+    // }
+
+   
+    useEffect(() => {
+        (async () => {
+            let a = await riddleService.getOne(riddleId);
+            // setStatus(a.status);
+            questions = a ? a.questions.split("@") : [];
+            answers = a ? a.answers.split("@") : [];
+            let inputFieldObj = [];
+            questions.map((x, i) => {
+                let newfield = { question: `${x}`, answer: `${answers[i]}` };
+                inputFieldObj = [...inputFieldObj, newfield];
+            });
+            setInputFields(inputFieldObj);
+            setTitle(a.title);
+            setDescription(a.description);
+            setHardnes(a.price);
+        })();
+    }, [riddleId]);
 
     const handleFormChangeInput = (index, event) => {
         let data = [...inputFields];
@@ -35,23 +62,6 @@ export default function AdminRiddleDetails() {
         setHardnes(e.target.value);
         console.log(hardnes);
     };
-    useEffect(() => {
-        (async () => {
-            let a = await riddleService.getOne(riddleId);
-            questions = a ? a.questions.split("@") : [];
-            answers = a ? a.answers.split("@") : [];
-            let inputFieldObj = [];
-            questions.map((x, i) => {
-                let newfield = { question: `${x}`, answer: `${answers[i]}` };
-                inputFieldObj = [...inputFieldObj, newfield];
-            });
-            setInputFields(inputFieldObj);
-            setTitle(a.title);
-            setDescription(a.description);
-            setHardnes(a.price);
-        })();
-    }, [riddleId]);
-
     const deleteRiddleHandler = (e) => {
         e.preventDefault();
         riddleService.DeleteRiddle(riddleId).then((res) => {
@@ -77,6 +87,7 @@ export default function AdminRiddleDetails() {
             answers: answers.join("@"),
             title,
             description,
+            // status,
             price: parseFloat(hardnes).toFixed(2),
             number_of_questions,
         };
@@ -130,6 +141,13 @@ export default function AdminRiddleDetails() {
                         value={hardnes}
                         placeholder="0 is the easiest and 100 is the most difficult "
                     />
+
+                    {/* <lable>Status</lable>
+                    <select onChange = { handlerFormChangeSelect} id="status">
+                        <option  value={status}>{status}</option>
+                        <option  value={status=="available" ? "archived" :"available" }>{status=="available" ? "archived" :"available" }</option>
+                    </select> */}
+
                     <section className={style.inputSection}>
                         {inputFields.map((input, index) => {
                             return (
@@ -167,7 +185,12 @@ export default function AdminRiddleDetails() {
                                     {/* <button  className ={style.removeBtn} onClick={() => removeFields(index)}>
                                         X
                                     </button> */}
-                                    <img className ={style.removeBtn} src={"../../cancel.png"} alt="trash"  onClick={() => removeFields(index)}/>
+                                    <img
+                                        className={style.removeBtn}
+                                        src={"../../cancel.png"}
+                                        alt="trash"
+                                        onClick={() => removeFields(index)}
+                                    />
                                 </div>
                             );
                         })}

@@ -11,6 +11,8 @@ import AdminAddRiddles from "./components/AdminPanel/AdminRiddles/AdminAddRiddle
 import AdminRiddleDetails from "./components/AdminPanel/AdminRiddles/AdminRiddleDetails/AdminRiddleDetails";
 import About from "./components/About/About";
 import Checkout from "./components/Checkout/Checkout";
+import DisplayEvent from "./components/DisplayEvent/DisplayEvent";
+
 
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { RiddleProvider } from "./context/riddleContext";
@@ -21,20 +23,26 @@ import { AuthProvider } from "./context/authContext";
 // import style from './app.css'
 
 function App() {
-    
     return (
         <>
-            <PayPalScriptProvider options={{"client-id": "AWfYTOnjSJgtSZaqRdR1SjIkehKuXp8GSWXGP3-K1udlWgq64mOv9znAyXa7EyLANzSmkJ-y7myqX0J8","currency":"EUR"}}>
+            <PayPalScriptProvider
+                options={{
+                    "client-id":
+                        "AWfYTOnjSJgtSZaqRdR1SjIkehKuXp8GSWXGP3-K1udlWgq64mOv9znAyXa7EyLANzSmkJ-y7myqX0J8",
+                    currency: "EUR",
+                }}
+            >
                 <AuthProvider>
                     <RiddleProvider>
                         <main>
                             <section className={style.customer}>
                                 <Header />
                                 <Routes>
-                                        <Route
-                                            path="/checkout"
-                                            element={<Checkout />}
-                                        />
+                                    {/* <Route
+                                        path="/checkout"
+                                        element={<Checkout />}
+                                    /> */}
+                                    <Route path="/event" element={<DisplayEvent/>}/>
                                     <Route path="/about" element={<About />} />
                                     <Route path="/" element={<Home />} />
                                     <Route
