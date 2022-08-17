@@ -2,7 +2,10 @@ import React, { useEffect } from "react";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import * as riddleService from "../../service/riddleService";
+import * as requester from "../../service/requester";
+
 export default function Checkout(props) {
     const [paidFor, setPaidFor] = useState(false);
     const [error, setError] = useState(null);
@@ -15,7 +18,7 @@ export default function Checkout(props) {
 
     const product = {
         description: `${props.riddle.title}, ID:${props.riddle.id}`,
-        price: props.riddle.price-(props.riddle.price*props.discount/100),
+        price: props.riddle.price - (props.riddle.price * props.discount) / 100,
     };
 
     // const onSubmit =(e) => {
@@ -26,15 +29,29 @@ export default function Checkout(props) {
     // }
     const handlerApprove = (order) => {
         //callback fucntion to fulfill order
-        console.log(order.purchase_units[0].payments.captures[0].id, "transactionId");
-        console.log(order.purchase_units[0].payments.captures[0].update_time, "update_time");
-        console.log(order.purchase_units[0].amount.value, "amount_value");
-        console.log(order.purchase_units[0].description, "description");
-        console.log(order.payer.email_address, "email_address");
+
+
+        // let transactionId = order.purchase_units[0].payments.captures[0].id;
+        // console.log(transactionId);
+        // let update_time =
+        //     order.purchase_units[0].payments.captures[0].update_time;
+        // let amount = order.purchase_units[0].amount.value;
+        // let description = order.purchase_units[0].description;
+        // let email_address = order.payer.email_address;
+
+        let transaction_data = {
+            transactionId: order.purchase_units[0].payments.captures[0].id,
+            update_time:order.purchase_units[0].payments.captures[0].update_time,
+            amount:order.purchase_units[0].amount.value,
+            description:order.purchase_units[0].description,
+            email:order.payer.email_address,
+        };
+        requester
+            .post("http://127.0.0.1:5000/transaction", JSON.stringify(transaction_data))
+            .then((res) => console.log(res));
+
         const fetchData = async () => {
-            let response = await riddleService.createEvent(
-                props.riddle.id
-            );
+            let response = await riddleService.createEvent(props.riddle.id);
 
             let firstHalf = response.url.slice(0, 34);
             let token = response.url.slice(34);
@@ -65,7 +82,7 @@ export default function Checkout(props) {
     return (
         <>
             <div></div>
-            
+
             <div className="paypal-button-container">
                 <PayPalButtons
                     createOrder={(data, actions) => {
@@ -92,8 +109,6 @@ export default function Checkout(props) {
                     }}
                 />
             </div>
-            
-            
         </>
     );
 }
