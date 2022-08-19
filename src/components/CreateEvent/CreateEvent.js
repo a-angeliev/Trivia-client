@@ -4,7 +4,7 @@ import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-import * as requester from "../../service/requester"
+import * as requester from "../../service/requester";
 import * as riddleService from "../../service/riddleService";
 import Checkout from "../Checkout/Checkout";
 
@@ -17,8 +17,8 @@ export default function CreateEvent() {
     // let [url, setUrl] = useState("");
     const [res, setRes] = useState({});
     const [loadPayment, setLoadPayment] = useState(false);
-    const [discountAmount, setDiscountAmount] = useState(0)
-    const [discount_code, setDiscountCode] = useState('')
+    const [discountAmount, setDiscountAmount] = useState(0);
+    const [discount_code, setDiscountCode] = useState("");
 
     let { riddleId } = useParams();
 
@@ -63,31 +63,118 @@ export default function CreateEvent() {
             )
             .then((resp) => {
                 // console.log(res, "discount_code response")
-                if(resp["is_valid"]){
+                if (resp["is_valid"]) {
                     console.log(resp.discount);
-                    setDiscountAmount(Number(resp.discount))
+                    setDiscountAmount(Number(resp.discount));
                     // let newPrice = res.price - (res.price*Number(resp.discount)/100)
                     // setRes({...res, price: newPrice})
-                    setLoadPayment(false)
-                    setDiscountCode(discount_code)
-                }else{
-                    setDiscountAmount(0)
-                    setDiscountCode('')
-                    alert("Discount code is invalid!")
+                    setLoadPayment(false);
+                    setDiscountCode(discount_code);
+                } else {
+                    setDiscountAmount(0);
+                    setDiscountCode("");
+                    setLoadPayment(false);
+                    alert("Discount code is invalid!");
                 }
             });
     };
 
     return (
         <>
-            <PayPalScriptProvider
-                options={{
-                    "client-id":
-                        "AWfYTOnjSJgtSZaqRdR1SjIkehKuXp8GSWXGP3-K1udlWgq64mOv9znAyXa7EyLANzSmkJ-y7myqX0J8",
-                    currency: "EUR",
-                }}
-            >
-                <p>Title: {res.title}</p>
+            <section className={style.eventWhapper}>
+                <PayPalScriptProvider
+                    options={{
+                        "client-id":
+                            "AWfYTOnjSJgtSZaqRdR1SjIkehKuXp8GSWXGP3-K1udlWgq64mOv9znAyXa7EyLANzSmkJ-y7myqX0J8",
+                        currency: "EUR",
+                    }}
+                >
+                    <div className={style.product}>
+                        <div className={style.checkoutInfo}>
+                            <h1 className={style.title}>
+                                Checkout for {res.title}
+                            </h1>
+                            <iframe
+                                src={res.google_map}
+                                className={style.googleMap}
+                            ></iframe>
+                            <form
+                                onSubmit={onSubmit}
+                                className={style.discountForm}
+                            >
+                                <label htmlFor="discount"></label>
+                                <input
+                                    type="text"
+                                    id="discount_code"
+                                    name="discount_code"
+                                    className={style.discountFormInput}
+                                />
+                                <button>Check</button>
+                                {discount_code !== "" ? (
+                                    <p
+                                        className={style.discountCode}
+                                    >{`Dscount code: ${discount_code.discount_code} for ${discountAmount}% off`}</p>
+                                ) : null}
+                            </form>
+                            <div className={style.groupPriceDiv}>
+                                <div className={style.priceInfoDiv}>
+                                    <p>{res.title}</p>
+                                    <p>
+                                        $
+                                        {Number.parseFloat(res.price).toFixed(
+                                            2
+                                        )}
+                                    </p>
+                                </div>
+                                <div className={style.priceInfoDiv}>
+                                    <p>Discount</p>
+                                    <p>
+                                        $
+                                        {Number.parseFloat(
+                                            (res.price * discountAmount) / 100
+                                        ).toFixed(2)}
+                                    </p>
+                                </div>
+                                <div className={style.priceInfoDiv}>
+                                    <p className={style.bold}>All</p>
+                                    <p className={style.bold}>
+                                        $
+                                        {Number.parseFloat(
+                                            res.price -
+                                                (res.price * discountAmount) /
+                                                    100
+                                        ).toFixed(2)}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className={style.horizontalDevider}> </div>
+
+                            <div className={style.paypalBtn}>
+                                {!loadPayment ? (
+                                    <button
+                                        className={style.loadPaymentBtn}
+                                        onClick={onClick}
+                                    >
+                                        Load Payment options
+                                    </button>
+                                ) : (
+                                    <Checkout
+                                        riddle={res}
+                                        discount={discountAmount}
+                                    />
+                                )}
+                            </div>
+                        </div>
+
+                        <div className={style.riddleInfo}>
+                            <p className={style.riddleInfoP}>Description: {res.description}</p>
+                            <p className={style.riddleInfoP}>
+                                Number of questions: {res.number_of_questions}
+                            </p>
+                            <p className={style.riddleInfoP}>Duration: {res.duration}</p>
+                            <p className={style.riddleInfoP}>Where: {res.where}</p>
+                        </div>
+                        {/* <p>Title: {res.title}</p>
                 <p>Discount: {res.discount}</p>
                 {discountAmount !== 0 ? <p>Price after discount: {res.price-(res.price*discountAmount/100)}</p>:<p>Price: {res.price}</p>}
                 <p>Id: {res.id}</p>
@@ -112,8 +199,10 @@ export default function CreateEvent() {
                     <button onClick={onClick}>Load Payment options</button>
                 ) : (
                     <Checkout riddle={res} discount={discountAmount} />
-                )}
-            </PayPalScriptProvider>
+                )} */}
+                    </div>
+                </PayPalScriptProvider>
+            </section>
         </>
     );
 }

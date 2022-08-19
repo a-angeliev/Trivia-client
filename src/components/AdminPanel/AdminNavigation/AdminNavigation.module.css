@@ -1,0 +1,25 @@
+.AdminNavDiv {
+    margin-top: 30px;
+    /* background-color: black; */
+    justify-content: center;
+    display: flex;
+}
+.AdminNavUl {
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+}
+.AdminNavLink {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 2rem;
+}
+.devider {
+    width: 1px;
+    height: 80%;
+    border: solid black 1px;
+}

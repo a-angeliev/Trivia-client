@@ -1,8 +1,6 @@
-.loginSection {
+/* .loginSection {
     width: 30%;
     height: 50vh;
-    /* display: flex;
-    flex-flow: column; */
     background-color: rgba(0, 0, 0, 0.7);
     box-shadow: 5px 5px 15px 5px #000000;
     border-radius: 10px;
@@ -39,7 +37,6 @@
 p {
     font-size: 1.3rem;
 }
-/* //////////////// */
 
 .logBtn {
     cursor: pointer;
@@ -95,8 +92,108 @@ p {
 }
 
 
-
-/* /////////////////////////////////// */
+*/
 p{
     color: black;
+} 
+
+.eventWhapper{
+    display:flex;
+    justify-content: center;
+}
+
+
+.product{
+    margin-top: 5rem;
+    width: 70%;
+    display:flex;
+    justify-content: space-around;
+    margin-bottom: 6rem;
+
+}
+
+.checkoutInfo{
+    width: 60%;
+    
+    border-radius: 20px;
+
+    background-color: white;
+}
+.title{
+    color: black;
+    margin-top: 4rem;
+    margin-left: 3rem;
+}
+.googleMap{
+    margin-top: 1rem;
+    margin-left: 3rem;
+    width: 91%;
+    height: 400px;
+}
+.discountForm{
+    color: black;
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-left: 3rem;
+}
+.discountFormInput{
+    width: 60%;
+}
+.groupPriceDiv{
+    width: 60%;
+    display: flex;
+    flex-flow: column;
+    margin-left: 3rem;
+    margin-top: 2rem;
+
+}
+.discountCode{
+    font-style: italic;
+}
+.priceInfoDiv{
+
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+
+}
+.priceInfoDiv> p{
+    font-size: 2rem;
+}
+.bold{
+    font-weight: 900;
+}
+.horizontalDevider{
+    /* width: 100%; */
+    border: solid black 1px;
+    margin-top: 1rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-bottom: 4rem;
+}
+
+
+.loadPaymentBtn{
+    width: 100%;
+    margin-left: 0;
+}
+
+.paypalBtn{
+    margin-left: 3rem;
+    width: 91%;
+}
+
+
+.riddleInfo{
+    height: fit-content;    
+    width: 30%;
+    border-radius: 20px;
+
+    background-color: white;
+}
+
+.riddleInfoP{
+    margin: 2rem 2rem;
+    font-weight: 400;
+    font-size: 2rem;
 }

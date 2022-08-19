@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import style from './Checkout.module.css'
 import * as riddleService from "../../service/riddleService";
 import * as requester from "../../service/requester";
 
@@ -82,7 +82,7 @@ export default function Checkout(props) {
     return (
         <>
             <div></div>
-
+            
             <div className="paypal-button-container">
                 <PayPalButtons
                     createOrder={(data, actions) => {
