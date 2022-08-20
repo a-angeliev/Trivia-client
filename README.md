@@ -73,7 +73,6 @@ TRIVIA is React/Flask game-based application for riddles.It's purpose is to prov
 ## Frontend
  
 - React
-- Html
 - Css
  
 ## Backend
