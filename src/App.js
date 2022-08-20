@@ -25,6 +25,7 @@ import { DiscountProvider } from "./context/discountContext";
 import AdminTransaction from "./components/AdminPanel/AdminTransactions/AdminTransactions";
 import AdminAddDiscount from "./components/AdminPanel/AdminDiscounts/AdminAddDiscount/AdminAddDiscount";
 import AdminDiscountDetails from "./components/AdminPanel/AdminDiscounts/AdminDiscountDetails/AdminDiscountDetails";
+import { TransactionsProvider } from "./context/transactionsContext";
 
 // import style from './app.css'
 
@@ -41,93 +42,111 @@ function App() {
                 <AuthProvider>
                     <RiddleProvider>
                         <DiscountProvider>
-                            <main>
-                                <section className={style.customer}>
-                                    <Header />
-                                    <Routes>
-                                        {/* <Route
+                            <TransactionsProvider>
+                                <main>
+                                    <section className={style.customer}>
+                                        <Header />
+                                        <Routes>
+                                            {/* <Route
                                         path="/checkout"
                                         element={<Checkout />}
                                     /> */}
-                                        <Route
-                                            path="/event"
-                                            element={<DisplayEvent />}
-                                        />
-                                        <Route
-                                            path="/about"
-                                            element={<About />}
-                                        />
-                                        <Route path="/" element={<Home />} />
-                                        <Route
-                                            path="/riddles/:riddleId/event"
-                                            element={<CreateEvent />}
-                                        />
-                                        <Route
-                                            path="/riddles"
-                                            element={<RiddleCatalogue />}
-                                        />
-                                        <Route
-                                            path="/login"
-                                            element={<Login />}
-                                        />
-                                        <Route
-                                            path="/logout"
-                                            element={<Logout />}
-                                        />
-                                        <Route
-                                            path="/register"
-                                            element={<Register />}
-                                        />
-                                        <Route
-                                            // path="/admin-panel"
-                                            element={<AdminPanel />}
-                                        >
                                             <Route
-                                                path={"admin-panel"}
-                                                element={<AdminRiddles />}
+                                                path="/event"
+                                                element={<DisplayEvent />}
+                                            />
+                                            <Route
+                                                path="/about"
+                                                element={<About />}
+                                            />
+                                            <Route
+                                                path="/"
+                                                element={<Home />}
+                                            />
+                                            <Route
+                                                path="/riddles/:riddleId/event"
+                                                element={<CreateEvent />}
+                                            />
+                                            <Route
+                                                path="/riddles"
+                                                element={<RiddleCatalogue />}
+                                            />
+                                            <Route
+                                                path="/login"
+                                                element={<Login />}
+                                            />
+                                            <Route
+                                                path="/logout"
+                                                element={<Logout />}
+                                            />
+                                            <Route
+                                                path="/register"
+                                                element={<Register />}
+                                            />
+                                            <Route
+                                                // path="/admin-panel"
+                                                element={<AdminPanel />}
                                             >
                                                 <Route
-                                                    path="/admin-panel/details/:riddleId"
-                                                    element={
-                                                        <AdminRiddleDetails />
-                                                    }
-                                                />
-                                                <Route
-                                                    path="/admin-panel/item"
-                                                    element={
-                                                        <AdminAddRiddles />
-                                                    }
-                                                />
-                                            </Route>
-                                            {/* <Route
+                                                    path={"admin-panel"}
+                                                    element={<AdminRiddles />}
+                                                >
+                                                    <Route
+                                                        path="/admin-panel/details/:riddleId"
+                                                        element={
+                                                            <AdminRiddleDetails />
+                                                        }
+                                                    />
+                                                    <Route
+                                                        path="/admin-panel/item"
+                                                        element={
+                                                            <AdminAddRiddles />
+                                                        }
+                                                    />
+                                                </Route>
+                                                {/* <Route
                                                 path={"admin-panel/"}
                                                 element={<AdminFaq />}
                                             /> */}
-                                            <Route
-                                                path={
-                                                    "/admin-panel/transactions"
-                                                }
-                                                element={<AdminTransaction />}
-                                            ></Route>
-                                            <Route
-                                                path={"/admin-panel/discount"}
-                                                element={<AdminDiscounts />}
-                                            >
+
                                                 <Route
                                                     path={
-                                                        "/admin-panel/discount/add"
+                                                        "/admin-panel/transactions"
                                                     }
                                                     element={
-                                                        <AdminAddDiscount />
+                                                        <AdminTransaction />
                                                     }
-                                                />
-                                                <Route path={"/admin-panel/discount/:discountId"} element={<AdminDiscountDetails/>}/>
+                                                ></Route>
+
+                                                <Route
+                                                    path={
+                                                        "/admin-panel/discount"
+                                                    }
+                                                    element={<AdminDiscounts />}
+                                                >
+                                                    <Route
+                                                        path={
+                                                            "/admin-panel/discount/add"
+                                                        }
+                                                        element={
+                                                            <AdminAddDiscount />
+                                                        }
+                                                    />
+                                                    <Route
+                                                        path={
+                                                            "/admin-panel/discount/:discountId"
+                                                        }
+                                                        element={
+                                                            <AdminDiscountDetails />
+                                                        }
+                                                    />
+                                                </Route>
                                             </Route>
-                                        </Route>
-                                    </Routes>
-                                    <Footer />
-                                </section>
-                            </main>
+                                        </Routes>
+                                        <Footer />
+                                    </section>
+                                </main>
+                            </TransactionsProvider>
                         </DiscountProvider>
                     </RiddleProvider>
                 </AuthProvider>

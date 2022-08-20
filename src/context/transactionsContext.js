@@ -16,8 +16,22 @@ const transactionsReducer = (state, action) => {
 export const TransactionsProvider = ({children}) => {
     const [transactions, dispatch] = useReducer(transactionsReducer, []);
 
-    // useEffect(()=>{
-    //     requester.get()
-    // }, [])
+
+    useEffect(()=>{
+        requester.get("http://127.0.0.1:5000/transaction").then(res =>{
+            const action = {
+                type: "ADD_TRANSACTIONS",
+                payload: res,
+            }
+            dispatch(action)
+            // console.log(res,123);
+        })
+    }, [])
+
+    return (
+        <TransactionsContext.Provider  value = {{transactions}}>
+            { children }
+        </TransactionsContext.Provider>
+    )
 
 }

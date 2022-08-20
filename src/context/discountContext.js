@@ -24,7 +24,6 @@ export const DiscountProvider = ({ children }) => {
     const [discounts, dispatch] = useReducer(discountsReducer, []);
     useEffect(() => {
         requester.get("http://127.0.0.1:5000/discounts").then((reuslt) => {
-            console.log(reuslt);
             const action = {
                 type: "ADD_DISCOUNTS",
                 payload: JSON.parse(reuslt),

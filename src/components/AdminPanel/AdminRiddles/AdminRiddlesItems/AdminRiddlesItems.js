@@ -4,8 +4,8 @@ import { useContext } from "react";
 import style from "./AddminRiddlesItems.module.css"
 
 export default function AdminRiddleItem({ riddle }) {
-    const { setCurrentRiddleId } = useContext(RiddleContext);
-    setCurrentRiddleId(riddle.id);
+    // const { setCurrentRiddleId } = useContext(RiddleContext);
+    // setCurrentRiddleId(riddle.id);
     return (
         <tr>
             <td>{riddle.id}</td>

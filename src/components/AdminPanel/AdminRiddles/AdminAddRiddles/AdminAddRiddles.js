@@ -156,7 +156,6 @@ export default function AdminAddRiddles() {
                                             value={input.hint}
                                             />
                                     </div>
-                                    {/* <button className ={style.removeBtn} onClick={() => removeFields(index)}>Remove</button> */}
                                     <img
                                         className={style.removeBtn}
                                         src={"../../cancel.png"}
