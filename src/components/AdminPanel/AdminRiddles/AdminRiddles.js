@@ -18,7 +18,7 @@ export default function AdminRiddles() {
                                 <th>Title</th>
                                 <th>Description</th>
                                 <th>Questions</th>
-                                <th>Difficalty</th>
+                                <th>Price</th>
                                 <th></th>
                             </tr>
                         </thead>

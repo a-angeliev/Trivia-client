@@ -48,3 +48,25 @@
 button {
     border: solid gray 1px;
 }
+
+
+.hide{
+    display: none;
+}
+
+.validationMsg {
+    font-style: italic;
+    color: red;
+    font-size: 1rem;
+}
+
+
+.incorrect {
+    outline-color: red;
+    border: solid red 1px;
+}
+
+.correct {
+    outline-color: green;
+    border: solid green 1px;
+}

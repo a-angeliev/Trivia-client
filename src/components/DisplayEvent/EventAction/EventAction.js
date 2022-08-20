@@ -41,31 +41,33 @@ export default function EventAction(props) {
                 }
             });
     };
-    
-    const onClick = (e)=>{
-        e.preventDefault()
-        let current_question = questions.current_question
+
+    const onClick = (e) => {
+        e.preventDefault();
+        let current_question = questions.current_question;
         requester
-            .get(`http://127.0.0.1:5000/event/hint/${current_question}?token=${props.urlToken}`).then(res=> alert(`The hint is: ${res}`))
-    }
+            .get(
+                `http://127.0.0.1:5000/event/hint/${current_question}?token=${props.urlToken}`
+            )
+            .then((res) => alert(`The hint is: ${res}`));
+    };
 
     return (
         <>
             <section className={end ? style.hidden : style.show}>
-                <section className={style.loginSection}>
-                    <button onClick={onClick}>Hint</button>
+                <section className={`${style.loginSection} `}>
                     <form
                         onSubmit={onSubmit}
                         display="none"
                         className={style.loginForm}
-                    >   
+                    >
                         {" "}
-                        <p>
+                        <p className={style.text}>
                             {questions.guessed_answer}/
                             {questions.number_of_questions}
                         </p>
-                        <p>Question {questions.current_question}:</p>
-                        <p>{questions.question}</p>
+                        <p className={style.text}>Question {questions.current_question}:</p>
+                        <p className={style.text}>{questions.question}</p>
                         <label className={style.loginLables} htmlFor="email">
                             Answer
                         </label>
@@ -77,19 +79,25 @@ export default function EventAction(props) {
                             id="email"
                         ></input>
                         <button className={style.logBtn}>Check</button>
+                        <div>
+                            <button onClick={(e) => onSubmit(e, true)}>
+                                SKIP
+                            </button>
+                            <button onClick={onClick}>Hint</button>
+                        </div>
                     </form>
-                    <button onClick={(e) => onSubmit(e, true)}>SKIP</button>
+
                 </section>
             </section>
 
             <section className={end ? style.show : style.hidden}>
                 <section className={style.endMsg}>
-                    <p>Congratulations!!!</p>
-                    <p>
+                    <p className={style.text}>Congratulations!!!</p>
+                    <p className={style.text}>
                         You guess {endMsg.guessed_answer} from{" "}
                         {endMsg.number_of_questions}
                     </p>
-                    <p>{endMsg.massage}</p>
+                    <p className={style.text}>{endMsg.massage}</p>
                 </section>
             </section>
         </>

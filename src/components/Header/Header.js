@@ -23,12 +23,12 @@ const Header = () => {
                             About
                         </Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link  
                         className={style.navLink  } to="/checkout">
                             Checkout
                         </Link>
-                    </li>
+                    </li> */}
                     <li >
                         <Link className={style.navLink } to="/riddles">
                             Riddles

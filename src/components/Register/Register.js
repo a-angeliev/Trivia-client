@@ -7,7 +7,7 @@ export default function Register() {
     let [email, setEmail] = useState("");
     let [password, setPassword] = useState("");
     let [password1, setPassword1] = useState("");
-
+    
     const { userLogin } = useContext(AuthContext);
     let navigate = useNavigate();
 

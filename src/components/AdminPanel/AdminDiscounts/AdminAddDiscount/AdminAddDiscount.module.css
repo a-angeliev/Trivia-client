@@ -58,12 +58,35 @@ button {
 }
 .dateInputDiv{
     width: 100%;
+    
 }
-.dateInputDiv > p{
+
+.dateInputDivP{
     font-size: 1.8rem;
     font-weight: 400;
 }
 .dateInput{
-    width: 80%;
+    width: inherit;
+    
 }
 
+.incorrect {
+    outline-color: red;
+    border: solid red 1px;
+}
+
+.correct {
+    outline-color: green;
+    border: solid green 1px;
+}
+
+.hide{
+    display: none;
+    
+}
+
+.validationMsg{
+    font-size: 1rem;
+    color: red;
+    font-style: italic;
+}

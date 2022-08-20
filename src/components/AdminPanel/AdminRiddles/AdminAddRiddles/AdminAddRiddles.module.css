@@ -9,7 +9,6 @@
     color: black;
     margin: 30px;
     width: 100%;
-
 }
 
 .form {
@@ -39,16 +38,37 @@
     color: black;
 }
 
-.removeBtn{
+.removeBtn {
     cursor: pointer;
     width: 50px;
     height: 50px;
     margin-top: auto;
 }
-.devider{
+.devider {
     margin-top: 20px;
     margin-bottom: 5px;
     width: 100%;
     border: solid black 1px;
     height: 2px;
+}
+
+.hide{
+    display: none;
+}
+
+.validationMsg {
+    font-style: italic;
+    color: red;
+    font-size: 1rem;
+}
+
+
+.incorrect {
+    outline-color: red;
+    border: solid red 1px;
+}
+
+.correct {
+    outline-color: green;
+    border: solid green 1px;
 }
