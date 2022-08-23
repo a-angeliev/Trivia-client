@@ -1,5 +1,6 @@
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import * as requester from "../service/requester";
+import { AuthContext } from "./authContext";
 
 export const DiscountContext = createContext();
 
@@ -22,15 +23,20 @@ const discountsReducer = (state, action) => {
 
 export const DiscountProvider = ({ children }) => {
     const [discounts, dispatch] = useReducer(discountsReducer, []);
+    const {isAdmin} = useContext(AuthContext)
+
     useEffect(() => {
-        requester.get("http://127.0.0.1:5000/discounts").then((reuslt) => {
-            const action = {
-                type: "ADD_DISCOUNTS",
-                payload: JSON.parse(reuslt),
-            };
-            dispatch(action);
-        });
-    }, []);
+        if(isAdmin){
+
+            requester.get("http://127.0.0.1:5000/discounts").then((reuslt) => {
+                const action = {
+                    type: "ADD_DISCOUNTS",
+                    payload: JSON.parse(reuslt),
+                };
+                dispatch(action);
+            });
+        }
+        }, []);
 
     const addDiscount = (discountData) => {
         const action = {
