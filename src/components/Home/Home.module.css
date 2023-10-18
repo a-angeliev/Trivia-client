@@ -1,104 +1,102 @@
 .homeBg {
-    /* background-image: linear-gradient(-20deg,rgba(43,88,118,0.9), rgba(78,67,118,0.9 )), url("../../../public/bg.avif"); */
-    background-image: url("../../../public/bg.jpg");
+    display: flex;
+    z-index: -1;
     width: 100%;
-    height: 100vh;
-    /* opacity: 0.1; */
+    height: calc(100vh - 100px);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    display: absolute;
-    z-index: -1;
-}
-
-h1 {
-    /* font-size: 300px; */
-}
-
-h1 {
-    color: white;
-    z-index: 2;
+    background-color: white;
+    border-bottom: 5px solid black;
 }
 
 .titleSection {
-    width: 40%;
-    height: 100%;
-    margin-left: 150px;
     display: flex;
     flex-flow: column;
     justify-content: center;
+    align-items: left;
+    width: 50%;
+    height: 100%;
+    margin-left: 150px;
 }
 
-.titleP {
-    font-size: 100px;
+.homeImgSection {
+    width: 50%;
+    height: 100%;
+}
+
+.homeImg {
+    scale: 0.92;
+    padding: 3rem 5rem 0rem 0rem;
+}
+
+.logoYellow {
+    width: 60%;
+}
+
+.titleBtn, .secondBtn {
+    width: 35%;
+    font-family: "Poppins";
+    font-size: 35px;
+    font-weight: 100;
     color: white;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    margin-bottom: 0px;
-}
-
-.titleH1 {
-    margin-top: 0px;
-    font-size: 100px;
-    font-weight: 500;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: black;
+    border-radius: 30px;
+    padding: 0;
+    margin-top: 7rem;
 }
 
 .titleBtn {
-    margin-top: 10rem;
-    background: none;
-    border: solid white 2px;
-    color: white;
-    border-radius: 30px;
-    font-size: 1.4rem;
+    margin-top: 7rem;
 }
 
-.secoundHome {
-    width: 100%;
-    background-color: white;
-    height: 100vh;
+.secondBtn {
+    margin-top: 2rem;
+}
+
+.titleP {
+    font-size: 124px;
+    font-family: 'Pacifico', cursive;
+    color: black;
+    margin-bottom: 0px;
+}
+
+.secondHome {
     display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: #FFC814;
 }
 
 .sectionImg {
     display: flex;
     justify-content: center;
-    padding-top: 13rem;
-    width: 100%;
+    width: 50%;
+    padding: 13rem 0rem 0rem 6rem;
 }
 
 .sectionImg>img {
-    width: 670px;
-    height: 550px;
+    max-height: 70%;
+    max-width: 100%;
 }
 
 .sectionDesc {
-    padding-left: 10rem;
-    padding-right: 10rem;
-    padding-top: 13rem;
-    width: 100%;
+    padding: 13rem 14rem 0rem 6rem;
+    width: 50%;
 }
 
-.sectionDesc>h2 {
-    color: black;
-    font-weight: 800;
+.secondTitle {
+    font-size: 65px;
+    text-transform: none !important;
     text-align: left;
-    font-size: 30px;
+    color: black;
+    font-family: 'Pacifico';
+    margin-bottom: 2rem;
 }
 
 .sectionDesc>p {
-    /* font-family: 'Pacifico', cursive; */
-    font-family: "Pacifico";
-
-    font-size: 35px;
+    text-align: justify;
+    font-family: "Poppins";
+    font-size: 24px;
     color: #000;
-    text-align: left;
-}
-
-.titleBtnBlack {
-    margin-top: 10rem;
-    background: none;
-    border: solid black 2px;
-    color: black;
-    border-radius: 30px;
-    font-size: 1.4rem;
 }

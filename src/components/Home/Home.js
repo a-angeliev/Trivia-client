@@ -1,27 +1,33 @@
 import style from "./Home.module.css";
+
 export default function Home() {
     return (
         <>
             <section className={style.homeBg}>
                 <section className={style.titleSection}>
                     <p className={style.titleP}>Join today with</p>
-                    <h1 className={style.titleH1}>TRIVIA</h1>
-                    <button className={style.titleBtn}>Let Start</button>
+                    <img className={style.logoYellow} src='./logo-yellow.svg' alt='yellow logo'></img>
+                    <button className={style.titleBtn}>Let's start</button>
+                </section>
+                <section className={style.homeImgSection}>
+                    <img className={style.homeImg} src='./home-asset-1.svg' alt='home asset'></img>
                 </section>
             </section>
-            <section className={style.secoundHome}>
+            <section className={style.secondHome}>
                 <section className={style.sectionImg}>
-                    <img src={'../../../homepage-img.jpg'} alt="img" />
+                    <img src={"./home-asset-2.svg"} alt='home asset 2' />
                 </section>
                 <section className={style.sectionDesc}>
-                    <h2>Why to choose us?</h2>
+                    <h2 className={style.secondTitle}>Why to choose us?</h2>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Omnis exercitationem, sequi dolores repellat ad, facilis
-                        nihil aliquam modi aliquid quaerat perspiciatis
-                        doloribus explicabo aut.
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+                        tincidunt ut laoreet dolore magna aliquam erat volutpat.
                     </p>
-                    <button className={style.titleBtnBlack}>Let Start</button>
+                    <p>
+                        Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+                        aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor.
+                    </p>
+                    <button className={style.secondBtn}>Let's start</button>
                 </section>
             </section>
         </>
