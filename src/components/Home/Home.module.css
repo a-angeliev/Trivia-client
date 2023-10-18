@@ -10,9 +10,11 @@
     display: absolute;
     z-index: -1;
 }
+
 h1 {
     /* font-size: 300px; */
 }
+
 h1 {
     color: white;
     z-index: 2;
@@ -33,6 +35,7 @@ h1 {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     margin-bottom: 0px;
 }
+
 .titleH1 {
     margin-top: 0px;
     font-size: 100px;
@@ -55,13 +58,15 @@ h1 {
     height: 100vh;
     display: flex;
 }
+
 .sectionImg {
     display: flex;
     justify-content: center;
     padding-top: 13rem;
     width: 100%;
 }
-.sectionImg > img {
+
+.sectionImg>img {
     width: 670px;
     height: 550px;
 }
@@ -73,14 +78,17 @@ h1 {
     width: 100%;
 }
 
-.sectionDesc > h2 {
+.sectionDesc>h2 {
     color: black;
     font-weight: 800;
     text-align: left;
     font-size: 30px;
 }
 
-.sectionDesc > p {
+.sectionDesc>p {
+    /* font-family: 'Pacifico', cursive; */
+    font-family: "Pacifico";
+
     font-size: 35px;
     color: #000;
     text-align: left;

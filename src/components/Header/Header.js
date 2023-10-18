@@ -1,72 +1,59 @@
-import { useContext, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import style from "./Header.module.css";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
 
 import { AuthContext } from "../../context/authContext";
 
+import style from "./Header.module.css";
+
 const Header = () => {
     const { user, isAdmin } = useContext(AuthContext);
-    
+
     return (
         <header>
             <nav className={style.navigation}>
                 <div className={style.logo}>
-                    <Link className={style.navLink} to="/">
-                        <img className={style.logoSvg} src={'./logo.svg'} alt="" />
+                    <Link className={style.navLink} to='/'>
+                        <img className={style.logoSvg} src={"./logo.svg"} alt='' />
                     </Link>
                 </div>
 
-                <ul>
-                    <li>
-                        <Link  
-                        className={style.navLink  } to="/about">
-                            About
+                <ul className={style.ulNav}>
+                    <li className={style.liNav}>
+                        <Link className={style.navLink} to='/about'>
+                            about
                         </Link>
                     </li>
-                    {/* <li>
-                        <Link  
-                        className={style.navLink  } to="/checkout">
-                            Checkout
-                        </Link>
-                    </li> */}
-                    <li >
-                        <Link className={style.navLink } to="/riddles">
-                            Riddles
+
+                    <li className={style.liNav}>
+                        <Link className={style.navLink} to='/riddles'>
+                            riddles
                         </Link>
                     </li>
                     {!user.token ? (
                         <>
-                            <li>
-                                <Link className={style.navLink} to="/login">
-                                    Login
+                            <li className={style.liNav}>
+                                <Link className={style.navLink} to='/login'>
+                                    login
                                 </Link>
                             </li>
-                            <li>
-                                <Link className={style.navLink} to="/register">
-                                    Register
+                            <li className={style.liNav}>
+                                <Link className={style.navLink} to='/register'>
+                                    register
                                 </Link>
                             </li>
                         </>
                     ) : (
                         <>
-                            {/* <li>
-                                <Link className={style.navLink} to="/">
-                                    Profile
-                                </Link>
-                            </li> */}
                             {isAdmin ? (
-                                <li>
-                                    <Link
-                                        className={style.navLink}
-                                        to="/admin-panel"
-                                    >
+                                <li className={style.liNav}>
+                                    <Link className={style.navLink} to='/admin-panel'>
                                         Admin Panel
                                     </Link>
                                 </li>
                             ) : null}
-                            <li>
-                                <Link className={style.navLink} to="/logout">
-                                    Logout
+                            <li className={style.liNav}>
+                                <Link className={style.navLink} to='/logout'>
+                                    logout
                                 </Link>
                             </li>
                         </>
