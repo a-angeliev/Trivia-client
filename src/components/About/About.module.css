@@ -1,48 +1,65 @@
-.about{
-    width: 80%;
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
     height: 70vh;
     background-color: white;
-    margin: auto;
-    margin-top: 5rem;
-    border-radius: 35px;    
+    border-radius: 35px;
+    margin: 4rem auto;
 }
 
-.aboutImg{
+.aboutImg {
     width: 90px;
     height: 90px;
 }
-.cardSection{
+
+.cardSection {
     display: flex;
 }
 
-.card{
-    padding: 40px;
+.card {
     display: flex;
     flex-flow: column;
     justify-content: center;
+    align-items: justify;
+    padding: 3.7rem;
+}
+
+.card>h2 {
+    color: black;
+    text-transform: none !important;
+    font-size: 50px;
+    text-align: left;
+    font-family: "Pacifico";
+    margin-bottom: 1rem;
+}
+
+.card>p {
+    text-align: justify;
+    line-height: 1.1;
+    font-size: 24px;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+}
+
+.lastSection {
+    display: flex;
+    justify-content: space-around;
     align-items: center;
-    
+    width: 100%;
+    height: 10rem;
+    border-radius: 4rem;
+    border: 7px solid black;
 }
-.card >h2{
+
+.lastSection>h2 {
+    font-size: 60px;
     color: black;
-    font-size: 35px;
-    align-items: left;
-}
-.card > p {
-    font-size: 30px;
+    font-family: "Pacifico";
+    text-transform: none !important;
 }
 
-.lastSection{
-display: flex;
-flex-flow: column;
-align-items: center;
-}
-
-.lastSection > h2 {
-    font-size: 35px;
-    color: black;
-}
-
-.lastSection > p{
+.lastSection>p {
     font-size: 30px;
 }
