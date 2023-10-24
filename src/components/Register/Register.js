@@ -1,19 +1,23 @@
-import style from "./Register.module.css";
-import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import * as AuthService from "./../../service/authService";
+import { useState, useContext } from "react";
+
 import { AuthContext } from "../../context/authContext";
+import * as AuthService from "./../../service/authService";
+
+import style from "./Register.module.css";
+
 export default function Register() {
-    let [email, setEmail] = useState("");
-    let [password, setPassword] = useState("");
-    let [password1, setPassword1] = useState("");
-    
     const { userLogin } = useContext(AuthContext);
-    let navigate = useNavigate();
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [password1, setPassword1] = useState("");
+
+    const navigate = useNavigate();
 
     const onSubmit = (e) => {
         e.preventDefault();
-        if (password === password1) {
+        if (password === password1 && email !== "") {
             AuthService.register(email, password)
                 .then((authData) => {
                     if (authData.token) {
@@ -24,58 +28,63 @@ export default function Register() {
                     }
                 })
                 .catch((err) => {
+                    alert(err);
                     console.log(err);
                     navigate("/");
                 });
         } else {
-            alert("You need to fill same passowrds!");
+            alert("You need to enter the same password and provide your email address.");
             setPassword("");
             setPassword1("");
         }
     };
 
     return (
-        <section className={style.loginSection}>
-            <form onSubmit={onSubmit} className={style.loginForm}>
-                <label className={style.loginLables} htmlFor="email">
-                    Email
-                </label>
-                <input
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className={style.loginInputs}
-                    id="email"
-                    placeholder="Ivan@gmail.com"
-                    name="email"
-                ></input>
+        <section className={style.registerSection}>
+            <form onSubmit={onSubmit} className={style.registerForm}>
+                <h1 className={style.registrationTitle}>Sign up</h1>
+                <div className={style.inputDiv}>
+                    <label className={style.registerLabels} htmlFor='email'>
+                        Email
+                    </label>
+                    <input
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className={style.registerInputs}
+                        id='email'
+                        placeholder='Ivan@gmail.com'
+                        name='email'></input>
+                </div>
 
-                <label className={style.loginLables} htmlFor="password">
-                    Password
-                </label>
-                <input
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className={style.loginInputs}
-                    id="password"
-                    placeholder="***********"
-                    name="password"
-                    type="password"
-                ></input>
+                <div className={style.inputDiv}>
+                    <label className={style.registerLabels} htmlFor='password'>
+                        Password
+                    </label>
+                    <input
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className={style.registerInputs}
+                        id='password'
+                        placeholder='***********'
+                        name='password'
+                        type='password'></input>
+                </div>
 
-                <label className={style.loginLables} htmlFor="password1">
-                    Password
-                </label>
-                <input
-                    value={password1}
-                    onChange={(e) => setPassword1(e.target.value)}
-                    className={style.loginInputs}
-                    id="password1"
-                    placeholder="***********"
-                    name="password1"
-                    type="password"
-                ></input>
+                <div className={style.inputDiv}>
+                    <label className={style.registerLabels} htmlFor='password1'>
+                        Password
+                    </label>
+                    <input
+                        value={password1}
+                        onChange={(e) => setPassword1(e.target.value)}
+                        className={style.registerInputs}
+                        id='password1'
+                        placeholder='***********'
+                        name='password1'
+                        type='password'></input>
+                </div>
 
-                <button className={style.logBtn}>Register</button>
+                <button className={style.registerBtn}>Register</button>
             </form>
         </section>
     );
