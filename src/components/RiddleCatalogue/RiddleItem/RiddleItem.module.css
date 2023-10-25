@@ -4,77 +4,70 @@
   z-index: 2;
 }
 
+.riddleItem:hover {
+  background-color: rgba(80, 77, 77, 0.1);
+}
+
 .riddleItem {
   display: flex;
-  width: 80%;
-  margin: 1.2rem;
+  width: 100%;
   background-color: white;
-  border-radius: 15px;
+  border-radius: 30px;
+  border: 2px solid black;
+  margin: 1.2rem;
 }
 
-.imgSpan {
+.numeration {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 10%;
+  width: 20%;
 }
 
-.img {
-  width: 100px;
-  height: 100px;
+.numeration>h1 {
+  font-family: 'Pacifico', cursive;
 }
 
-.desc {
-  width: 70%;
-  padding-left: 1rem;
-  color: black;
-}
-
-.desc > h2 {
-  padding-top: 1rem;
-  font-size: 2rem;
-  color: black;
-}
-
-.desc > p {
-  font-size: 1.5rem;
-}
-
-.score {
+.riddleBody {
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
   align-items: center;
-  width: 10%;
-  font-size: 30px;
+  width: 100%;
+  font-family: "Poppins";
+  padding: 1rem;
+}
+
+.riddleTitle {
   color: black;
 }
 
-.scoreImg {
-  width: 100px;
-  height: 60px;
-  margin-top: 2px;
-}
-
-.devider {
-  height: 80%;
-  border: solid black 1px;
-  margin: auto 0px;
-}
-
-.playSpan{
+.bottomRow {
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 10%;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 2rem;
 }
 
-.playBtn{
-  width: 70px;
-  height: 70px;
-  align-self: center;
+.additionalInfo {
+  display: flex;
 }
 
-.playBtn:hover{
-  width: 90px;
-  height: 90px;
+.additionalInfo>p {
+  margin-right: 2rem;
+}
+
+.buyBtn {
+  text-align: center;
+  width: 15%;
+  font-family: "Poppins";
+  font-size: 35px;
+  font-weight: 100;
+  color: white;
+  background: black;
+  border-radius: 30px;
+}
+
+.bold {
+  font-weight: bold;
 }

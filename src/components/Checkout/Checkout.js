@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import style from './Checkout.module.css'
+import style from "./Checkout.module.css";
 import * as riddleService from "../../service/riddleService";
 import * as requester from "../../service/requester";
 
@@ -27,9 +27,34 @@ export default function Checkout(props) {
     //     console.log(discount_code);
     //     requester.post("http://127.0.0.1:5000/discount/validate", JSON.stringify(discount_code)).then(res=> console.log(res, "discount_code response"))
     // }
+
+    const testHandler = () => {
+        let transaction_data = {
+            transactionId: Math.floor(Math.random() * 1000),
+            update_time: Date.now(),
+            amount: Math.floor(Math.random() * 1000),
+            description: "Some dummy description",
+            email: "admin@admin.com",
+        };
+        requester
+            .post("http://127.0.0.1:5000/transaction", JSON.stringify(transaction_data))
+            .then((res) => console.log(res));
+
+        const fetchData = async () => {
+            let response = await riddleService.createEvent(props.riddle.id);
+
+            let firstHalf = response.url.slice(0, 34);
+            let token = response.url.slice(34);
+            if (firstHalf == "http://localhost:3000/event?token=" && token) {
+                navigate(`/event?token=${token}`);
+            } else {
+                console.log(response);
+            }
+        };
+        fetchData().then((err) => console.log(err));
+    };
     const handlerApprove = (order) => {
         //callback fucntion to fulfill order
-
 
         // let transactionId = order.purchase_units[0].payments.captures[0].id;
         // console.log(transactionId);
@@ -41,10 +66,10 @@ export default function Checkout(props) {
 
         let transaction_data = {
             transactionId: order.purchase_units[0].payments.captures[0].id,
-            update_time:order.purchase_units[0].payments.captures[0].update_time,
-            amount:order.purchase_units[0].amount.value,
-            description:order.purchase_units[0].description,
-            email:order.payer.email_address,
+            update_time: order.purchase_units[0].payments.captures[0].update_time,
+            amount: order.purchase_units[0].amount.value,
+            description: order.purchase_units[0].description,
+            email: order.payer.email_address,
         };
         requester
             .post("http://127.0.0.1:5000/transaction", JSON.stringify(transaction_data))
@@ -82,8 +107,8 @@ export default function Checkout(props) {
     return (
         <>
             <div></div>
-            
-            <div className="paypal-button-container">
+            <button onClick={testHandler}>Click</button>
+            <div className='paypal-button-container'>
                 <PayPalButtons
                     createOrder={(data, actions) => {
                         return actions.order.create({

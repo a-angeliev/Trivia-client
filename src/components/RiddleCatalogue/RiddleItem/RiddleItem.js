@@ -1,49 +1,46 @@
-import style from "./RiddleItem.module.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
+
 import { AuthContext } from "../../../context/authContext";
 
-export default function RiddleItem({ riddle }) {
-    let { user } = useContext(AuthContext);
+import style from "./RiddleItem.module.css";
+
+export default function RiddleItem({ riddle, id }) {
+    const { user } = useContext(AuthContext);
 
     return (
         <section className={style.riddleItemWrapper}>
             <section className={style.riddleItem}>
-                <section className={style.imgSpan}>
-                    <img className={style.img} src={"./ideas.png"} alt="img" />
+                <section className={style.numeration}>
+                    <h1>No.{id}</h1>
                 </section>
 
-                <section className={style.devider}></section>
-
-                <section className={style.desc}>
-                    <h2>{riddle.title}</h2>
-                    <p>{riddle.description}</p>
-                </section>
-
-                <section className={style.devider}></section>
-
-                <section className={style.score}>
-                    <img
-                        className={style.scoreImg}
-                        src={"./speedometer.png"}
-                        alt="img"
-                    />
-                    <p>{riddle.price}</p>
-                </section>
-                <section className={style.devider}></section>
-                {user.token ? (
-                    <section className={style.playSpan}>
-                        <Link to={`/riddles/${riddle.id}/event`}>
-                            <img
-                                className={style.playBtn}
-                                src={"./video-play.png"}
-                                alt="play btn"
-                            />
-                        </Link>
+                <section className={style.riddleBody}>
+                    <section className={style.riddleDescription}>
+                        <h2 className={style.riddleTitle}>{riddle.title}</h2>
+                        <p>{riddle.description}</p>
                     </section>
-                ) : (
-                    <></>
-                )}
+                    <section className={style.bottomRow}>
+                        <section className={style.additionalInfo}>
+                            <p>
+                                Questions: <span className={style.bold}>{riddle.number_of_questions}</span>
+                            </p>
+                            <p>
+                                Price: <span className={style.bold}>${riddle.price}</span>
+                            </p>
+                        </section>
+
+                        {user.token ? (
+                            <Link className={style.buyBtn} to={`/riddles/${riddle.id}/event`}>
+                                Buy
+                            </Link>
+                        ) : (
+                            <Link className={style.buyBtn} to={`/login`}>
+                                Buy
+                            </Link>
+                        )}
+                    </section>
+                </section>
             </section>
         </section>
     );
