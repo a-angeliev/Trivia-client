@@ -1,199 +1,161 @@
-/* .loginSection {
-    width: 30%;
-    height: 50vh;
-    background-color: rgba(0, 0, 0, 0.7);
-    box-shadow: 5px 5px 15px 5px #000000;
-    border-radius: 10px;
-    margin: auto;
-    margin-top: 10rem;
-}
-
-.loginForm {
+.wrapper {
     display: flex;
     flex-flow: column;
-    margin: auto;
-    padding-top: 30px;
-    justify-content: center;
     align-items: center;
-    width: 70%;
-    height: 100%;
-    color: white;
-}
-.loginForm>p{
-    font-size: 2rem;
 }
 
-.loginInputs {
-    width: 100%;
-    height: 3rem;
-    font-size: 2.4rem;
+.title {
+    font-size: 29px;
 }
 
-.loginLables {
-    font-size: 2.4rem;
-    margin-top: 1rem;
-}
-
-p {
-    font-size: 1.3rem;
-}
-
-.logBtn {
-    cursor: pointer;
-    border: 0;
-    border-radius: 4px;
-    font-weight: 600;
-    margin: 30px 10px;
-    width: 200px;
-    padding: 10px 0;
-    box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
-    transition: 0.4s;
-}
-
-.logBtn {
-    color: rgb(104, 85, 224);
-    background-color: rgba(255, 255, 255, 1);
-    border: 1px solid rgba(104, 85, 224, 1);
-}
-
-.logBtn:hover {
-    color: white;
-    box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
-    background-color: rgba(104, 85, 224, 1);
-}
-
-.hidden{
-    display: none 
-}
-
-.show{
-    display: block
-}
-
-.endMsg{
-    display:flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
+.map {
     width: 60%;
-    height: 20%;
-    font-size: 4rem;
-    margin: auto;
-    margin-top: 20%;
-    background-color: rgba(0, 0, 0, 0.7);
-    box-shadow: 5px 5px 15px 5px #000000;
-    border-radius: 10px;
-    
-}
-
-.endMsg > p{
-    color: white;
-    font-size: 4rem;
-}
-
-
-*/
-p{
-    color: black;
-} 
-
-.eventWhapper{
-    display:flex;
-    justify-content: center;
-}
-
-
-.product{
-    margin-top: 5rem;
-    width: 70%;
-    display:flex;
-    justify-content: space-around;
-    margin-bottom: 6rem;
-
-}
-
-.checkoutInfo{
-    width: 60%;
-    
+    border: 1px solid black;
     border-radius: 20px;
+    overflow: hidden;
+}
 
-    background-color: white;
-}
-.title{
-    color: black;
-    margin-top: 4rem;
-    margin-left: 3rem;
-}
-.googleMap{
-    margin-top: 1rem;
-    margin-left: 3rem;
-    width: 91%;
+.googleMap {
+    width: 100%;
     height: 400px;
 }
-.discountForm{
-    color: black;
-    font-size: 2rem;
-    margin-top: 1rem;
-    margin-left: 3rem;
-}
-.discountFormInput{
+
+.info {
+    overflow: hidden;
     width: 60%;
-}
-.groupPriceDiv{
-    width: 60%;
-    display: flex;
-    flex-flow: column;
-    margin-left: 3rem;
-    margin-top: 2rem;
-
-}
-.discountCode{
-    font-style: italic;
-}
-.priceInfoDiv{
-
-    width: 100%;
-    display:flex;
-    justify-content: space-between;
-
-}
-.priceInfoDiv> p{
-    font-size: 2rem;
-}
-.bold{
-    font-weight: 900;
-}
-.horizontalDevider{
-    /* width: 100%; */
-    border: solid black 1px;
-    margin-top: 1rem;
-    margin-left: 3rem;
-    margin-right: 3rem;
-    margin-bottom: 4rem;
-}
-
-
-.loadPaymentBtn{
-    width: 100%;
-    margin-left: 0;
-}
-
-.paypalBtn{
-    margin-left: 3rem;
-    width: 91%;
-}
-
-
-.riddleInfo{
-    height: fit-content;    
-    width: 30%;
+    border: 1px solid black;
     border-radius: 20px;
-
-    background-color: white;
+    background-color: #ededed;
+    margin-top: 3rem;
 }
 
-.riddleInfoP{
-    margin: 2rem 2rem;
-    font-weight: 400;
-    font-size: 2rem;
+.infoTitleDiv {
+    border-radius: initial;
+    background-color: black;
+    padding-left: 3rem;
+}
+
+.infoTitleDiv>p {
+    font-size: 20px;
+    color: white
+}
+
+.description {
+    margin: 1rem 3rem;
+}
+
+.desc {
+    font-size: 20px;
+    margin-bottom: 2rem;
+}
+
+.descP {
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+.summary {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin-top: 3rem;
+}
+
+.inputDiv {
+    position: relative;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.label {
+    position: absolute;
+    left: 20px;
+    top: -14px;
+    font-family: "Poppins";
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+    background: white;
+    padding: 0px 4px;
+}
+
+.input {
+    width: 100%;
+    height: 4rem;
+    font-size: 20px;
+    font-family: "Poppins";
+    border-radius: 6px;
+    padding: 8px 0px 8px 16px;
+}
+
+.checkCode {
+    cursor: pointer;
+    font-family: "Poppins";
+    font-style: italic;
+    margin-right: 1rem;
+    text-align: right;
+}
+
+.inputsDiv {
+    width: 50%;
+}
+
+.pricing {
+    overflow: hidden;
+    width: 40%;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: #ededed;
+}
+
+.priceSummary {
+    margin: 1rem 3rem 0rem 3rem;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.horizontalDivider {
+    margin-top: 1.5rem;
+    width: 100%;
+    border: solid black 1px;
+}
+
+.paypalBtn {
+    margin-top: 3rem;
+    height: 4rem;
+    width: 35%;
+    text-align: center;
+}
+
+.loadPaymentBtn {
+    font-family: "Poppins";
+    padding: 8px 50px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 100;
+    color: white;
+    background: black;
+    border-radius: 30px;
+    margin-bottom: 5rem;
+}
+
+.textSpaceBetween {
+    display: flex;
+    justify-content: space-between;
+}
+
+.textRight {
+    text-align: right;
+}
+
+.validLabel, .validInput, .greenText {
+    color: green;
+}
+
+.validInput {
+    border: 2px solid green;
 }

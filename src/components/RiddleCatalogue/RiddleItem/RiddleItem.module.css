@@ -10,11 +10,12 @@
 
 .riddleItem {
   display: flex;
-  width: 100%;
+  width: 80%;
   background-color: white;
   border-radius: 30px;
   border: 2px solid black;
   margin: 1.2rem;
+  font-size: 20px;
 }
 
 .numeration {
@@ -38,6 +39,7 @@
 }
 
 .riddleTitle {
+  text-align: left;
   color: black;
 }
 
@@ -59,9 +61,11 @@
 
 .buyBtn {
   text-align: center;
-  width: 15%;
+  padding: 8px 50px;
+  /* width: 200px; */
+  height: 50px;
   font-family: "Poppins";
-  font-size: 35px;
+  font-size: 20px;
   font-weight: 100;
   color: white;
   background: black;
