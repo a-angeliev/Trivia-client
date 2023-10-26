@@ -107,31 +107,19 @@ export default function AdminRiddleDetails() {
         data[index]["answer"].length > 5
             ? (data[index]["isAnswerValid"] = true)
             : (data[index]["isAnswerValid"] = false);
-        data[index]["hint"].length > 5
-            ? (data[index]["isHintValid"] = true)
-            : (data[index]["isHintValid"] = false);
+        data[index]["hint"].length > 5 ? (data[index]["isHintValid"] = true) : (data[index]["isHintValid"] = false);
         setInputFields(data);
     };
 
     const handlerFormChangeRiddleInfo = (e) => {
         let data = { ...riddleInfo };
         data[e.target.name] = e.target.value;
-        data["title"].length > 5
-            ? setIsTitleValid(true)
-            : setIsTitleValid(false);
-        data["description"].length > 10
-            ? setIsDescriptionValid(true)
-            : setIsDescriptionValid(false);
+        data["title"].length > 5 ? setIsTitleValid(true) : setIsTitleValid(false);
+        data["description"].length > 10 ? setIsDescriptionValid(true) : setIsDescriptionValid(false);
         data["price"] > 0 ? setIsPriceValid(true) : setIsPriceValid(false);
-        data["duration"].length > 2
-            ? setIsDurationValid(true)
-            : setIsDurationValid(false);
-        data["where"].length > 2
-            ? setIsWhereValid(true)
-            : setIsWhereValid(false);
-        data["google_map"].length > 5
-            ? setIsGoogleValid(true)
-            : setIsGoogleValid(false);
+        data["duration"].length > 2 ? setIsDurationValid(true) : setIsDurationValid(false);
+        data["where"].length > 2 ? setIsWhereValid(true) : setIsWhereValid(false);
+        data["google_map"].length > 5 ? setIsGoogleValid(true) : setIsGoogleValid(false);
 
         setRiddleInfo(data);
     };
@@ -162,8 +150,7 @@ export default function AdminRiddleDetails() {
 
     const deleteRiddleHandler = (e) => {
         e.preventDefault();
-        if(window.confirm("Are you sure you want to delete this ?")){
-
+        if (window.confirm("Are you sure you want to delete this ?")) {
             riddleService.DeleteRiddle(riddleId).then((res) => {
                 riddleDelete(riddleId);
                 navigate("/admin-panel");
@@ -177,18 +164,9 @@ export default function AdminRiddleDetails() {
         let answers = [];
         let hints = [];
 
-        let isAllQuestionsValid =
-            inputFields.filter((x) => x.isQuestionValid === false).length !== 0
-                ? false
-                : true;
-        let isAllAnswersValid =
-            inputFields.filter((x) => x.isAnswerValid === false).length !== 0
-                ? false
-                : true;
-        let isAllHintsValid =
-            inputFields.filter((x) => x.isHintValid === false).length !== 0
-                ? false
-                : true;
+        let isAllQuestionsValid = inputFields.filter((x) => x.isQuestionValid === false).length !== 0 ? false : true;
+        let isAllAnswersValid = inputFields.filter((x) => x.isAnswerValid === false).length !== 0 ? false : true;
+        let isAllHintsValid = inputFields.filter((x) => x.isHintValid === false).length !== 0 ? false : true;
 
         if (
             isAllQuestionsValid &&
@@ -256,106 +234,81 @@ export default function AdminRiddleDetails() {
         <section className={style.addRiddleWapper}>
             <section className={style.addRiddleSection}>
                 <form className={style.form}>
-                    <label htmlFor="title">Title</label>
-                    <p
-                        className={
-                            isTitleValid ? style.hide : style.validationMsg
-                        }
-                    >
-                        Title must be atleast 5 char
-                    </p>
-                    <input
-                        className={
-                            isTitleValid ? style.correct : style.incorrect
-                        }
-                        name="title"
-                        type="text"
-                        id="title"
-                        onChange={(e) => handlerFormChangeRiddleInfo(e)}
-                        value={riddleInfo.title}
-                        placeholder="Insert some short title!"
-                    />
-
-                    <label htmlFor="description">Description</label>
-                    <p className={isDescriptionValid ? style.hide : null}>
-                        Description must be atleast 10 char
-                    </p>
+                    <div className={style.inputDiv}>
+                        <label className={style.label} htmlFor='title'>
+                            Title
+                        </label>
+                        <p hidden className={isTitleValid ? style.hide : style.validationMsg}>
+                            Title must be atleast 5 char
+                        </p>
+                        <input
+                            className={`${isTitleValid ? style.correct : style.incorrect} ${style.input}`}
+                            name='title'
+                            type='text'
+                            id='title'
+                            onChange={(e) => handlerFormChangeRiddleInfo(e)}
+                            value={riddleInfo.title}
+                            placeholder='Insert some short title!'
+                        />
+                    </div>
+                    <label htmlFor='description'>Description</label>
+                    <p className={isDescriptionValid ? style.hide : null}>Description must be atleast 10 char</p>
                     <textarea
-                        className={
-                            isDescriptionValid ? style.correct : style.incorrect
-                        }
-                        name="description"
-                        id="description"
+                        className={isDescriptionValid ? style.correct : style.incorrect}
+                        name='description'
+                        id='description'
                         onChange={(e) => handlerFormChangeRiddleInfo(e)}
                         value={riddleInfo.description}
-                        placeholder="Here you can describe shortly about what is the quiz."
-                    ></textarea>
+                        placeholder='Here you can describe shortly about what is the quiz.'></textarea>
 
-                    <label htmlFor="price">Difficult</label>
-                    <p className={isPriceValid ? style.hide : null}>
-                        {" "}
-                        Price must be positive number
-                    </p>
+                    <label htmlFor='price'>Difficult</label>
+                    <p className={isPriceValid ? style.hide : null}> Price must be positive number</p>
                     <input
-                        className={
-                            isPriceValid ? style.correct : style.incorrect
-                        }
-                        name="price"
-                        type="number"
-                        id="price"
+                        className={isPriceValid ? style.correct : style.incorrect}
+                        name='price'
+                        type='number'
+                        id='price'
                         onChange={(e) => handlerFormChangeRiddleInfo(e)}
                         value={riddleInfo.price}
-                        placeholder="0 is the easiest and 100 is the most difficult "
+                        placeholder='0 is the easiest and 100 is the most difficult '
                     />
 
-                    <label htmlFor="duration">Duration</label>
-                    <p className={isDurationValid ? style.hide : null}>
-                        Duration must be atleast 2 char
-                    </p>
+                    <label htmlFor='duration'>Duration</label>
+                    <p className={isDurationValid ? style.hide : null}>Duration must be atleast 2 char</p>
                     <input
-                        className={
-                            isDurationValid ? style.correct : style.incorrect
-                        }
-                        name="duration"
-                        type="text"
-                        id="duration"
+                        className={isDurationValid ? style.correct : style.incorrect}
+                        name='duration'
+                        type='text'
+                        id='duration'
                         onChange={(e) => handlerFormChangeRiddleInfo(e)}
                         value={riddleInfo.duration}
-                        placeholder="What time you will need to finish the riddle"
+                        placeholder='What time you will need to finish the riddle'
                     />
 
-                    <label htmlFor="where">Where</label>
-                    <p className={isWhereValid ? style.hide : null}>
-                        Where must be atleast 2 char
-                    </p>
+                    <label htmlFor='where'>Where</label>
+                    <p className={isWhereValid ? style.hide : null}>Where must be atleast 2 char</p>
 
                     <input
-                        className={
-                            isWhereValid ? style.correct : style.incorrect
-                        }
-                        name="where"
-                        type="text"
-                        id="where"
+                        className={isWhereValid ? style.correct : style.incorrect}
+                        name='where'
+                        type='text'
+                        id='where'
                         onChange={(e) => handlerFormChangeRiddleInfo(e)}
                         value={riddleInfo.where}
-                        placeholder="Where you will start the riddle or riddle area"
+                        placeholder='Where you will start the riddle or riddle area'
                     />
 
-                    <label htmlFor="google_map">Google maps link</label>
-                    <p className={isGoogleValid ? style.hide : null}>
-                        Link must be atleast 5 char
-                    </p>
+                    <label htmlFor='google_map'>Google maps link</label>
+                    <p className={isGoogleValid ? style.hide : null}>Link must be atleast 5 char</p>
 
                     <input
-                        className={
-                            isGoogleValid ? style.correct : style.incorrect
-                        }
-                        name="google_map"
-                        type="text"
-                        id="google_map"
+                        className={isGoogleValid ? style.correct : style.incorrect}
+                        name='google_map'
+                        type='text'
+                        id='google_map'
                         onChange={(e) => handlerFormChangeRiddleInfo(e)}
                         value={riddleInfo.google_map}
-                        placeholder="Link to google maps marked riddle area"
+                        placeholder='Link to google maps marked riddle area'
                     />
 
                     {/* <lable>Status</lable>
@@ -370,87 +323,48 @@ export default function AdminRiddleDetails() {
                                 <div key={index} className={style.row}>
                                     <div className={style.inputDiv}>
                                         <label>Question</label>
-                                        <p
-                                            className={
-                                                input.isQuestionValid
-                                                    ? style.hide
-                                                    : style.validationMsg
-                                            }
-                                        >
+                                        <p className={input.isQuestionValid ? style.hide : style.validationMsg}>
                                             Question must be atleast 5 char
                                         </p>
                                         <input
                                             className={`${style.input} ${
-                                                input.isQuestionValid
-                                                    ? style.correct
-                                                    : style.incorrect
+                                                input.isQuestionValid ? style.correct : style.incorrect
                                             }`}
-                                            name="question"
+                                            name='question'
                                             placeholder={input.question}
-                                            onChange={(event) =>
-                                                handleFormChangeInput(
-                                                    index,
-                                                    event
-                                                )
-                                            }
+                                            onChange={(event) => handleFormChangeInput(index, event)}
                                             value={input.question}
                                         />
                                     </div>
                                     <div className={style.inputDiv}>
                                         <label>Answer</label>
-                                        <p
-                                            className={
-                                                input.isAnswerValid
-                                                    ? style.hide
-                                                    : style.validationMsg
-                                            }
-                                        >
+                                        <p className={input.isAnswerValid ? style.hide : style.validationMsg}>
                                             Answer must be atleast 5 char
                                         </p>
 
                                         <input
                                             className={`${style.input} ${
-                                                input.isAnswerValid
-                                                    ? style.correct
-                                                    : style.incorrect
+                                                input.isAnswerValid ? style.correct : style.incorrect
                                             }`}
-                                            name="answer"
+                                            name='answer'
                                             placeholder={input.answer}
-                                            onChange={(event) =>
-                                                handleFormChangeInput(
-                                                    index,
-                                                    event
-                                                )
-                                            }
+                                            onChange={(event) => handleFormChangeInput(index, event)}
                                             value={input.answer}
                                         />
                                     </div>
                                     <div className={style.inputDiv}>
                                         <label>Hint</label>
-                                        <p
-                                            className={
-                                                input.isHintValid
-                                                    ? style.hide
-                                                    : style.validationMsg
-                                            }
-                                        >
+                                        <p className={input.isHintValid ? style.hide : style.validationMsg}>
                                             Hint must be atleast 5 char
                                         </p>
 
                                         <input
                                             className={`${style.input} ${
-                                                input.isHintValid
-                                                    ? style.correct
-                                                    : style.incorrect
+                                                input.isHintValid ? style.correct : style.incorrect
                                             }`}
-                                            onChange={(event) =>
-                                                handleFormChangeInput(
-                                                    index,
-                                                    event
-                                                )
-                                            }
-                                            name="hint"
-                                            placeholder="Hint"
+                                            onChange={(event) => handleFormChangeInput(index, event)}
+                                            name='hint'
+                                            placeholder='Hint'
                                             value={input.hint}
                                         />
                                     </div>
@@ -460,7 +374,7 @@ export default function AdminRiddleDetails() {
                                     <img
                                         className={style.removeBtn}
                                         src={"../../cancel.png"}
-                                        alt="trash"
+                                        alt='trash'
                                         onClick={() => removeFields(index)}
                                     />
                                 </div>
@@ -469,9 +383,7 @@ export default function AdminRiddleDetails() {
                         <div>
                             <button onClick={addFields}>Add more</button>
                             <button onClick={editRiddleHandler}>Edit</button>
-                            <button onClick={deleteRiddleHandler}>
-                                Delete
-                            </button>
+                            <button onClick={deleteRiddleHandler}>Delete</button>
                         </div>
                     </section>
                 </form>

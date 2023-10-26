@@ -1,37 +1,32 @@
-.addRiddleWapper {
-    background-color: white;
+.addRiddleWrapper {
     display: flex;
     justify-content: center;
+    background-color: white;
     border-radius: 20px;
 }
 
 .addRiddleSection {
-    color: black;
-    margin: 30px;
     width: 100%;
+    color: black;
+    margin-top: 30px;
 }
 
 .form {
     display: flex;
     flex-flow: column;
     color: black;
-    font-size: 30px;
 }
 
 .inputSection {
     display: flex;
     flex-flow: column;
 }
+
 .row {
     display: flex;
-    margin-top: 10px;
     justify-content: space-between;
-}
-
-.inputDiv {
-    display: flex;
-    flex-flow: column;
-    width: 46%;
+    gap: 1.5rem;
+    margin-top: 0px;
 }
 
 .removeBtn:hover {
@@ -39,36 +34,54 @@
 }
 
 .removeBtn {
+    position: absolute;
     cursor: pointer;
-    width: 50px;
-    height: 50px;
-    margin-top: auto;
-}
-.devider {
-    margin-top: 20px;
-    margin-bottom: 5px;
-    width: 100%;
-    border: solid black 1px;
-    height: 2px;
+    width: 30px;
+    height: 30px;
+    right: -40px;
+    margin-top: 2.6rem;
 }
 
-.hide{
+.hide {
     display: none;
 }
 
-.validationMsg {
+.inputDiv {
+    position: relative;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.rules {
+    text-align: right;
+    font-family: "Poppins";
+    font-size: 15px;
     font-style: italic;
-    color: red;
-    font-size: 1rem;
+    margin-bottom: 0px;
 }
 
-
-.incorrect {
-    outline-color: red;
-    border: solid red 1px;
+.gameInfo {
+    display: flex;
+    gap: 2rem;
 }
 
-.correct {
-    outline-color: green;
-    border: solid green 1px;
+.btnDiv {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.btn {
+    composes: btn from '../../../../commonCSS/common.css';
+}
+
+.label {
+    composes: label from '../../../../commonCSS/common.css';
+}
+
+.input {
+    composes: input from '../../../../commonCSS/common.css';
+}
+
+.textarea {
+    height: 10rem;
 }
