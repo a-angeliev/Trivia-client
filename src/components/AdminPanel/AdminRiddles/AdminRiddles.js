@@ -1,9 +1,12 @@
-import style from "./AdminRiddles.module.css";
-import AdminRiddleItem from "./AdminRiddlesItems/AdminRiddlesItems";
-import { RiddleContext } from "../../../context/riddleContext";
-import { useContext } from "react";
-import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { useContext } from "react";
+
+import { RiddleContext } from "../../../context/riddleContext";
+import AdminRiddleItem from "./AdminRiddlesItems/AdminRiddlesItems";
+
+import style from "./AdminRiddles.module.css";
+
 export default function AdminRiddles() {
     const { riddles } = useContext(RiddleContext);
 
@@ -30,7 +33,7 @@ export default function AdminRiddles() {
                     </table>
                 </section>
                 <Link className='' to='/admin-panel/item'>
-                    <button className=''>Add Riddle</button>
+                    <button className={style.addBtn}>Add Riddle</button>
                 </Link>
             </section>
             <Outlet />

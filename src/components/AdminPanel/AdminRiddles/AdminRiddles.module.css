@@ -6,17 +6,14 @@
 
 
 .adminRiddleSelectionWrapper {
-    width: 80%;
+    width: 60%;
     position: relative;
-    /* bottom: 7rem; */
-    /* margin-bottom: 3rem; */
     margin: auto;
 
 }
 
 .space {
     height: 7rem;
-    /* border: solid red 2px; */
 }
 
 .adminRiddleSelection {
@@ -28,29 +25,6 @@
     /* margin-bottom: 30rem; */
 }
 
-/* table{
-    width: 70%;
-}
-thead{
-    background-color: red;
-    
-    
-}
-th{
-    flex-flow: row;
-    align-items: center;
-    justify-content: space-between;
-    border: solid white 1px;
-} */
-
-/* ---------------------------- */
-
-
-/* body{
-    font-family: Helvetica;
-    -webkit-font-smoothing: antialiased;
-    background: rgba( 71, 147, 227, 1);
-} */
 h2 {
     text-align: center;
     font-size: 18px;
@@ -63,9 +37,7 @@ h2 {
 /* Table Styles */
 
 .tableWrapper {
-    /* margin: 10px 70px 70px; */
     margin-top: 4rem;
-    box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
     color: black;
     width: 100%;
     border-radius: 20px;
@@ -77,37 +49,30 @@ h2 {
     font-size: 20px;
     font-weight: normal;
     font-family: 'Poppins', sans-serif;
-    /* border: none; */
     border-collapse: collapse;
     width: 100%;
     max-width: 100%;
-    /* white-space: nowrap; */
     background-color: white;
 }
 
 
 .flTable td, .flTable th {
-    /* text-align: center; */
     padding: 8px;
 }
 
 .flTable td {
-    /* text-align: left; */
-    /* border-right: 1px solid #f8f8f8; */
     font-size: 20px;
 }
 
 .flTable thead th {
     text-align: center;
     color: #ffffff;
-    /* background: #4FC3A1; */
     background: black;
 }
 
 
 .flTable thead th:nth-child(odd) {
     color: #ffffff;
-    /* background: #324960; */
     background: black;
 
 }
@@ -117,6 +82,18 @@ h2 {
 }
 
 /* Responsive */
+
+.addBtn {
+    height: 50px;
+    font-family: "Poppins";
+    font-size: 20px;
+    font-weight: 100;
+    color: white;
+    background: black;
+    border-radius: 30px;
+    padding: 8px 50px;
+    margin-top: 1rem;
+}
 
 @media (max-width: 767px) {
     .flTable {
@@ -194,9 +171,3 @@ h2 {
         text-align: center;
     }
 }
-
-/* .addNavigateBtn{
-    width: 100px;
-    background-color: #4FC3A1;
-    height: 50px;
-} */
