@@ -124,30 +124,6 @@ export default function AdminRiddleDetails() {
         setRiddleInfo(data);
     };
 
-    // const handlerFromChangeTitle = (e) => {
-    //     setTitle(e.target.value);
-    // };
-    // const handlerFromChangeDesc = (e) => {
-    //     setDescription(e.target.value);
-    //     // console.log(description);
-    // };
-    // const handlerFromChangeHardnes = (e) => {
-    //     setHardnes(e.target.value);
-    //     // console.log(hardnes);
-    // };
-    // const handlerFromChangeDuration = (e) => {
-    //     setDuration(e.target.value);
-    //     // console.log(duration);
-    // };
-    // const handlerFromChangeWhere = (e) => {
-    //     setWhere(e.target.value);
-    //     // console.log(where);
-    // };
-    // const handlerFromChangeGoogleMap = (e) => {
-    //     setGoogleMap(e.target.value);
-    //     // console.log(googleMap);
-    // };
-
     const deleteRiddleHandler = (e) => {
         e.preventDefault();
         if (window.confirm("Are you sure you want to delete this ?")) {
