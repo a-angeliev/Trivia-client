@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
+
 import style from "./AdminNavigation.module.css";
+
 export default function AdminNavigation() {
     return (
         <div className={style.adminNavDiv}>
