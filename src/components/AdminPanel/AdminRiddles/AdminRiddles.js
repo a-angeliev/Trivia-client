@@ -6,9 +6,9 @@ import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
 export default function AdminRiddles() {
     const { riddles } = useContext(RiddleContext);
-    
+
     return (
-        <section className={style.adminRiddleSelectionWapper}>
+        <section className={style.adminRiddleSelectionWrapper}>
             <section className={style.adminRiddleSelection}>
                 <section className={style.tableWrapper}>
                     <table className={style.flTable}>
@@ -23,21 +23,18 @@ export default function AdminRiddles() {
                             </tr>
                         </thead>
                         <tbody>
-                            {riddles.map((x) => (     
+                            {riddles.map((x) => (
                                 <AdminRiddleItem key={x.id} riddle={x} />
-                                )
-                            )}
+                            ))}
                         </tbody>
                     </table>
                 </section>
-                <Link className='' to="/admin-panel/item">
+                <Link className='' to='/admin-panel/item'>
                     <button className=''>Add Riddle</button>
                 </Link>
             </section>
             <Outlet />
-            <section className={style.space}>
-
-            </section>
+            <section className={style.space}></section>
         </section>
     );
 }
