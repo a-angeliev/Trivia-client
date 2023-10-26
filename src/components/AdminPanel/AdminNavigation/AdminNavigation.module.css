@@ -4,6 +4,7 @@
     justify-content: center;
     display: flex;
 }
+
 .AdminNavUl {
     list-style: none;
 
@@ -12,13 +13,15 @@
     background-color: white;
     border-radius: 10px;
 }
+
 .AdminNavLink {
     text-decoration: none;
     color: black;
     font-weight: 500;
     font-size: 2rem;
 }
-.devider {
+
+.divider {
     width: 1px;
     height: 80%;
     border: solid black 1px;
