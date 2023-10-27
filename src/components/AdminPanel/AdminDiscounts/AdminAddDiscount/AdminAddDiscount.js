@@ -1,9 +1,11 @@
-import style from "./AdminAddDiscount.module.css";
-import DateTimePicker from "react-datetime-picker";
 import { useContext, useEffect, useState } from "react";
-import * as requester from "../../../../service/requester";
-import { DiscountContext } from "../../../../context/discountContext";
 import { useNavigate } from "react-router-dom";
+import DateTimePicker from "react-datetime-picker";
+
+import { DiscountContext } from "../../../../context/discountContext";
+import * as requester from "../../../../service/requester";
+
+import style from "./AdminAddDiscount.module.css";
 
 export default function AdminAddDiscount() {
     const [startedTime, setStartedTime] = useState();
@@ -20,9 +22,7 @@ export default function AdminAddDiscount() {
         let data = { ...codeInfo };
         data[e.target.name] = e.target.value;
         data["code"].length > 3 ? setIsCodeValid(true) : setIsCodeValid(false);
-        data["discount"] > 0 && data["discount"] < 100
-            ? setIsDiscountValid(true)
-            : setIsDiscountValid(false);
+        data["discount"] > 0 && data["discount"] < 100 ? setIsDiscountValid(true) : setIsDiscountValid(false);
         setCodeInfo(data);
     };
 
@@ -35,14 +35,13 @@ export default function AdminAddDiscount() {
             started_on: startedTime,
             ended_on: endedTime,
         };
-        if( startedTime && endedTime && isCodeValid && isDiscountValid){
-
+        if (startedTime && endedTime && isCodeValid && isDiscountValid) {
             requester.post("http://127.0.0.1:5000/discounts", data).then((res) => {
                 addDiscount(res);
                 navigation("/admin-panel/discount");
             });
-        }else{
-            alert("You must fill all fields!")
+        } else {
+            alert("You must fill all fields!");
         }
     };
 
@@ -50,99 +49,63 @@ export default function AdminAddDiscount() {
         <section className={style.addRiddleWapper}>
             <section className={style.addRiddleSection}>
                 <form className={style.form}>
-                    <label htmlFor="code">Code</label>
-                    <p
-                        className={
-                            isCodeValid ? style.hide : style.validationMsg
-                        }
-                    >
-                        Code must be longer than 3 char
-                    </p>
+                    <label htmlFor='code'>Code</label>
+                    <p className={isCodeValid ? style.hide : style.validationMsg}>Code must be longer than 3 char</p>
                     <input
-                        className={
-                            isCodeValid ? style.correct : style.incorrect
-                        }
-                        name="code"
-                        type="text"
-                        id="code"
+                        className={isCodeValid ? style.correct : style.incorrect}
+                        name='code'
+                        type='text'
+                        id='code'
                         onChange={(e) => handleCodeInput(e)}
                         value={codeInfo.code}
-                        placeholder="Random code"
+                        placeholder='Random code'
                     />
 
-                    <label htmlFor="discount">Discount %</label>
-                    <p
-                        className={
-                            isDiscountValid ? style.hide : style.validationMsg
-                        }
-                    >
+                    <label htmlFor='discount'>Discount %</label>
+                    <p className={isDiscountValid ? style.hide : style.validationMsg}>
                         Value must be bettween 0% and 100%
                     </p>
 
                     <input
-                        className={
-                            isDiscountValid ? style.correct : style.incorrect
-                        }
-                        name="discount"
-                        id="discount"
-                        type="number"
+                        className={isDiscountValid ? style.correct : style.incorrect}
+                        name='discount'
+                        id='discount'
+                        type='number'
                         onChange={(e) => handleCodeInput(e)}
                         value={codeInfo.discount}
-                        placeholder="Enter discount amount in % in range 1% to 99%"
+                        placeholder='Enter discount amount in % in range 1% to 99%'
                     />
 
                     <div className={style.dateInputWhapper}>
                         <div className={`${style.dateInputDiv}`}>
                             <p className={style.dateInputDivP}>Started on:</p>
-                            <p
-                                className={
-                                    startedTime
-                                        ? style.hide
-                                        : style.validationMsg
-                                }
-                            >
-                                Must be selected date
-                            </p>
+                            <p className={startedTime ? style.hide : style.validationMsg}>Must be selected date</p>
                             <DateTimePicker
-                                className={`${style.dateInput} ${
-                                    startedTime
-                                        ? style.correct
-                                        : style.incorrect
-                                }`}
+                                className={`${style.dateInput} ${startedTime ? style.correct : style.incorrect}`}
                                 onChange={setStartedTime}
                                 value={startedTime}
-                                format="y-MM-dd H:mm:ss"
-                                hourAriaLabel="Hour"
+                                format='y-MM-dd H:mm:ss'
+                                hourAriaLabel='Hour'
                             />
                         </div>
                         <div className={style.dateInputDiv}>
                             <p className={style.dateInputDivP}>Ended on:</p>
-                            <p
-                                className={
-                                    endedTime
-                                        ? style.hide
-                                        : style.validationMsg
-                                }
-                            >
-                                Must be selected date
-                            </p>
+                            <p className={endedTime ? style.hide : style.validationMsg}>Must be selected date</p>
                             <DateTimePicker
-                                className={`${style.dateInput} ${
-                                    endedTime
-                                        ? style.correct
-                                        : style.incorrect
-                                }`}
+                                className={`${style.dateInput} ${endedTime ? style.correct : style.incorrect}`}
                                 onChange={setendedTime}
                                 value={endedTime}
-                                format="y-MM-dd H:mm:ss"
-                                hourAriaLabel="Hour"
+                                format='y-MM-dd H:mm:ss'
+                                hourAriaLabel='Hour'
                             />
                         </div>
                     </div>
 
                     <section className={style.inputSection}>
                         <div>
-                            <button onClick={handlerAddDiscount}>Add</button>
+                            <button className={style.btn} onClick={handlerAddDiscount}>
+                                Add
+                            </button>
                             {/* <button onClick={deleteRiddleHandler}>
                                 Delete
                             </button> */}
