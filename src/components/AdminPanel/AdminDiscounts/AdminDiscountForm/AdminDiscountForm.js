@@ -5,7 +5,7 @@ import style from "./AdminDiscountForm.module.css";
 
 export const DiscountForm = (props) => {
     const [startedTime, setStartedTime] = useState();
-    const [endedTime, setendedTime] = useState();
+    const [endedTime, setEndedTime] = useState();
     const [codeInfo, setCodeInfo] = useState({ code: "", discount: "" });
 
     const [isCodeValid, setIsCodeValid] = useState(false);
@@ -36,71 +36,85 @@ export const DiscountForm = (props) => {
     };
 
     return (
-        <section className={style.addRiddleWapper}>
+        <section className={style.addRiddleWrapper}>
             <section className={style.addRiddleSection}>
                 <form className={style.form}>
-                    <label htmlFor='code'>Code</label>
-                    <p className={isCodeValid ? style.hide : style.validationMsg}>Code must be longer than 3 char</p>
-                    <input
-                        className={isCodeValid ? style.correct : style.incorrect}
-                        name='code'
-                        type='text'
-                        id='code'
-                        onChange={(e) => handleCodeInput(e)}
-                        value={codeInfo.code}
-                        placeholder='Random code'
-                    />
+                    <div className={style.inputDiv}>
+                        <label className={style.label} htmlFor='code'>
+                            Code
+                        </label>
+                        <input
+                            className={style.input}
+                            name='code'
+                            type='text'
+                            id='code'
+                            onChange={(e) => handleCodeInput(e)}
+                            value={codeInfo.code}
+                            placeholder='Random code'
+                        />
+                        <p className={`${style.rules} ${isCodeValid ? style.hide : null}`}>
+                            Code must be longer than 3 char
+                        </p>
+                    </div>
 
-                    <label htmlFor='discount'>Discount %</label>
-                    <p className={isDiscountValid ? style.hide : style.validationMsg}>
-                        Value must be bettween 0% and 100%
-                    </p>
+                    <div className={style.inputDiv}>
+                        <label className={style.label} htmlFor='discount'>
+                            Discount %
+                        </label>
 
-                    <input
-                        className={isDiscountValid ? style.correct : style.incorrect}
-                        name='discount'
-                        id='discount'
-                        type='number'
-                        onChange={(e) => handleCodeInput(e)}
-                        value={codeInfo.discount}
-                        placeholder='Enter discount amount in % in range 1% to 99%'
-                    />
+                        <input
+                            className={style.input}
+                            name='discount'
+                            id='discount'
+                            type='number'
+                            onChange={(e) => handleCodeInput(e)}
+                            value={codeInfo.discount}
+                            placeholder='Enter discount amount in % in range 1% to 99%'
+                        />
 
+                        <p className={`${style.rules} ${isDiscountValid ? style.hide : null}`}>
+                            Value must be between 0% and 100%
+                        </p>
+                    </div>
                     <div className={style.dateInputWhapper}>
-                        <div className={`${style.dateInputDiv}`}>
-                            <p className={style.dateInputDivP}>Started on:</p>
-                            <p className={startedTime ? style.hide : style.validationMsg}>Must be selected date</p>
+                        <div className={`${style.inputDiv}`}>
+                            <label className={style.label} htmlFor='dateTimeStart'>
+                                Started on
+                            </label>
                             <DateTimePicker
-                                className={`${style.dateInput} ${startedTime ? style.correct : style.incorrect}`}
+                                className={`${style.input} ${style.dateInput}`}
                                 onChange={setStartedTime}
                                 value={startedTime}
+                                name='dateTimeStart'
                                 format='y-MM-dd H:mm:ss'
                                 hourAriaLabel='Hour'
                             />
+                            <p className={`${style.rules} ${startedTime ? style.hide : null}`}>Must be selected date</p>
                         </div>
-                        <div className={style.dateInputDiv}>
-                            <p className={style.dateInputDivP}>Ended on:</p>
-                            <p className={endedTime ? style.hide : style.validationMsg}>Must be selected date</p>
+                        <div className={style.inputDiv}>
+                            <label className={style.label} htmlFor='dateTimeEnd'>
+                                Ended on
+                            </label>
                             <DateTimePicker
-                                className={`${style.dateInput} ${endedTime ? style.correct : style.incorrect}`}
-                                onChange={setendedTime}
+                                className={`${style.input} ${style.dateInput}`}
+                                onChange={setEndedTime}
                                 value={endedTime}
+                                name='dateTimeEnd'
                                 format='y-MM-dd H:mm:ss'
                                 hourAriaLabel='Hour'
                             />
+                            <p className={`${style.rules} ${endedTime ? style.hide : null}`}>Must be selected date</p>
                         </div>
                     </div>
 
-                    <section className={style.inputSection}>
-                        <div>
-                            <button className={style.btn} onClick={submit}>
-                                Add
-                            </button>
-                            {/* <button onClick={deleteRiddleHandler}>
+                    <div className={style.btnDiv}>
+                        <button className={style.btn} onClick={submit}>
+                            Add
+                        </button>
+                        {/* <button onClick={deleteRiddleHandler}>
                                 Delete
                             </button> */}
-                        </div>
-                    </section>
+                    </div>
                 </form>
             </section>
         </section>
