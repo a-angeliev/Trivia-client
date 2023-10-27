@@ -1,4 +1,5 @@
-import { useState, useContext } from "react";
+import { useEffect, useState } from "react";
+
 import style from "./AdminRiddlesForm.module.css";
 
 export const RiddleForm = (props) => {
@@ -31,18 +32,27 @@ export const RiddleForm = (props) => {
         },
     ]);
 
+    useEffect(() => {
+        if (props.action === "edit") {
+            setIsFieldValid(props.isFieldValid);
+            setInputFields(props.inputFields);
+            console.log(props.isFieldValid);
+            setRiddleInfo(props.riddleInfo);
+        }
+    }, [props]);
+
     const handlerFormChangeRiddleInfo = (e) => {
         let data = { ...riddleInfo };
         data[e.target.name] = e.target.value;
 
         const filedState = { ...isFieldValid };
 
-        filedState["google_map"] = data["google_map"].length > 5 ? true : false;
-        filedState["title"] = data["title"].length > 5 ? true : false;
-        filedState["description"] = data["description"].length > 10 ? true : false;
-        filedState["price"] = data["price"].length > 0 ? true : false;
-        filedState["duration"] = data["duration"].length > 2 ? true : false;
-        filedState["where"] = data["where"].length > 2 ? true : false;
+        filedState["google_map"] = data["google_map"].length >= 5 ? true : false;
+        filedState["title"] = data["title"].length >= 5 ? true : false;
+        filedState["description"] = data["description"].length >= 10 ? true : false;
+        filedState["price"] = data["price"] >= 0 ? true : false;
+        filedState["duration"] = data["duration"].length >= 2 ? true : false;
+        filedState["where"] = data["where"].length >= 2 ? true : false;
 
         setRiddleInfo(data);
         setIsFieldValid(filedState);
@@ -121,8 +131,10 @@ export const RiddleForm = (props) => {
                 where: riddleInfo.where,
                 google_map: riddleInfo.google_map,
             };
-            if (props.action == "add") {
+            if (props.action === "add") {
                 props.createRiddle(data);
+            } else if (props.action === "edit") {
+                props.editRiddleHandler(data);
             }
         } else {
             alert("You must fill all fields! ");
@@ -226,7 +238,6 @@ export const RiddleForm = (props) => {
                             value={riddleInfo["description"]}
                             onChange={(e) => handlerFormChangeRiddleInfo(e)}
                             placeholder='Here you can describe shortly about what is the quiz.'></textarea>
-                        {/* <p className={`${isDescriptionValid ? style.hide : null} ${style.rules}`}> */}
                         <p className={`${isFieldValid.description ? style.hide : null} ${style.rules}`}>
                             Description must be at least 10 char
                         </p>
@@ -246,7 +257,6 @@ export const RiddleForm = (props) => {
                                 onChange={(e) => handlerFormChangeRiddleInfo(e)}
                                 placeholder='Price'
                             />
-                            {/* <p className={`${style.rules} ${isPriceValid ? style.hide : null}`}> */}
                             <p className={`${style.rules} ${isFieldValid.price ? style.hide : null}`}>
                                 {" "}
                                 Price must be positive number
@@ -265,7 +275,6 @@ export const RiddleForm = (props) => {
                                 onChange={(e) => handlerFormChangeRiddleInfo(e)}
                                 placeholder='What time you will need to finish the riddle'
                             />
-                            {/* <p className={`${style.rules} ${isDurationValid ? style.hide : null}`}> */}
                             <p className={`${style.rules} ${isFieldValid.duration ? style.hide : null}`}>
                                 Duration must be at least 2 char
                             </p>
@@ -286,7 +295,6 @@ export const RiddleForm = (props) => {
                             onChange={(e) => handlerFormChangeRiddleInfo(e)}
                             placeholder='Where you will start the riddle or riddle area'
                         />
-                        {/* <p className={`${style.rules} ${isWhereValid ? style.hide : null}`}> */}
                         <p className={`${style.rules} ${isFieldValid.where ? style.hide : null}`}>
                             Where must be at least 2 char
                         </p>
@@ -306,7 +314,6 @@ export const RiddleForm = (props) => {
                             onChange={(e) => handlerFormChangeRiddleInfo(e)}
                             placeholder='Link to google maps marked riddle area'
                         />
-                        {/* <p className={`${style.rules} ${isGoogleValid ? style.hide : null}`}> */}
                         <p className={`${style.rules} ${isFieldValid.google_map ? style.hide : null}`}>
                             Link must be at least 5 char
                         </p>
@@ -315,12 +322,26 @@ export const RiddleForm = (props) => {
                     <section className={style.inputSection}>
                         {inputFields.map((input, index) => inputRow(input, index))}
 
-                        <div className={style.btnDiv}>
-                            <button className={style.btn} onClick={addFields}>
-                                Add more
-                            </button>
-                            <button className={style.btn}>Submit</button>
-                        </div>
+                        {props.action == "add" ? (
+                            <div className={style.btnDiv}>
+                                <button className={style.btn} onClick={addFields}>
+                                    Add more
+                                </button>
+                                <button className={style.btn}>Submit</button>
+                            </div>
+                        ) : (
+                            <div className={style.btnDiv}>
+                                <button className={style.btn} onClick={addFields}>
+                                    Add more
+                                </button>
+                                <button className={style.btn} onClick={submit}>
+                                    Edit
+                                </button>
+                                <button className={style.btn} onClick={(e) => props.deleteRiddleHandler(e)}>
+                                    Delete
+                                </button>
+                            </div>
+                        )}
                     </section>
                 </form>
             </section>
