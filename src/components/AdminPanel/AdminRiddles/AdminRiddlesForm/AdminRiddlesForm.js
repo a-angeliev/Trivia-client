@@ -75,7 +75,7 @@ export const RiddleForm = (props) => {
 
     const addFields = (e) => {
         e.preventDefault();
-        let newfield = {
+        let newField = {
             question: "",
             answer: "",
             hint: "",
@@ -83,7 +83,7 @@ export const RiddleForm = (props) => {
             isAnswerValid: false,
             isHintValid: false,
         };
-        setInputFields([...inputFields, newfield]);
+        setInputFields([...inputFields, newField]);
     };
 
     const removeFields = (index) => {
