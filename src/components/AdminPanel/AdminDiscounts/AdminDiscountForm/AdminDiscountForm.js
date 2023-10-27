@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DateTimePicker from "react-datetime-picker";
 
 import style from "./AdminDiscountForm.module.css";
@@ -6,22 +6,36 @@ import style from "./AdminDiscountForm.module.css";
 export const DiscountForm = (props) => {
     const [startedTime, setStartedTime] = useState();
     const [endedTime, setEndedTime] = useState();
-    const [codeInfo, setCodeInfo] = useState({ code: "", discount: "" });
+    const [discountData, setDiscountData] = useState({
+        code: "",
+        discount: "",
+    });
 
     const [isCodeValid, setIsCodeValid] = useState(false);
     const [isDiscountValid, setIsDiscountValid] = useState(false);
 
+    useEffect(() => {
+        if (props.action === "edit") {
+            setStartedTime(props.startedTime);
+            setEndedTime(props.endedTime);
+            setDiscountData(props.discountData);
+
+            setIsCodeValid(props.discountData.code.length > 3);
+            setIsDiscountValid(props.discountData.discount > 0 && props.discountData.discount <= 100 ? true : false);
+        }
+    }, [props]);
+
     const handleCodeInput = (e) => {
-        let data = { ...codeInfo };
+        let data = { ...discountData };
         data[e.target.name] = e.target.value;
         data["code"].length > 3 ? setIsCodeValid(true) : setIsCodeValid(false);
         data["discount"] > 0 && data["discount"] < 100 ? setIsDiscountValid(true) : setIsDiscountValid(false);
-        setCodeInfo(data);
+        setDiscountData(data);
     };
 
     const submit = (e) => {
         e.preventDefault();
-        let { code, discount } = codeInfo;
+        let { code, discount } = discountData;
         let data = {
             code,
             discount,
@@ -29,7 +43,11 @@ export const DiscountForm = (props) => {
             ended_on: endedTime,
         };
         if (startedTime && endedTime && isCodeValid && isDiscountValid) {
-            props.createDiscount(data);
+            if (props.action === "edit") {
+                props.editDiscountHandler(data);
+            } else if (props.action === "add") {
+                props.createDiscount(data);
+            }
         } else {
             alert("You must fill all fields!");
         }
@@ -49,7 +67,7 @@ export const DiscountForm = (props) => {
                             type='text'
                             id='code'
                             onChange={(e) => handleCodeInput(e)}
-                            value={codeInfo.code}
+                            value={discountData.code}
                             placeholder='Random code'
                         />
                         <p className={`${style.rules} ${isCodeValid ? style.hide : null}`}>
@@ -68,7 +86,7 @@ export const DiscountForm = (props) => {
                             id='discount'
                             type='number'
                             onChange={(e) => handleCodeInput(e)}
-                            value={codeInfo.discount}
+                            value={discountData.discount}
                             placeholder='Enter discount amount in % in range 1% to 99%'
                         />
 
@@ -78,28 +96,28 @@ export const DiscountForm = (props) => {
                     </div>
                     <div className={style.dateInputWhapper}>
                         <div className={`${style.inputDiv}`}>
-                            <label className={style.label} htmlFor='dateTimeStart'>
+                            <label className={style.label} htmlFor='started_on'>
                                 Started on
                             </label>
                             <DateTimePicker
                                 className={`${style.input} ${style.dateInput}`}
                                 onChange={setStartedTime}
                                 value={startedTime}
-                                name='dateTimeStart'
+                                name='started_on'
                                 format='y-MM-dd H:mm:ss'
                                 hourAriaLabel='Hour'
                             />
                             <p className={`${style.rules} ${startedTime ? style.hide : null}`}>Must be selected date</p>
                         </div>
                         <div className={style.inputDiv}>
-                            <label className={style.label} htmlFor='dateTimeEnd'>
+                            <label className={style.label} htmlFor='ended_on'>
                                 Ended on
                             </label>
                             <DateTimePicker
                                 className={`${style.input} ${style.dateInput}`}
                                 onChange={setEndedTime}
-                                value={endedTime}
-                                name='dateTimeEnd'
+                                value={startedTime}
+                                name='ended_on'
                                 format='y-MM-dd H:mm:ss'
                                 hourAriaLabel='Hour'
                             />
@@ -108,12 +126,20 @@ export const DiscountForm = (props) => {
                     </div>
 
                     <div className={style.btnDiv}>
-                        <button className={style.btn} onClick={submit}>
-                            Add
-                        </button>
-                        {/* <button onClick={deleteRiddleHandler}>
-                                Delete
-                            </button> */}
+                        {props.action === "add" ? (
+                            <button className={style.btn} onClick={submit}>
+                                Add
+                            </button>
+                        ) : (
+                            <>
+                                <button className={style.btn} onClick={submit}>
+                                    Edit
+                                </button>
+                                <button className={style.btn} onClick={(e) => props.deleteDiscountHandler(e)}>
+                                    Delete
+                                </button>
+                            </>
+                        )}
                     </div>
                 </form>
             </section>

@@ -17,5 +17,5 @@ export default function AdminAddDiscount() {
         });
     };
 
-    return <DiscountForm createDiscount={(data) => createDiscount(data)}></DiscountForm>;
+    return <DiscountForm createDiscount={(data) => createDiscount(data)} action={"add"}></DiscountForm>;
 }
