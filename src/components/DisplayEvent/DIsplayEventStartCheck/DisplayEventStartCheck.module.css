@@ -1,9 +1,9 @@
-.startActionWhrapper{
+.startActionWrapper {
     width: 60%;
     background-color: white;
     border-radius: 30px;
     margin: auto;
-    margin-top: 20rem;
+    margin-top: 10rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,8 +11,24 @@
     flex-flow: column;
 }
 
-.startActionP{
+.title {
+    font-family: 'Pacifico', cursive;
+    color: black;
+    font-size: 3rem;
+}
+
+.startActionP {
     margin-top: 40px;
     text-align: center;
-    font-size: 3rem;
+    font-size: 2rem;
+    font-family: "Poppins";
+}
+
+.btnDiv {
+    margin-top: 1rem;
+    display: flex;
+}
+
+.btn {
+    composes: btn from '../../../commonCSS/common.css';
 }
