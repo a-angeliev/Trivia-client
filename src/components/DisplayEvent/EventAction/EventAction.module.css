@@ -24,7 +24,6 @@
 
 .label {
     composes: label from '../../../commonCSS/common.css';
-
 }
 
 .input {
@@ -34,7 +33,6 @@
 .btn {
     margin-top: 3rem;
     composes: btn from "../../../commonCSS/common.css"
-
 }
 
 .title {
@@ -59,13 +57,11 @@
 
 .points {
     font-size: 1.5rem;
-
 }
 
 .question {
     margin: 1rem 0rem;
     font-size: 1.5rem;
-
 }
 
 .hidden {
@@ -89,10 +85,18 @@
     background-color: rgba(0, 0, 0, 0.7);
     box-shadow: 5px 5px 15px 5px #000000;
     border-radius: 10px;
-
 }
 
 .endMsg>p {
     color: white;
     font-size: 4rem;
+}
+
+.wrongInput {
+    border: 2px solid #ff272f
+}
+
+.wrongLabel {
+    text-align: center;
+    color: #ff272f
 }

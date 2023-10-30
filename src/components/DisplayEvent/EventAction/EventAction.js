@@ -2,7 +2,6 @@ import style from "./EventAction.module.css";
 
 import { useEffect, useState } from "react";
 
-import * as requester from "../../../service/requester";
 import * as eventService from "../../../service/eventService";
 
 export default function EventAction(props) {
@@ -10,13 +9,14 @@ export default function EventAction(props) {
     let [answer, setAnswer] = useState("");
     let [end, setEnd] = useState(false);
     let [endMsg, setEndMsg] = useState("");
+    const [hint, setHint] = useState("");
+    const [wrong, setWrong] = useState(false);
 
     useEffect(() => {
-        let fetchData = async () => {
-            let res = await requester.get(`http://127.0.0.1:5000/event?token=${props.urlToken}`);
-            setQuestions(res);
-        };
-        fetchData().then((err) => console.log(err));
+        eventService
+            .eventState(props.urlToken)
+            .then((res) => setQuestions(res))
+            .catch((err) => console.log(err));
     }, []);
 
     const onSubmit = (e, skip) => {
@@ -24,9 +24,10 @@ export default function EventAction(props) {
 
         let data = skip ? { skip: true } : Object.fromEntries(new FormData(e.target));
 
-        requester.post(`http://127.0.0.1:5000/event?token=${props.urlToken}`, data).then((res) => {
+        eventService.validateAnswer(props.urlToken, data).then((res) => {
             if (res.massage && !res.end) {
-                alert(res.massage, res.end);
+                setWrong(true);
+                setAnswer("");
             } else if (res.massage && res.end) {
                 setEnd(true);
                 setEndMsg(res);
@@ -37,12 +38,15 @@ export default function EventAction(props) {
         });
     };
 
-    const onClick = (e) => {
-        e.preventDefault();
-        let current_question = questions.current_question;
-        requester
-            .get(`http://127.0.0.1:5000/event/hint/${current_question}?token=${props.urlToken}`)
-            .then((res) => alert(`The hint is: ${res}`));
+    const getHint = () => {
+        eventService
+            .getHint(questions.current_question, props.urlToken)
+            .then((res) => setHint(res))
+            .catch((err) => console.log(err));
+    };
+
+    const removeStyle = () => {
+        setWrong(false);
     };
 
     return (
@@ -56,19 +60,25 @@ export default function EventAction(props) {
                     </p>
                     <p className={style.question}>{questions.question}</p>
                     <div className={style.inputDiv}>
-                        <label className={style.label} htmlFor='answer'>
+                        <label className={`${style.label} ${wrong ? style.wrongLabel : ""}`} htmlFor='answer'>
                             Answer
                         </label>
                         <input
                             value={answer}
                             onChange={(e) => setAnswer(e.target.value)}
                             name='answer'
-                            className={style.input}
+                            className={`${style.input} ${wrong === true ? style.wrongInput : ""}`}
+                            onSelect={removeStyle}
                             placeholder='input'
                             id='email'></input>
 
-                        <p className={style.hintBtn}>hint</p>
-                        <p className={style.hintText}>Hint: Sone random hint</p>
+                        <p className={style.hintBtn} onClick={getHint}>
+                            hint
+                        </p>
+                        <p className={`${style.wrongLabel} ${wrong ? style.show : style.hidden}`}>
+                            There is a mistake! Try again.
+                        </p>
+                        {hint !== "" ? <p className={style.hintText}>Hint: {hint}</p> : ""}
                     </div>
                     <div className={style.btnDiv}>
                         <button className={style.btn}>Check</button>
