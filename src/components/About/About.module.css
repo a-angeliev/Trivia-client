@@ -9,6 +9,11 @@
     margin: 4rem auto;
 }
 
+p {
+    color: black;
+    font-family: "Poppins";
+}
+
 .aboutImg {
     width: 90px;
     height: 90px;
