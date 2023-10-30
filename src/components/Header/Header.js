@@ -46,7 +46,7 @@ const Header = () => {
                             {isAdmin ? (
                                 <li className={style.liNav}>
                                     <Link className={style.navLink} to='/admin-panel'>
-                                        Admin Panel
+                                        admin panel
                                     </Link>
                                 </li>
                             ) : null}

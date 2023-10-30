@@ -42,3 +42,7 @@ header {
   height: 2.7rem;
   scroll-behavior: smooth;
 }
+
+.liNav>a:hover {
+  color: white;
+}
