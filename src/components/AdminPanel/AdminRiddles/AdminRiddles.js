@@ -33,7 +33,7 @@ export default function AdminRiddles() {
                     </table>
                 </section>
                 <Link className='' to='/admin-panel/item'>
-                    <button className={style.addBtn}>Add Riddle</button>
+                    <button className={style.btn}>Add Riddle</button>
                 </Link>
             </section>
             <Outlet />

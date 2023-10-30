@@ -53,6 +53,10 @@
     margin-top: 7rem;
 }
 
+.btn {
+    composes: btn from "../../commonCSS/common.css"
+}
+
 .secondBtn {
     margin-top: 2rem;
 }

@@ -16,6 +16,11 @@
     overflow: hidden;
 }
 
+.btn {
+    composes: btn from "../../commonCSS/common.css";
+    margin-bottom: 5rem
+}
+
 .googleMap {
     position: relative;
     top: -46px;

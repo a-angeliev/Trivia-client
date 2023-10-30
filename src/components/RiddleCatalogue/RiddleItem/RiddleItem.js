@@ -31,11 +31,11 @@ export default function RiddleItem({ riddle, id }) {
                         </section>
 
                         {user.token ? (
-                            <Link className={style.buyBtn} to={`/riddles/${riddle.id}/event`}>
+                            <Link className={style.btn} to={`/riddles/${riddle.id}/event`}>
                                 Buy
                             </Link>
                         ) : (
-                            <Link className={style.buyBtn} to={`/login`}>
+                            <Link className={style.btn} to={`/login`}>
                                 Buy
                             </Link>
                         )}

@@ -27,6 +27,10 @@
 
 /* Table Styles */
 
+.btn {
+    composes: btn from "../../../commonCSS/common.css"
+}
+
 .tableWrapper {
     margin-top: 4rem;
     color: black;

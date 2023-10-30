@@ -175,7 +175,7 @@ export default function CreateEvent() {
                         </div>
                         <div className={style.paypalBtn}>
                             {!loadPayment ? (
-                                <button className={style.loadPaymentBtn} onClick={onClick}>
+                                <button className={style.btn} onClick={onClick}>
                                     Load Payment options
                                 </button>
                             ) : (

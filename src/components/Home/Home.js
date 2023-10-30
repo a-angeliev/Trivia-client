@@ -27,7 +27,7 @@ export default function Home() {
                         Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
                         aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor.
                     </p>
-                    <button className={style.secondBtn}>Let's start</button>
+                    <button className={style.btn}>Let's start</button>
                 </section>
             </section>
         </>

@@ -29,6 +29,10 @@
   font-family: 'Pacifico', cursive;
 }
 
+.btn {
+  composes: btn from "../../../commonCSS/common.css"
+}
+
 .riddleBody {
   display: flex;
   flex-direction: column;
