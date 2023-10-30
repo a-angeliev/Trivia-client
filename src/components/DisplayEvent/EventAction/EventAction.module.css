@@ -1,14 +1,10 @@
 .loginSection {
-    width: 30%;
-    height: 50vh;
-    /* display: flex;
-    flex-flow: column; */
-    background-color: rgba(0, 0, 0, 0.7);
-    box-shadow: 5px 5px 15px 5px #000000;
-    border-radius: 10px;
+    width: 40%;
+    color: black;
     margin: auto;
-    margin-top: 10rem;
+    margin-top: 6rem;
 }
+
 
 .loginForm {
     display: flex;
@@ -19,63 +15,69 @@
     align-items: center;
     width: 70%;
     height: 100%;
-    color: white;
-}
-.loginForm>p{
-    font-size: 2rem;
+    font-family: "Poppins";
 }
 
-.loginInputs {
-    width: 100%;
-    height: 3rem;
-    font-size: 2.4rem;
+.inputDiv {
+    composes: inputDiv from '../../../commonCSS/common.css';
 }
 
-.loginLables {
-    font-size: 2.4rem;
-    margin-top: 1rem;
+.label {
+    composes: label from '../../../commonCSS/common.css';
+
 }
 
-.text {
-    font-size: 1.3rem;
-    color:white
+.input {
+    composes: input from "../../../commonCSS/common.css"
 }
-/* //////////////// */
 
-.logBtn {
+.btn {
+    margin-top: 3rem;
+    composes: btn from "../../../commonCSS/common.css"
+
+}
+
+.title {
+    font-family: 'Pacifico', cursive;
+    font-size: 3.5rem;
+}
+
+.hintBtn {
+    text-align: right;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+    font-family: "Poppins";
+    font-style: italic;
     cursor: pointer;
-    border: 0;
-    border-radius: 4px;
-    font-weight: 600;
-    margin: 30px 10px;
-    width: 200px;
-    padding: 10px 0;
-    box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
-    transition: 0.4s;
 }
 
-.logBtn {
-    color: rgb(104, 85, 224);
-    background-color: rgba(255, 255, 255, 1);
-    border: 1px solid rgba(104, 85, 224, 1);
+.hintText {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #23b474;
 }
 
-.logBtn:hover {
-    color: white;
-    box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
-    background-color: rgba(104, 85, 224, 1);
+.points {
+    font-size: 1.5rem;
+
 }
 
-.hidden{
-    display: none 
+.question {
+    margin: 1rem 0rem;
+    font-size: 1.5rem;
+
 }
 
-.show{
+.hidden {
+    display: none
+}
+
+.show {
     display: block
 }
 
-.endMsg{
-    display:flex;
+.endMsg {
+    display: flex;
     flex-flow: column;
     align-items: center;
     justify-content: center;
@@ -87,10 +89,10 @@
     background-color: rgba(0, 0, 0, 0.7);
     box-shadow: 5px 5px 15px 5px #000000;
     border-radius: 10px;
-    
+
 }
 
-.endMsg > p{
+.endMsg>p {
     color: white;
     font-size: 4rem;
 }
