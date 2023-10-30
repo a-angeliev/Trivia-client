@@ -1,0 +1,24 @@
+.wrapper {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.title {
+    font-size: 4rem;
+    color: black;
+    font-family: "Pacifico";
+}
+
+.text {
+    color: black;
+    margin-top: 1rem;
+    font-family: "Poppins";
+    font-size: 1.5rem;
+    width: 60%;
+}
+
+.asset {
+    width: 30%;
+}
