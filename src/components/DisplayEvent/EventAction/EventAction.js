@@ -15,7 +15,14 @@ export default function EventAction(props) {
     useEffect(() => {
         eventService
             .eventState(props.urlToken)
-            .then((res) => setQuestions(res))
+            .then((res) => {
+                if (res.massage && res.end) {
+                    setEnd(true);
+                    setEndMsg(res);
+                } else {
+                    setQuestions(res);
+                }
+            })
             .catch((err) => console.log(err));
     }, []);
 

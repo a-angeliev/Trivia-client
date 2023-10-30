@@ -55,24 +55,24 @@ export default function CreateEvent() {
         });
     };
 
-    const onSubmit = (e) => {
-        e.preventDefault();
-        const discount_code = Object.fromEntries(new FormData(e.target));
-        console.log(discount_code);
-        requester.post("http://127.0.0.1:5000/discount/validate", JSON.stringify(discount_code)).then((resp) => {
-            if (resp["is_valid"]) {
-                console.log(resp.discount);
-                setDiscountAmount(Number(resp.discount));
-                setLoadPayment(false);
-                setDiscountCode(discount_code);
-            } else {
-                setDiscountAmount(0);
-                setDiscountCode("");
-                setLoadPayment(false);
-                alert("Discount code is invalid!");
-            }
-        });
-    };
+    // const onSubmit = (e) => {
+    //     e.preventDefault();
+    //     const discount_code = Object.fromEntries(new FormData(e.target));
+    //     console.log(discount_code);
+    //     requester.post("http://127.0.0.1:5000/discount/validate", JSON.stringify(discount_code)).then((resp) => {
+    //         if (resp["is_valid"]) {
+    //             console.log(resp.discount);
+    //             setDiscountAmount(Number(resp.discount));
+    //             setLoadPayment(false);
+    //             setDiscountCode(discount_code);
+    //         } else {
+    //             setDiscountAmount(0);
+    //             setDiscountCode("");
+    //             setLoadPayment(false);
+    //             alert("Discount code is invalid!");
+    //         }
+    //     });
+    // };
 
     return (
         <>
