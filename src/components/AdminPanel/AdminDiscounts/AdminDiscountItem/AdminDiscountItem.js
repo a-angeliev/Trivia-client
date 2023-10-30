@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import * as requester from "../../../../service/requester";
 import { Link } from "react-router-dom";
 import style from "./AdminDiscountItem.module.css";
 
@@ -13,7 +11,7 @@ export default function AdminDiscountItem(props) {
             <td>{props.discounts.ended_on}</td>
             <td>
                 <Link to={`/admin-panel/discount/${props.discounts.id}`}>
-                    <img className={style.imgDots} src='../../menu-dots.png' alt='img'></img>
+                    <img className={style.imgDots} src='/menu-dots.png' alt='img'></img>
                 </Link>
             </td>
         </tr>

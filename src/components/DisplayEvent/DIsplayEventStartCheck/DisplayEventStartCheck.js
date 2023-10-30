@@ -29,6 +29,7 @@ export default function DisplayEventStartCheck(props) {
                         go back
                     </button>
                 </div>
+                <img className={style.pictureAsset} src='./start.svg' alt='start asset'></img>
             </div>
         </>
     );

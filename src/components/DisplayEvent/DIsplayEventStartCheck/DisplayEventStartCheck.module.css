@@ -3,7 +3,7 @@
     background-color: white;
     border-radius: 30px;
     margin: auto;
-    margin-top: 10rem;
+    margin-top: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,4 +31,9 @@
 
 .btn {
     composes: btn from '../../../commonCSS/common.css';
+}
+
+.pictureAsset {
+    margin-top: 1rem;
+    width: 38%;
 }
