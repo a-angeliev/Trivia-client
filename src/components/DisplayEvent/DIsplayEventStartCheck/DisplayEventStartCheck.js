@@ -1,22 +1,18 @@
 import { useNavigate } from "react-router-dom";
 
-import * as requester from "../../../service/requester";
+import * as eventService from "../../../service/eventService";
 
 import style from "./DisplayEventStartCheck.module.css";
 
 export default function DisplayEventStartCheck(props) {
     let navigate = useNavigate();
 
-    const onClick = (e) => {
+    const onClick = () => {
         if (window.confirm("Are you sure you want to start ?")) {
-            requester
-                .post(`http://127.0.0.1:5000/event?token=${props.token}`, {
-                    "": "",
-                })
-                .then((res) => {
-                    props.setRes(res);
-                    navigate(`?token=${props.token}`);
-                });
+            eventService.startEvent(props.token, { "": "" }).then((res) => {
+                props.setRes(res);
+                navigate(`?token=${props.token}`);
+            });
         }
     };
 
@@ -29,7 +25,9 @@ export default function DisplayEventStartCheck(props) {
                     <button className={style.btn} onClick={onClick}>
                         start
                     </button>
-                    <button className={style.btn}>go back</button>
+                    <button className={style.btn} onClick={() => navigate("/")}>
+                        go back
+                    </button>
                 </div>
             </div>
         </>
