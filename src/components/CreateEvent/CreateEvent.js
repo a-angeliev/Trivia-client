@@ -1,7 +1,7 @@
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { useContext } from "react";
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { AuthContext } from "../../context/authContext";
 import * as requester from "../../service/requester";
@@ -21,8 +21,6 @@ export default function CreateEvent() {
 
     const { riddleId } = useParams();
 
-    const navigate = useNavigate();
-
     useEffect(() => {
         const fetchRiddleInfo = async () => {
             let response = await riddleService.getOne(riddleId);
@@ -34,7 +32,6 @@ export default function CreateEvent() {
 
     const onClick = (e) => {
         e.preventDefault();
-        // loadPayment? setLoadPayment(false):
         setLoadPayment(true);
     };
 
@@ -47,8 +44,6 @@ export default function CreateEvent() {
             if (resp["is_valid"]) {
                 console.log(resp.discount);
                 setDiscountAmount(Number(resp.discount));
-                // let newPrice = res.price - (res.price*Number(resp.discount)/100)
-                // setRes({...res, price: newPrice})
                 setLoadPayment(false);
                 setDiscountCode(discount_code);
             } else {
@@ -65,12 +60,9 @@ export default function CreateEvent() {
         const discount_code = Object.fromEntries(new FormData(e.target));
         console.log(discount_code);
         requester.post("http://127.0.0.1:5000/discount/validate", JSON.stringify(discount_code)).then((resp) => {
-            // console.log(res, "discount_code response")
             if (resp["is_valid"]) {
                 console.log(resp.discount);
                 setDiscountAmount(Number(resp.discount));
-                // let newPrice = res.price - (res.price*Number(resp.discount)/100)
-                // setRes({...res, price: newPrice})
                 setLoadPayment(false);
                 setDiscountCode(discount_code);
             } else {
@@ -87,7 +79,7 @@ export default function CreateEvent() {
             <section className={style.eventWhapper}>
                 <PayPalScriptProvider
                     options={{
-                        "client-id": "AWfYTOnjSJgtSZaqRdR1SjIkehKuXp8GSWXGP3-K1udlWgq64mOv9znAyXa7EyLANzSmkJ-y7myqX0J8",
+                        "client-id": "ASQNZ7NDvsJOLxiS8B4U7vb1ziQD8WcBtfVqM65P1v3v8rzCiwj5WXnZjt09JxTbsjK1Iey5yb3J6NZ-",
                         currency: "EUR",
                     }}>
                     <div className={style.wrapper}>
