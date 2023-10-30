@@ -1,0 +1,30 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.title {
+    font-family: 'Pacifico', cursive;
+    color: black;
+    font-size: 4rem;
+}
+
+.text {
+    width: 45%;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-family: "Poppins";
+    color: black;
+}
+
+.btn {
+    composes: btn from "../../../commonCSS/common.css"
+}
+
+.asset {
+    margin-top: 5rem;
+    width: 20%;
+}

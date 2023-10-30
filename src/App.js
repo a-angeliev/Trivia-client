@@ -26,6 +26,7 @@ import AdminTransaction from "./components/AdminPanel/AdminTransactions/AdminTra
 import AdminAddDiscount from "./components/AdminPanel/AdminDiscounts/AdminAddDiscount/AdminAddDiscount";
 import AdminDiscountDetails from "./components/AdminPanel/AdminDiscounts/AdminDiscountDetails/AdminDiscountDetails";
 import { TransactionsProvider } from "./context/transactionsContext";
+import { OrderFinished } from "./components/CreateEvent/OrderFinished.js/OrderFinished";
 
 // import style from './app.css'
 
@@ -48,7 +49,8 @@ function App() {
                                             {/* <Route
                                         path="/checkout"
                                         element={<Checkout />}
-                                    /> */}
+                                    /> */}{" "}
+                                            <Route path='/congratulations' element={<OrderFinished />}></Route>
                                             <Route path='/event' element={<DisplayEvent />} />
                                             <Route path='/about' element={<About />} />
                                             <Route path='/' element={<Home />} />
