@@ -73,23 +73,28 @@
 }
 
 .endMsg {
+    color: black;
     display: flex;
     flex-flow: column;
     align-items: center;
     justify-content: center;
-    width: 60%;
-    height: 20%;
-    font-size: 4rem;
-    margin: auto;
-    margin-top: 20%;
-    background-color: rgba(0, 0, 0, 0.7);
-    box-shadow: 5px 5px 15px 5px #000000;
-    border-radius: 10px;
+    /* width: 60%; */
+    /* height: 20%; */
+    /* font-size: 4rem; */
+    margin-top: 7rem;
 }
 
 .endMsg>p {
-    color: white;
+    font-family: "Poppins";
+    color: black;
+    font-size: 2rem;
+    margin: -5px;
+}
+
+.finalTitle {
     font-size: 4rem;
+    margin-bottom: 2rem;
+    font-family: 'Pacifico', cursive;
 }
 
 .wrongInput {
@@ -99,4 +104,9 @@
 .wrongLabel {
     text-align: center;
     color: #ff272f
+}
+
+.endAsset {
+    margin-top: 2rem;
+    width: 25%;
 }

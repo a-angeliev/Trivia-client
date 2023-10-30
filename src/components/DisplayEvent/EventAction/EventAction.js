@@ -91,11 +91,12 @@ export default function EventAction(props) {
 
             <section className={end ? style.show : style.hidden}>
                 <section className={style.endMsg}>
-                    <p className={style.text}>Congratulations!!!</p>
+                    <h1 className={style.finalTitle}>Congratulations!</h1>
                     <p className={style.text}>
-                        You guess {endMsg.guessed_answer} from {endMsg.number_of_questions}
+                        You answered {endMsg.guessed_answer} out of {endMsg.number_of_questions} questions.
                     </p>
                     <p className={style.text}>{endMsg.massage}</p>
+                    <img className={style.endAsset} src='./end.svg' alt='end asset'></img>
                 </section>
             </section>
         </>
