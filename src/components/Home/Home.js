@@ -1,13 +1,19 @@
+import { useNavigate } from "react-router-dom";
+
 import style from "./Home.module.css";
 
 export default function Home() {
+    const navigate = useNavigate();
+
     return (
         <>
             <section className={style.homeBg}>
                 <section className={style.titleSection}>
                     <p className={style.titleP}>Join today with</p>
                     <img className={style.logoYellow} src='./logo-yellow.svg' alt='yellow logo'></img>
-                    <button className={style.titleBtn}>Let's start</button>
+                    <button className={style.titleBtn} onClick={() => navigate("/riddles")}>
+                        Let's start
+                    </button>
                 </section>
                 <section className={style.homeImgSection}>
                     <img className={style.homeImg} src='./home-asset-1.svg' alt='home asset'></img>
@@ -27,7 +33,9 @@ export default function Home() {
                         Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
                         aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor.
                     </p>
-                    <button className={style.btn}>Let's start</button>
+                    <button className={style.btn} onClick={() => navigate("/riddles")}>
+                        Let's start
+                    </button>
                 </section>
             </section>
         </>
