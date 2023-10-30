@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-
 import { AuthContext } from "../../context/authContext";
 
 import style from "./Header.module.css";
@@ -13,7 +12,7 @@ const Header = () => {
             <nav className={style.navigation}>
                 <div className={style.logo}>
                     <Link className={style.navLink} to='/'>
-                        <img className={style.logoSvg} src={"./logo.svg"} alt='' />
+                        <img className={style.logoSvg} src='/logo.svg' alt='LOGO' />
                     </Link>
                 </div>
 
