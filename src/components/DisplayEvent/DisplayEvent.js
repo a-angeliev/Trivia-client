@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import * as requester from "../../service/requester";
 
+import * as eventService from "../../service/eventService";
 import DisplayEventStartCheck from "./DIsplayEventStartCheck/DisplayEventStartCheck";
 import EventAction from "./EventAction/EventAction";
 
@@ -10,27 +10,15 @@ export default function DisplayEvent() {
     const [res, setRes] = useState("");
 
     useEffect(() => {
-        let fetchData = async () => {
-            let res = await requester.get(
-                `http://127.0.0.1:5000/event?token=${urlToken}`
-            );
-            setRes(res);
-        };
-        fetchData().then((err) => console.log(err));
-        // requester.get(`http://127.0.0.1:5000/event?token=${urlToken}`).then((res) => {
-        //     console.log(res);
-        //     setRes(res)
-        // });
+        eventService
+            .eventState(urlToken)
+            .then((res) => setRes(res))
+            .catch((err) => console.log(err));
     }, []);
 
-    let startString =
-        "You should start the riddle. Once the riddle start there is no money refunds anymore.";
-    return res.massage == startString ? (
-        <DisplayEventStartCheck
-            token={urlToken}
-            setRes={setRes}
-            massage={res.massage}
-        />
+    let startString = "Once you start it, you cannot get a refund and you cannot stop the game.";
+    return res.massage === startString ? (
+        <DisplayEventStartCheck token={urlToken} setRes={setRes} massage={res.massage} />
     ) : (
         <EventAction urlToken={urlToken} />
     );
