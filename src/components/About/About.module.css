@@ -14,11 +14,6 @@ p {
     font-family: "Poppins";
 }
 
-.aboutImg {
-    width: 90px;
-    height: 90px;
-}
-
 .cardSection {
     display: flex;
 }
@@ -32,10 +27,10 @@ p {
 }
 
 .card>h2 {
-    color: black;
     text-transform: none !important;
-    font-size: 50px;
     text-align: left;
+    color: black;
+    font-size: 50px;
     font-family: "Pacifico";
     margin-bottom: 1rem;
 }
@@ -59,10 +54,10 @@ p {
 }
 
 .lastSection>h2 {
-    font-size: 60px;
-    color: black;
-    font-family: "Pacifico";
     text-transform: none !important;
+    font-size: 60px;
+    font-family: "Pacifico";
+    color: black;
 }
 
 .lastSection>p {
