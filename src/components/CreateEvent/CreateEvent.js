@@ -18,6 +18,7 @@ export default function CreateEvent() {
     const [discountAmount, setDiscountAmount] = useState(0);
     const [discount_code, setDiscountCode] = useState("");
     const [discountInput, setDiscountInput] = useState("");
+    const [isDiscountValid, setIsDiscountValid] = useState(true);
 
     const { riddleId } = useParams();
 
@@ -47,10 +48,11 @@ export default function CreateEvent() {
                 setLoadPayment(false);
                 setDiscountCode(discount_code);
             } else {
+                setIsDiscountValid(false);
                 setDiscountAmount(0);
                 setDiscountCode("");
                 setLoadPayment(false);
-                alert("Discount code is invalid!");
+                // alert("Discount code is invalid!");
             }
         });
     };
@@ -111,24 +113,36 @@ export default function CreateEvent() {
                                         placeholder='Admin@admin.com'
                                         name='email'></input>
                                 </div>
+                                {console.log(user)}
                                 <div className={style.inputDiv}>
                                     <label
-                                        className={`${style.label} ${discountAmount !== 0 ? style.validLabel : ""}`}
+                                        className={`${style.label} ${discountAmount !== 0 ? style.validLabel : ""} ${
+                                            isDiscountValid ? "" : style.invalidLabel
+                                        }`}
                                         htmlFor='discount'>
                                         discount code
                                     </label>
                                     <input
-                                        className={`${style.input} ${discountAmount !== 0 ? style.validInput : ""}`}
+                                        className={`${style.input} ${discountAmount !== 0 ? style.validInput : ""} ${
+                                            isDiscountValid ? "" : style.invalidInput
+                                        }`}
                                         value={discountInput}
                                         onChange={(e) => setDiscountInput(e.target.value)}
                                         placeholder='code'
+                                        onSelect={() => setIsDiscountValid(true)}
                                         name='discount'></input>
-                                    <div className={discountAmount !== 0 ? style.textSpaceBetween : style.textRight}>
+                                    <div
+                                        className={
+                                            discountAmount !== 0 || isDiscountValid === false
+                                                ? style.textSpaceBetween
+                                                : style.textRight
+                                        }>
                                         {discountAmount !== 0 ? (
                                             <p className={style.greenText}>{discountAmount}% off!</p>
                                         ) : (
                                             ""
                                         )}
+                                        {isDiscountValid ? "" : <p className={style.redText}>Wrong discount code!</p>}
                                         <p
                                             onClick={() => {
                                                 discountValidation();

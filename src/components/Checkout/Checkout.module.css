@@ -1,4 +1,18 @@
-.paypalBtn{
+.paypalBtn {
     width: 100%;
 }
 
+.skipBtn {
+    width: 100%;
+    height: 3rem;
+    border: none;
+    font-family: "Poppins";
+    font-size: 1.5rem;
+    color: white;
+    background: #ffc814;
+    margin-bottom: 1rem;
+}
+
+.skipBtn:hover {
+    background-color: #ffc439;
+}

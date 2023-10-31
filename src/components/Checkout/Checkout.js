@@ -81,7 +81,7 @@ export default function Checkout(props) {
             let firstHalf = response.url.slice(0, 34);
             let token = response.url.slice(34);
             if (firstHalf == "http://localhost:3000/event?token=" && token) {
-                navigate(`/event?token=${token}`);
+                navigate(`/congratulations`);
             } else {
                 console.log(response);
             }
@@ -107,7 +107,9 @@ export default function Checkout(props) {
     return (
         <>
             <div></div>
-            <button onClick={testHandler}>Click</button>
+            <button className={style.skipBtn} onClick={testHandler}>
+                Skip payment and redirect to the riddle
+            </button>
             <div className='paypal-button-container'>
                 <PayPalButtons
                     createOrder={(data, actions) => {
