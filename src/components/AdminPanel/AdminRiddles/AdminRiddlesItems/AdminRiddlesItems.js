@@ -1,11 +1,8 @@
 import { Link } from "react-router-dom";
-import { RiddleContext } from "../../../../context/riddleContext";
-import { useContext } from "react";
+
 import style from "./AddminRiddlesItems.module.css";
 
 export default function AdminRiddleItem({ riddle }) {
-    // const { setCurrentRiddleId } = useContext(RiddleContext);
-    // setCurrentRiddleId(riddle.id);
     return (
         <tr className={style.row}>
             <td className={style.td1}>{riddle.id}</td>

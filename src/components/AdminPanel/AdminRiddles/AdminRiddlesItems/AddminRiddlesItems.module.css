@@ -22,8 +22,8 @@
 }
 
 .td1 {
-  text-align: center;
   width: 5%;
+  text-align: center;
 }
 
 .td2 {
@@ -32,26 +32,24 @@
 
 .td3 {
   text-align: left;
-  width: 65%;
   overflow: hidden;
+  width: 65%;
 }
 
 .td3>p {
-  width: 600px;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 600px;
 }
 
 .td4 {
   text-align: center;
   width: 5%;
-
 }
 
 .td5 {
   text-align: center;
-
   width: 5%
 }
 

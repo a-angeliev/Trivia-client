@@ -6,10 +6,9 @@
 
 
 .adminRiddleSelectionWrapper {
-    width: 60%;
     position: relative;
     margin: auto;
-
+    width: 60%;
 }
 
 .space {
@@ -17,39 +16,34 @@
 }
 
 .adminRiddleSelection {
-    color: white;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    /* margin-bottom: 30rem; */
+    color: white;
 }
-
-/* Table Styles */
 
 .btn {
     composes: btn from "../../../commonCSS/common.css"
 }
 
 .tableWrapper {
-    margin-top: 4rem;
+    overflow: hidden;
     color: black;
     width: 100%;
     border-radius: 20px;
-    overflow: hidden;
     border: 1px solid black;
+    margin-top: 4rem;
 }
 
 .flTable {
+    width: 100%;
     font-size: 20px;
     font-weight: normal;
     font-family: 'Poppins', sans-serif;
     border-collapse: collapse;
-    width: 100%;
-    max-width: 100%;
     background-color: white;
 }
-
 
 .flTable td, .flTable th {
     padding: 8px;
@@ -65,29 +59,13 @@
     background: black;
 }
 
-
 .flTable thead th:nth-child(odd) {
     color: #ffffff;
     background: black;
-
 }
 
 .flTable tr:nth-child(even) {
     background: #F8F8F8;
-}
-
-/* Responsive */
-
-.addBtn {
-    height: 50px;
-    font-family: "Poppins";
-    font-size: 20px;
-    font-weight: 100;
-    color: white;
-    background: black;
-    border-radius: 30px;
-    padding: 8px 50px;
-    margin-top: 1rem;
 }
 
 @media (max-width: 767px) {
@@ -97,9 +75,9 @@
     }
 
     .tableWrapper:before {
-        content: "Scroll horizontally >";
         display: block;
         text-align: right;
+        content: "Scroll horizontally >";
         font-size: 11px;
         color: white;
         padding: 0 0 10px;
@@ -124,15 +102,15 @@
     }
 
     .flTable td, .flTable th {
-        padding: 20px .625em .625em .625em;
-        height: 60px;
+        text-overflow: ellipsis;
         vertical-align: middle;
         box-sizing: border-box;
         overflow-x: hidden;
         overflow-y: auto;
         width: 120px;
+        height: 60px;
         font-size: 13px;
-        text-overflow: ellipsis;
+        padding: 20px .625em .625em .625em;
     }
 
     .flTable thead th {

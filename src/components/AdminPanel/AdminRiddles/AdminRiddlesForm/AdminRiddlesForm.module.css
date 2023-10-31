@@ -46,20 +46,6 @@
     display: none;
 }
 
-.inputDiv {
-    position: relative;
-    width: 100%;
-    margin-top: 1.5rem;
-}
-
-.rules {
-    text-align: right;
-    font-family: "Poppins";
-    font-size: 15px;
-    font-style: italic;
-    margin-bottom: 0px;
-}
-
 .gameInfo {
     display: flex;
     gap: 2rem;
@@ -68,6 +54,14 @@
 .btnDiv {
     text-align: center;
     margin-top: 3rem;
+}
+
+.rules {
+    composes: rules from '../../../../commonCSS/common.css';
+}
+
+.inputDiv {
+    composes: inputDiv from '../../../../commonCSS/common.css';
 }
 
 .btn {
