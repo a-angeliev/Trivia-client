@@ -1,14 +1,15 @@
-import style from './AdminTransactions.module.css'
-import { useContext } from "react"
-import { TransactionsContext } from "../../../context/transactionsContext"
-import AdminTransactionsItem from './AdminTransactionsItem/AdminTransactionsItem'
-import { Link } from 'react-router-dom'
+import { useContext } from "react";
+
+import { TransactionsContext } from "../../../context/transactionsContext";
+import AdminTransactionsItem from "./AdminTransactionsItem/AdminTransactionsItem";
+
+import style from "./AdminTransactions.module.css";
 
 export default function AdminTransaction() {
-    const {transactions} = useContext(TransactionsContext)
+    const { transactions } = useContext(TransactionsContext);
 
     return (
-        <section className={style.adminRiddleSelectionWapper}>
+        <section className={style.adminRiddleSelectionWrapper}>
             <section className={style.adminRiddleSelection}>
                 <section className={style.tableWrapper}>
                     <table className={style.flTable}>
@@ -23,15 +24,14 @@ export default function AdminTransaction() {
                             </tr>
                         </thead>
                         <tbody>
-                            {transactions.map((x) => (     
+                            {transactions.map((x) => (
                                 <AdminTransactionsItem key={x.id} transactions={x} />
-                                )
-                            )}
+                            ))}
                         </tbody>
                     </table>
                 </section>
             </section>
             <section className={style.space}></section>
         </section>
-    )
+    );
 }

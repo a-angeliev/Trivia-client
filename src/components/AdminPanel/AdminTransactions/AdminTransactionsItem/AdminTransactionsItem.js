@@ -1,5 +1,3 @@
-import style from "./AdminTransactionsItem.module.css";
-
 export default function AdminTransactionsItem(props) {
     return (
         <tr>
