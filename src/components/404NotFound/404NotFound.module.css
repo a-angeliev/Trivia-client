@@ -12,11 +12,11 @@
 }
 
 .text {
+    width: 60%;
     color: black;
-    margin-top: 1rem;
     font-family: "Poppins";
     font-size: 1.5rem;
-    width: 60%;
+    margin-top: 1rem;
 }
 
 .asset {
