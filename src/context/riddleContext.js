@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect, useReducer } from "react";
-import * as riddleService from "./../service/riddleService";
 import { useNavigate } from "react-router-dom";
+
+import * as riddleService from "./../service/riddleService";
 
 export const RiddleContext = createContext();
 
@@ -13,11 +14,10 @@ const riddleReducer = (state, action) => {
         case "DELETE_RIDDLE":
             return state.filter((x) => x.id !== action.riddleId);
         case "EDIT_RIDDLE":
-            return state.map((x)=> x.id === action.riddleId ? action.payload : x)
+            return state.map((x) => (x.id === action.riddleId ? action.payload : x));
         default:
             return state;
     }
-
 };
 
 export const RiddleProvider = ({ children }) => {
@@ -67,8 +67,7 @@ export const RiddleProvider = ({ children }) => {
                 riddleAdd,
                 riddleDelete,
                 riddleEdit,
-            }}
-        >
+            }}>
             {children}
         </RiddleContext.Provider>
     );
