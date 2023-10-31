@@ -1,13 +1,13 @@
 .adminNavDiv {
-    margin-top: 4rem;
-    justify-content: center;
     display: flex;
+    justify-content: center;
+    margin-top: 4rem;
 }
 
 .adminNavUl {
-    list-style: none;
-    justify-content: center;
     display: flex;
+    justify-content: center;
+    list-style: none;
     align-items: center;
     background-color: white;
     border-radius: 10px;
@@ -21,10 +21,10 @@
 }
 
 .divider {
-    margin: 0rem 2rem;
     width: 1px;
     height: 100%;
     border: solid black 1px;
+    margin: 0rem 2rem;
 }
 
 .adminNavLink:hover {
