@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 import * as eventService from "../../../service/eventService";
 
 export default function EventAction(props) {
-    let [questions, setQuestions] = useState("");
-    let [answer, setAnswer] = useState("");
-    let [end, setEnd] = useState(false);
-    let [endMsg, setEndMsg] = useState("");
+    const [questions, setQuestions] = useState("");
+    const [answer, setAnswer] = useState("");
+    const [end, setEnd] = useState(false);
+    const [endMsg, setEndMsg] = useState("");
     const [hint, setHint] = useState("");
     const [wrong, setWrong] = useState(false);
 
@@ -29,7 +29,7 @@ export default function EventAction(props) {
     const onSubmit = (e, skip) => {
         e.preventDefault();
 
-        let data = skip ? { skip: true } : Object.fromEntries(new FormData(e.target));
+        const data = skip ? { skip: true } : Object.fromEntries(new FormData(e.target));
 
         eventService.validateAnswer(props.urlToken, data).then((res) => {
             if (res.massage && !res.end) {

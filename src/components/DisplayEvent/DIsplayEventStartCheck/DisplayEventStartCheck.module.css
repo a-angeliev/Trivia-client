@@ -1,14 +1,12 @@
 .startActionWrapper {
+    flex-flow: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 60%;
     background-color: white;
     border-radius: 30px;
-    margin: auto;
-    margin-top: 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    flex-flow: column;
+    margin: 4rem auto;
 }
 
 .title {
@@ -18,15 +16,15 @@
 }
 
 .startActionP {
-    margin-top: 40px;
     text-align: center;
     font-size: 2rem;
     font-family: "Poppins";
+    margin-top: 40px;
 }
 
 .btnDiv {
-    margin-top: 1rem;
     display: flex;
+    margin-top: 1rem;
 }
 
 .btn {
@@ -34,6 +32,6 @@
 }
 
 .pictureAsset {
-    margin-top: 1rem;
     width: 38%;
+    margin-top: 1rem;
 }

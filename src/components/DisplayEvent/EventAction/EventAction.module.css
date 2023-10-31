@@ -1,21 +1,20 @@
 .loginSection {
     width: 40%;
     color: black;
-    margin: auto;
-    margin-top: 6rem;
+    margin: 6rem auto;
 }
 
 
 .loginForm {
     display: flex;
     flex-flow: column;
-    margin: auto;
-    padding-top: 30px;
     justify-content: center;
     align-items: center;
     width: 70%;
     height: 100%;
     font-family: "Poppins";
+    padding-top: 30px;
+    margin: auto;
 }
 
 .inputDiv {
@@ -31,8 +30,8 @@
 }
 
 .btn {
+    composes: btn from "../../../commonCSS/common.css";
     margin-top: 3rem;
-    composes: btn from "../../../commonCSS/common.css"
 }
 
 .title {
@@ -41,12 +40,11 @@
 }
 
 .hintBtn {
-    text-align: right;
-    margin-right: 1rem;
-    margin-top: 0.5rem;
-    font-family: "Poppins";
-    font-style: italic;
     cursor: pointer;
+    text-align: right;
+    font-style: italic;
+    font-family: "Poppins";
+    margin: 0.5rem 1rem 0.5rem 0rem;
 }
 
 .hintText {
@@ -60,8 +58,8 @@
 }
 
 .question {
-    margin: 1rem 0rem;
     font-size: 1.5rem;
+    margin: 1rem 0rem;
 }
 
 .hidden {
@@ -73,14 +71,11 @@
 }
 
 .endMsg {
-    color: black;
     display: flex;
     flex-flow: column;
     align-items: center;
     justify-content: center;
-    /* width: 60%; */
-    /* height: 20%; */
-    /* font-size: 4rem; */
+    color: black;
     margin-top: 7rem;
 }
 
@@ -93,8 +88,8 @@
 
 .finalTitle {
     font-size: 4rem;
-    margin-bottom: 2rem;
     font-family: 'Pacifico', cursive;
+    margin-bottom: 2rem;
 }
 
 .wrongInput {
@@ -107,6 +102,6 @@
 }
 
 .endAsset {
-    margin-top: 2rem;
     width: 25%;
+    margin-top: 2rem;
 }

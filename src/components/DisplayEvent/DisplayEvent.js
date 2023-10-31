@@ -6,7 +6,9 @@ import EventAction from "./EventAction/EventAction";
 
 export default function DisplayEvent() {
     const queryParams = new URLSearchParams(window.location.search);
+
     const urlToken = queryParams.get("token");
+
     const [res, setRes] = useState("");
 
     useEffect(() => {
