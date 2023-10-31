@@ -1,13 +1,12 @@
-.catalogueWrapper{
+.catalogueWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 10rem;
 }
 
-.catalogue{
-  margin-top: 2rem;
-  margin-bottom:  6rem;
+.catalogue {
   width: 80%;
   min-height: 60vh;
+  margin: 2rem 0rem 6rem 0rem;
 }

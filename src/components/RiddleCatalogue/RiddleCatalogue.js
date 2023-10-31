@@ -1,10 +1,13 @@
 import { useContext } from "react";
+
 import { RiddleContext } from "../../context/riddleContext";
-import style from "./RiddleCatalogue.module.css";
 import RiddleItem from "./RiddleItem/RiddleItem";
+
+import style from "./RiddleCatalogue.module.css";
 
 export default function RiddleCatalogue() {
     const { riddles } = useContext(RiddleContext);
+
     return (
         <section className={style.catalogueWrapper}>
             <section className={style.catalogue}>
