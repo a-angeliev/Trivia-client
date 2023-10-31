@@ -1,11 +1,9 @@
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
-import { ThreeDots } from "react-loader-spinner";
-import { useContext } from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 
 import { AuthContext } from "../../context/authContext";
-import * as requester from "../../service/requester";
+import * as discountService from "../../service/discountService";
 import * as riddleService from "../../service/riddleService";
 import Checkout from "../Checkout/Checkout";
 
@@ -24,58 +22,32 @@ export default function CreateEvent() {
     const { riddleId } = useParams();
 
     useEffect(() => {
-        const fetchRiddleInfo = async () => {
-            let response = await riddleService.getOne(riddleId);
-            setRes(response);
-        };
-
-        fetchRiddleInfo().then((err) => console.log(err));
+        riddleService
+            .getOne(riddleId)
+            .then((res) => setRes(res))
+            .catch((err) => console.log(err));
     }, []);
 
-    const onClick = (e) => {
+    const expandPaymentOptions = (e) => {
         e.preventDefault();
         setLoadPayment(true);
     };
 
     const discountValidation = () => {
         const code = { discount_code: discountInput };
-        console.log(code);
 
-        requester.post("http://127.0.0.1:5000/discount/validate", JSON.stringify(code)).then((resp) => {
-            console.log("dsadsa", res, "discount_code response");
-            if (resp["is_valid"]) {
-                console.log(resp.discount);
-                setDiscountAmount(Number(resp.discount));
-                setLoadPayment(false);
+        discountService.validateDiscount(JSON.stringify(code)).then((res) => {
+            if (res["is_valid"]) {
+                setDiscountAmount(Number(res.discount));
                 setDiscountCode(discount_code);
             } else {
                 setIsDiscountValid(false);
                 setDiscountAmount(0);
                 setDiscountCode("");
-                setLoadPayment(false);
-                // alert("Discount code is invalid!");
             }
+            setLoadPayment(false);
         });
     };
-
-    // const onSubmit = (e) => {
-    //     e.preventDefault();
-    //     const discount_code = Object.fromEntries(new FormData(e.target));
-    //     console.log(discount_code);
-    //     requester.post("http://127.0.0.1:5000/discount/validate", JSON.stringify(discount_code)).then((resp) => {
-    //         if (resp["is_valid"]) {
-    //             console.log(resp.discount);
-    //             setDiscountAmount(Number(resp.discount));
-    //             setLoadPayment(false);
-    //             setDiscountCode(discount_code);
-    //         } else {
-    //             setDiscountAmount(0);
-    //             setDiscountCode("");
-    //             setLoadPayment(false);
-    //             alert("Discount code is invalid!");
-    //         }
-    //     });
-    // };
 
     return (
         <>
@@ -180,9 +152,9 @@ export default function CreateEvent() {
                                 </div>
                             </div>
                         </div>
-                        <div className={style.paypalBtn}>
+                        <div className={style.paypalBtnDiv}>
                             {!loadPayment ? (
-                                <button className={style.btn} onClick={onClick}>
+                                <button className={style.btn} onClick={expandPaymentOptions}>
                                     Load Payment options
                                 </button>
                             ) : (

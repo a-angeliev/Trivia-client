@@ -10,10 +10,9 @@
 }
 
 .map {
-    width: 60%;
-    /* border: 1px solid black; */
-    border-radius: 20px;
     overflow: hidden;
+    width: 60%;
+    border-radius: 20px;
 }
 
 .btn {
@@ -23,10 +22,10 @@
 
 .googleMap {
     position: relative;
-    top: -46px;
-    border: none;
     width: 100%;
     height: 400px;
+    top: -46px;
+    border: none;
 }
 
 .info {
@@ -46,7 +45,7 @@
 
 .infoTitleDiv>p {
     font-size: 20px;
-    color: white
+    color: white;
 }
 
 .description {
@@ -71,38 +70,24 @@
 }
 
 .inputDiv {
-    position: relative;
-    width: 100%;
+    composes: inputDiv from "../../commonCSS/common.css";
     margin-top: 2rem;
 }
 
 .label {
-    position: absolute;
-    left: 20px;
-    top: -14px;
-    font-family: "Poppins";
-    font-size: 16px;
-    font-weight: 500;
-    color: black;
-    background: white;
-    padding: 0px 4px;
+    composes: label from "../../commonCSS/common.css";
 }
 
 .input {
-    width: 100%;
-    height: 4rem;
-    font-size: 20px;
-    font-family: "Poppins";
-    border-radius: 6px;
-    padding: 8px 0px 8px 16px;
+    composes: input from "../../commonCSS/common.css";
 }
 
 .checkCode {
     cursor: pointer;
+    text-align: right;
     font-family: "Poppins";
     font-style: italic;
     margin-right: 1rem;
-    text-align: right;
 }
 
 .inputsDiv {
@@ -128,28 +113,16 @@
 }
 
 .horizontalDivider {
-    margin-top: 1.5rem;
     width: 100%;
     border: solid black 1px;
+    margin-top: 1.5rem;
 }
 
-.paypalBtn {
-    margin-top: 3rem;
-    height: 4rem;
-    width: 35%;
+.paypalBtnDiv {
     text-align: center;
-}
-
-.loadPaymentBtn {
-    font-family: "Poppins";
-    padding: 8px 50px;
-    height: 50px;
-    font-size: 20px;
-    font-weight: 100;
-    color: white;
-    background: black;
-    border-radius: 30px;
-    margin-bottom: 5rem;
+    width: 35%;
+    height: 4rem;
+    margin-top: 3rem;
 }
 
 .textSpaceBetween {

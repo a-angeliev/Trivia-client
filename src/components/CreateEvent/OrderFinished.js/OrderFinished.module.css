@@ -14,10 +14,10 @@
 
 .text {
     width: 45%;
-    margin-top: 1rem;
     font-size: 1.5rem;
     font-family: "Poppins";
     color: black;
+    margin-top: 1rem;
 }
 
 .btn {
@@ -25,6 +25,6 @@
 }
 
 .asset {
-    margin-top: 5rem;
     width: 20%;
+    margin-top: 5rem;
 }
