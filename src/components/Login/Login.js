@@ -14,25 +14,23 @@ export default function Login() {
     const onSubmit = (e) => {
         e.preventDefault();
         let { email, password } = Object.fromEntries(new FormData(e.target));
-        if (email && password) {
-            authService
-                .login(email, password)
-                .then((authData) => {
-                    if (authData.token) {
-                        userLogin(authData);
-                        navigate("/");
-                    } else {
-                        alert(JSON.stringify(authData["message"]));
-                    }
-                })
-                .catch((err) => {
-                    console.log(err);
-                    alert(err);
-                });
-        } else {
-            alert("Fill email and password");
-        }
+
+        authService
+            .login(email, password)
+            .then((authData) => {
+                if (authData.token) {
+                    userLogin(authData);
+                    navigate("/");
+                } else {
+                    alert(JSON.stringify(authData["message"]));
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                alert(err);
+            });
     };
+
     return (
         <section className={style.loginSection}>
             <form onSubmit={onSubmit} className={style.loginForm}>
