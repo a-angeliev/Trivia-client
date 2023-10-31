@@ -1,35 +1,31 @@
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { Routes, Route } from "react-router-dom";
+
+import { AuthProvider } from "./context/authContext";
+import { DiscountProvider } from "./context/discountContext";
+import { NotFount } from "./components/404NotFound/404NotFound";
+import { OrderFinished } from "./components/CreateEvent/OrderFinished.js/OrderFinished";
+import { RiddleProvider } from "./context/riddleContext";
+import { TransactionsProvider } from "./context/transactionsContext";
+import About from "./components/About/About";
+import AdminAddDiscount from "./components/AdminPanel/AdminDiscounts/AdminAddDiscount/AdminAddDiscount";
+import AdminAddRiddles from "./components/AdminPanel/AdminRiddles/AdminAddRiddles/AdminAddRiddles";
+import AdminDiscountDetails from "./components/AdminPanel/AdminDiscounts/AdminDiscountDetails/AdminDiscountDetails";
+import AdminDiscounts from "./components/AdminPanel/AdminDiscounts/AdminDiscounts";
+import AdminPanel from "./components/AdminPanel/AdminPanel";
+import AdminRiddleDetails from "./components/AdminPanel/AdminRiddles/AdminRiddleDetails/AdminRiddleDetails";
+import AdminRiddles from "./components/AdminPanel/AdminRiddles/AdminRiddles";
+import AdminTransaction from "./components/AdminPanel/AdminTransactions/AdminTransactions";
+import CreateEvent from "./components/CreateEvent/CreateEvent";
+import DisplayEvent from "./components/DisplayEvent/DisplayEvent";
 import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import RiddleCatalogue from "./components/RiddleCatalogue/RiddleCatalogue";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Logout from "./components/Logout/Logout";
 import Register from "./components/Register/Register";
-import CreateEvent from "./components/CreateEvent/CreateEvent";
-import AdminPanel from "./components/AdminPanel/AdminPanel";
-import AdminAddRiddles from "./components/AdminPanel/AdminRiddles/AdminAddRiddles/AdminAddRiddles";
-import AdminRiddleDetails from "./components/AdminPanel/AdminRiddles/AdminRiddleDetails/AdminRiddleDetails";
-import About from "./components/About/About";
-import Checkout from "./components/Checkout/Checkout";
-import DisplayEvent from "./components/DisplayEvent/DisplayEvent";
-import AdminRiddles from "./components/AdminPanel/AdminRiddles/AdminRiddles";
+import RiddleCatalogue from "./components/RiddleCatalogue/RiddleCatalogue";
 
-import { PayPalScriptProvider } from "@paypal/react-paypal-js";
-import { RiddleProvider } from "./context/riddleContext";
-import { Routes, Route, Link } from "react-router-dom";
 import style from "./App.module.css";
-import { AuthProvider } from "./context/authContext";
-import AdminDiscounts from "./components/AdminPanel/AdminDiscounts/AdminDiscounts";
-import AdminFaq from "./components/AdminPanel/AdminFaq/AdminFaq";
-import { DiscountProvider } from "./context/discountContext";
-import AdminTransaction from "./components/AdminPanel/AdminTransactions/AdminTransactions";
-import AdminAddDiscount from "./components/AdminPanel/AdminDiscounts/AdminAddDiscount/AdminAddDiscount";
-import AdminDiscountDetails from "./components/AdminPanel/AdminDiscounts/AdminDiscountDetails/AdminDiscountDetails";
-import { TransactionsProvider } from "./context/transactionsContext";
-import { OrderFinished } from "./components/CreateEvent/OrderFinished.js/OrderFinished";
-import { NotFount } from "./components/404NotFound/404NotFound";
-
-// import style from './app.css'
 
 function App() {
     return (
@@ -47,10 +43,6 @@ function App() {
                                     <section className={style.customer}>
                                         <Header />
                                         <Routes>
-                                            {/* <Route
-                                        path="/checkout"
-                                        element={<Checkout />}
-                                    /> */}{" "}
                                             <Route path='*' element={<NotFount />}></Route>
                                             <Route path='/congratulations' element={<OrderFinished />}></Route>
                                             <Route path='/event' element={<DisplayEvent />} />
@@ -61,9 +53,7 @@ function App() {
                                             <Route path='/login' element={<Login />} />
                                             <Route path='/logout' element={<Logout />} />
                                             <Route path='/register' element={<Register />} />
-                                            <Route
-                                                // path="/admin-panel"
-                                                element={<AdminPanel />}>
+                                            <Route element={<AdminPanel />}>
                                                 <Route path={"admin-panel"} element={<AdminRiddles />}>
                                                     <Route
                                                         path='/admin-panel/details/:riddleId'
@@ -71,10 +61,6 @@ function App() {
                                                     />
                                                     <Route path='/admin-panel/item' element={<AdminAddRiddles />} />
                                                 </Route>
-                                                {/* <Route
-                                                path={"admin-panel/"}
-                                                element={<AdminFaq />}
-                                            /> */}
 
                                                 <Route
                                                     path={"/admin-panel/transactions"}
@@ -92,7 +78,6 @@ function App() {
                                                 </Route>
                                             </Route>
                                         </Routes>
-                                        {/* <Footer /> */}
                                     </section>
                                 </main>
                             </TransactionsProvider>
