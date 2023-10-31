@@ -13,7 +13,7 @@ export default function Login() {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        let { email, password } = Object.fromEntries(new FormData(e.target));
+        const { email, password } = Object.fromEntries(new FormData(e.target));
 
         authService
             .login(email, password)
