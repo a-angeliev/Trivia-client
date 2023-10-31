@@ -16,3 +16,9 @@
 .skipBtn:hover {
     background-color: #ffc439;
 }
+
+.spinner {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
