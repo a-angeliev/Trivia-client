@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import style from "./AdminDiscountItem.module.css";
 
 export default function AdminDiscountItem(props) {

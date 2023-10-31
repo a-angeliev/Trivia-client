@@ -5,7 +5,6 @@
 }
 
 .adminRiddleSelectionWrapper {
-    /* position: relative; */
     width: 60%;
     margin: auto;
 }
@@ -19,7 +18,6 @@
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    /* color: white; */
 }
 
 .btn {
@@ -28,23 +26,22 @@
 
 .tableWrapper {
     overflow: hidden;
-    color: black;
     width: 100%;
+    color: black;
     border-radius: 20px;
     border: 1px solid black;
     margin-top: 4rem;
 }
 
 .flTable {
-    font-size: 20px;
-    font-weight: normal;
-    border-collapse: collapse;
     width: 100%;
     max-width: 100%;
+    font-weight: normal;
+    font-size: 20px;
+    border-collapse: collapse;
     white-space: nowrap;
     background-color: white;
 }
-
 
 .flTable td, .flTable th {
     text-align: center;
@@ -60,19 +57,15 @@
     background: black;
 }
 
-
 .flTable thead th:nth-child(odd) {
     color: #ffffff;
     background: black;
-
 }
-
 
 .flTable tr:nth-child(even) {
     background: #F8F8F8;
 }
 
-/* Responsive */
 
 @media (max-width: 767px) {
     .flTable {
@@ -108,15 +101,15 @@
     }
 
     .flTable td, .flTable th {
-        padding: 20px .625em .625em .625em;
-        height: 60px;
+        text-overflow: ellipsis;
         vertical-align: middle;
+        height: 60px;
+        width: 120px;
+        font-size: 13px;
         box-sizing: border-box;
         overflow-x: hidden;
         overflow-y: auto;
-        width: 120px;
-        font-size: 13px;
-        text-overflow: ellipsis;
+        padding: 20px .625em .625em .625em;
     }
 
     .flTable thead th {
