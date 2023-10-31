@@ -14,8 +14,8 @@
   background-color: white;
   border-radius: 30px;
   border: 2px solid black;
-  margin: 1.2rem;
   font-size: 20px;
+  margin: 1.2rem;
 }
 
 .numeration {
@@ -62,19 +62,6 @@
 
 .additionalInfo>p {
   margin-right: 2rem;
-}
-
-.buyBtn {
-  text-align: center;
-  padding: 8px 50px;
-  /* width: 200px; */
-  height: 50px;
-  font-family: "Poppins";
-  font-size: 20px;
-  font-weight: 100;
-  color: white;
-  background: black;
-  border-radius: 30px;
 }
 
 .bold {
