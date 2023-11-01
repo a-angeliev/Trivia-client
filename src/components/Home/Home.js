@@ -11,7 +11,8 @@ export default function Home() {
                 <section className={style.titleSection}>
                     <p className={style.titleP}>Join today with</p>
                     <img className={style.logoYellow} src='./logo-yellow.svg' alt='yellow logo'></img>
-                    <button className={style.titleBtn} onClick={() => navigate("/riddles")}>
+
+                    <button className={style.btn} onClick={() => navigate("/riddles")}>
                         Let's start
                     </button>
                 </section>

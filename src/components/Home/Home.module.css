@@ -11,9 +11,7 @@
 }
 
 .titleSection {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
+    margin-top: 10rem;
     align-items: left;
     width: 50%;
     height: 100%;
@@ -31,6 +29,7 @@
 }
 
 .logoYellow {
+    margin-bottom: 4rem;
     width: 60%;
 }
 
@@ -106,4 +105,44 @@
     font-family: "Poppins";
     font-size: 24px;
     color: #000;
+}
+
+@media only screen and (min-width: 1925px) {
+    .titleSection {
+        margin-top: 20rem;
+    }
+
+    .sectionDesc {
+        margin-top: 10rem;
+    }
+
+    .sectionDesc>p {
+        font-size: 28px;
+    }
+}
+
+@media only screen and (min-width: 2570px) {
+    .titleSection {
+        margin: 40rem 0rem 0rem 20rem;
+    }
+
+    .btn {
+        margin-top: 5rem
+    }
+
+    .sectionDesc {
+        margin-top: 15rem;
+    }
+
+    .sectionDesc>p {
+        font-size: 3rem;
+    }
+
+    .titleP {
+        font-size: 13rem;
+    }
+
+    .secondTitle {
+        font-size: 10rem;
+    }
 }
