@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 
 import { AuthContext } from "./authContext";
-import * as requester from "../service/requester";
+import * as transactionService from "../service/transactionService";
 
 export const TransactionsContext = createContext();
 
@@ -16,11 +16,12 @@ const transactionsReducer = (state, action) => {
 
 export const TransactionsProvider = ({ children }) => {
     const [transactions, dispatch] = useReducer(transactionsReducer, []);
+
     const { isAdmin } = useContext(AuthContext);
 
     useEffect(() => {
         if (isAdmin) {
-            requester.get("http://127.0.0.1:5000/transaction").then((res) => {
+            transactionService.getTransactions().then((res) => {
                 const action = {
                     type: "ADD_TRANSACTIONS",
                     payload: res,

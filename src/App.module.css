@@ -1,30 +1,8 @@
-.customer {
-    /* background-image: url("../public/star-background.jpg");
-  height: 100vh;
-
-
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover; */
-
-    /* background-image: radial-gradient(
-        circle farthest-corner at 10% 20%,
-        rgba(0, 152, 155, 1) 0.1%,
-        rgba(0, 94, 120, 1) 94.2%
-    );
-    margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    width: 100%; */
-}
-
 html {
     height: 100%;
 }
 
 body {
-    /* background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%); */
     margin: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -34,4 +12,21 @@ body {
 
 .hide {
     display: none;
+}
+
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #555;
 }
