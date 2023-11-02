@@ -35,3 +35,78 @@
     width: 38%;
     margin-top: 1rem;
 }
+
+.mobile {
+    display: none
+}
+
+@media only screen and (min-width: 2000px) {
+    .startActionWrapper {
+        margin: 8rem auto;
+    }
+
+    .title {
+        font-size: 5rem;
+    }
+
+    .startActionP {
+        font-size: 3.5rem;
+    }
+
+}
+
+@media only screen and (min-width: 2570px) {
+    .startActionWrapper {
+        margin: 10rem auto;
+    }
+
+    .title {
+        font-size: 7rem;
+    }
+
+    .startActionP {
+        font-size: 5rem;
+    }
+
+    .pictureAsset {
+        margin-top: 8rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .mobile {
+        display: block
+    }
+
+    .desktop {
+        display: none
+    }
+
+    .startActionWrapper {
+        width: 80%;
+        margin-bottom: 2rem;
+    }
+
+    .title {
+        text-align: center;
+        font-size: 2.8rem
+    }
+
+    .startActionP {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .pictureAsset {
+        width: 75%;
+    }
+
+    .btnDiv {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .btn {
+        margin: 0.5rem;
+    }
+}
