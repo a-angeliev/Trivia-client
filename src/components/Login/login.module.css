@@ -19,36 +19,25 @@
     margin: auto;
 }
 
-.inputDiv {
-    position: relative;
-    width: 100%;
-    margin-top: 2rem;
-}
-
 .loginTitle {
     font-family: 'Poppins', sans-serif;
     color: black;
 }
 
-.loginInputs {
-    width: 100%;
-    height: 4rem;
-    font-size: 22px;
-    font-family: "Poppins";
-    border-radius: 6px;
-    padding: 8px 0px 8px 16px;
+.inputDiv {
+    composes: inputDiv from "../../commonCSS/common.css";
 }
 
-.loginLabels {
-    position: absolute;
-    left: 20px;
-    top: -14px;
-    font-family: "Poppins";
-    font-size: 16px;
-    font-weight: 500;
-    color: black;
-    background: white;
-    padding: 0px 4px;
+.input {
+    composes: input from "../../commonCSS/common.css";
+}
+
+.label {
+    composes: label from "../../commonCSS/common.css";
+}
+
+.btn {
+    composes: btn from "../../commonCSS/common.css";
 }
 
 .registerText {
@@ -62,19 +51,70 @@
     color: black;
 }
 
-.logBtn {
-    width: 45%;
-    font-family: "Poppins";
-    font-size: 35px;
-    font-weight: 100;
-    color: white;
-    background: black;
-    border-radius: 30px;
-    padding: 0;
-    margin-top: 3.5rem;
-}
-
 .img {
     width: 50%;
     margin-top: 2rem;
+}
+
+.mobile {
+    display: none;
+}
+
+@media only screen and (min-width: 2570px) {
+    .loginTitle {
+        font-size: 5rem;
+        margin-top: 10rem;
+    }
+
+    .label {
+        font-size: 2rem;
+        top: -30px;
+    }
+
+    .input {
+        height: 7rem;
+        font-size: 2rem;
+    }
+
+    .inputDiv {
+        margin-bottom: 2rem;
+    }
+
+    .btn {
+        height: 80px;
+        font-size: 3rem;
+    }
+
+    .registerText {
+        font-size: 2rem;
+    }
+
+    .img {
+        width: 70%;
+        margin-top: 7rem;
+    }
+}
+
+
+@media only screen and (max-width: 400px) {
+    .loginSection {
+        width: 100%;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .loginForm {
+        width: 85%;
+    }
+
+    .registerText {
+        margin-top: 2rem;
+    }
+
 }

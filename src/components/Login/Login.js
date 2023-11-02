@@ -36,23 +36,23 @@ export default function Login() {
             <form onSubmit={onSubmit} className={style.loginForm}>
                 <h1 className={style.loginTitle}>Sign in</h1>
                 <div className={style.inputDiv}>
-                    <label className={style.loginLabels} htmlFor='email'>
+                    <label className={style.label} htmlFor='email'>
                         email address
                     </label>
-                    <input className={style.loginInputs} id='email' placeholder='Ivan@gmail.com' name='email'></input>
+                    <input className={style.input} id='email' placeholder='Ivan@gmail.com' name='email'></input>
                 </div>
                 <div className={style.inputDiv}>
-                    <label className={style.loginLabels} htmlFor='password'>
+                    <label className={style.label} htmlFor='password'>
                         password
                     </label>
                     <input
-                        className={style.loginInputs}
+                        className={style.input}
                         id='password'
                         placeholder='***********'
                         name='password'
                         type='password'></input>
                 </div>
-                <button className={style.logBtn}>Login</button>
+                <button className={`${style.btn} ${style.desktop}`}>Login</button>
                 <p className={style.registerText}>
                     If you don't have a registration, click{" "}
                     <a className={style.registerLink} href='/register'>
@@ -62,6 +62,7 @@ export default function Login() {
                 </p>
             </form>
             <img className={style.img} src='./login-page-asset.svg' alt='login page asset'></img>
+            <button className={`${style.btn} ${style.mobile}`}>Login</button>
         </section>
     );
 }
