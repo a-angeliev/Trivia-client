@@ -63,3 +63,30 @@ p {
 .lastSection>p {
     font-size: 30px;
 }
+
+@media only screen and (min-width: 1925px) {
+    .about {
+        width: 60%;
+    }
+
+    .card {
+        margin-top: 5rem;
+    }
+}
+
+@media only screen and (min-width: 2570px) {
+    .card>h2 {
+        font-size: 6rem;
+        margin-bottom: 10rem;
+    }
+
+    .card>p {
+        font-size: 3rem;
+    }
+
+}
+
+
+@media only screen and (max-width: 2570px) {}
+
+@media only screen and (max-width: 400px) {}
