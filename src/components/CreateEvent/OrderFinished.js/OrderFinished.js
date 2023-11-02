@@ -11,7 +11,12 @@ export const OrderFinished = () => {
             <p className={style.text}>
                 You are ready to play in few easy steps. Check your email and find the link for the quiz. Wish you luck!
             </p>
-            <div className={style.inputDiv}>
+            <img
+                className={`${style.mobile} ${style.asset}`}
+                src='./congratulations.svg'
+                alt='page congratulation asset'></img>
+
+            <div className={style.btnDiv}>
                 <button className={style.btn} onClick={() => navigate("/")}>
                     home page
                 </button>
@@ -20,7 +25,10 @@ export const OrderFinished = () => {
                 </button>
             </div>
 
-            <img className={style.asset} src='./congratulations.svg' alt='page congratulation asset'></img>
+            <img
+                className={`${style.desktop} ${style.asset}`}
+                src='./congratulations.svg'
+                alt='page congratulation asset'></img>
         </div>
     );
 };

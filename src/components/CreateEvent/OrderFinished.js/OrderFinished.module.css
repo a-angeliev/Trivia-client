@@ -20,6 +20,10 @@
     margin-top: 1rem;
 }
 
+.btnDiv {
+    display: flex;
+}
+
 .btn {
     composes: btn from "../../../commonCSS/common.css"
 }
@@ -27,4 +31,54 @@
 .asset {
     width: 20%;
     margin-top: 5rem;
+}
+
+.mobile {
+    display: none;
+}
+
+@media only screen and (min-width: 2570px) {
+    .title {
+        font-size: 7rem;
+        margin-top: 10rem;
+    }
+
+    .text {
+        font-size: 3rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .desktop {
+        display: none
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .title {
+        font-size: 3rem;
+    }
+
+    .text {
+        text-align: justify;
+        width: 70%;
+        font-size: 1.2rem;
+        line-height: 1.5rem;
+    }
+
+    .asset {
+        width: 60%;
+        margin: 1rem;
+    }
+
+    .btnDiv {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .btn {
+        margin: 0.5rem;
+    }
 }
