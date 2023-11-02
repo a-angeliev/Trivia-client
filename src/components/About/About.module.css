@@ -3,7 +3,6 @@
     flex-direction: column;
     align-items: center;
     width: 90%;
-    height: 70vh;
     background-color: white;
     border-radius: 35px;
     margin: 4rem auto;
@@ -74,19 +73,93 @@ p {
     }
 }
 
-@media only screen and (min-width: 2570px) {
+@media only screen and (min-width: 2400px) {
+    .about {
+        width: 80%;
+    }
+
+    .card {
+        margin: 0;
+    }
+
     .card>h2 {
-        font-size: 6rem;
-        margin-bottom: 10rem;
+        height: 12rem;
+        font-size: 4rem;
+        padding: 0;
     }
 
     .card>p {
-        font-size: 3rem;
+        font-size: 2rem;
     }
-
 }
 
 
-@media only screen and (max-width: 2570px) {}
+@media only screen and (min-width: 3000px) {
 
-@media only screen and (max-width: 400px) {}
+    .card {
+        margin-top: 11rem;
+    }
+
+    .card>h2, .lastSection>h2 {
+        font-size: 6rem;
+        padding: 0;
+    }
+
+    .card>h2 {
+        height: 12rem;
+    }
+
+    .card>p, .lastSection>p {
+        font-size: 3rem;
+    }
+
+    .lastSection {
+        height: 15rem;
+        margin-top: 5rem;
+    }
+}
+
+@media only screen and (max-width: 426px) {
+
+    .about {
+        margin: 2rem auto;
+    }
+
+    .cardSection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        padding: 0 30px;
+    }
+
+    .card>h2 {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .card>p {
+        font-size: 1.2rem;
+    }
+
+    .lastSection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 3px solid black;
+        border-radius: 30px;
+        margin: 2rem 0;
+    }
+
+    .lastSection>h2 {
+        font-size: 3rem;
+        padding: 0;
+    }
+
+    .lastSection>p {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+}
