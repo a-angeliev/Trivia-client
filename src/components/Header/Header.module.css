@@ -46,3 +46,13 @@ header {
 .liNav>a:hover {
   color: white;
 }
+
+@media only screen and (max-width: 400px) {
+  .ulNav {
+    display: none;
+  }
+
+  .navigation {
+    width: 100%;
+  }
+}

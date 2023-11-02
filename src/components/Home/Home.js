@@ -12,16 +12,20 @@ export default function Home() {
                     <p className={style.titleP}>Join today with</p>
                     <img className={style.logoYellow} src='./logo-yellow.svg' alt='yellow logo'></img>
 
-                    <button className={style.btn} onClick={() => navigate("/riddles")}>
+                    <button className={`${style.desktop} ${style.btn}`} onClick={() => navigate("/riddles")}>
                         Let's start
                     </button>
                 </section>
                 <section className={style.homeImgSection}>
                     <img className={style.homeImg} src='./home-asset-1.svg' alt='home asset'></img>
                 </section>
+
+                <button className={`${style.mobile} ${style.btn}`} onClick={() => navigate("/riddles")}>
+                    Let's start
+                </button>
             </section>
             <section className={style.secondHome}>
-                <section className={style.sectionImg}>
+                <section className={`${style.desktop} ${style.sectionImg}`}>
                     <img src={"./home-asset-2.svg"} alt='home asset 2' />
                 </section>
                 <section className={style.sectionDesc}>
@@ -34,7 +38,10 @@ export default function Home() {
                         Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
                         aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor.
                     </p>
-                    <button className={style.btn} onClick={() => navigate("/riddles")}>
+                    <section className={`${style.mobile} ${style.sectionImg}`}>
+                        <img src={"./home-asset-2.svg"} alt='home asset 2' />
+                    </section>
+                    <button className={`${style.mobileBtn} ${style.btn}`} onClick={() => navigate("/riddles")}>
                         Let's start
                     </button>
                 </section>

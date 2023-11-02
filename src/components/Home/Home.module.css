@@ -146,3 +146,109 @@
         font-size: 10rem;
     }
 }
+
+
+@media only screen and (max-width: 2570px) {
+    .titleSection {
+        margin: 40rem 0rem 0rem 20rem;
+    }
+
+    .btn {
+        margin-top: 5rem
+    }
+
+    .sectionDesc {
+        margin-top: 15rem;
+    }
+
+    .sectionDesc>p {
+        font-size: 3rem;
+    }
+
+    .titleP {
+        font-size: 13rem;
+    }
+
+    .secondTitle {
+        font-size: 10rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .homeBg {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .titleSection {
+        width: 100%;
+        height: auto;
+        text-align: center;
+        margin: 3rem 0 0 0;
+    }
+
+    .logoYellow {
+        width: 50%;
+    }
+
+    .titleP {
+        font-size: 2.7rem;
+    }
+
+    .homeImgSection {
+        width: 80%;
+        height: auto;
+    }
+
+    .homeImg {
+        padding: 0;
+    }
+
+    .btn {
+        margin-top: 2rem;
+    }
+
+    .sectionDesc {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        width: 100%;
+        padding: 0 3rem 0 3rem;
+        margin: 1rem 0 0 0;
+    }
+
+    .secondTitle {
+        text-align: center;
+        width: 80%;
+        font-size: 3rem;
+    }
+
+    .sectionDesc>p {
+        font-size: 1rem;
+    }
+
+    .secondHome {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .sectionImg {
+        text-align: center;
+        width: 100%;
+        padding: 1rem 0 0 0;
+    }
+
+    .mobileBtn {
+        margin: 0 !important;
+    }
+}
