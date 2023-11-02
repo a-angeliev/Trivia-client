@@ -2,6 +2,7 @@
     display: flex;
     flex-flow: column;
     align-items: center;
+    justify-content: center;
 }
 
 .title {
@@ -120,9 +121,8 @@
 
 .paypalBtnDiv {
     text-align: center;
-    width: 35%;
     height: 4rem;
-    margin-top: 3rem;
+    margin: 3rem;
 }
 
 .textSpaceBetween {
@@ -148,4 +148,84 @@
 
 .validInput {
     border: 2px solid green;
+}
+
+@media only screen and (min-width: 2570px) {
+    .title {
+        font-size: 4rem
+    }
+
+    .googleMap {
+        height: 700px;
+    }
+
+    .infoTitleDiv>p, .desc, .descP, .row>p, .checkCode, .label, .input, .greenText, .redText {
+        font-size: 1.7rem;
+    }
+
+    .input {
+        height: 100px;
+    }
+
+    .label {
+        top: -20px;
+    }
+
+}
+
+@media only screen and (max-width: 400px) {
+
+    .title {
+        font-size: 1.2rem;
+    }
+
+    .map, .inputsDiv, .pricing {
+        width: 100%;
+    }
+
+    .googleMap {
+        height: 300px;
+    }
+
+    .info {
+        width: 90%;
+        margin-top: 0;
+    }
+
+    .infoTitleDiv {
+        padding-left: 2rem;
+    }
+
+    .description {
+        margin: 1rem 2rem;
+    }
+
+    .desc, .descP {
+        font-size: 14px;
+    }
+
+    .desc {
+        text-align: justify;
+    }
+
+    .summary {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .pricing {
+        margin-top: 2rem;
+    }
+
+    .btn {
+        display: inline-block;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .paypalBtnDiv {
+        text-align: center;
+        width: 90%;
+    }
 }
