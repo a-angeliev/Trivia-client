@@ -44,26 +44,26 @@ export default function Register() {
             <form onSubmit={onSubmit} className={style.registerForm}>
                 <h1 className={style.registrationTitle}>Sign up</h1>
                 <div className={style.inputDiv}>
-                    <label className={style.registerLabels} htmlFor='email'>
+                    <label className={style.label} htmlFor='email'>
                         Email
                     </label>
                     <input
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className={style.registerInputs}
+                        className={style.input}
                         id='email'
                         placeholder='Ivan@gmail.com'
                         name='email'></input>
                 </div>
 
                 <div className={style.inputDiv}>
-                    <label className={style.registerLabels} htmlFor='password'>
+                    <label className={style.label} htmlFor='password'>
                         Password
                     </label>
                     <input
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className={style.registerInputs}
+                        className={style.input}
                         id='password'
                         placeholder='***********'
                         name='password'
@@ -71,20 +71,27 @@ export default function Register() {
                 </div>
 
                 <div className={style.inputDiv}>
-                    <label className={style.registerLabels} htmlFor='password1'>
+                    <label className={style.label} htmlFor='password1'>
                         Password
                     </label>
                     <input
                         value={password1}
                         onChange={(e) => setPassword1(e.target.value)}
-                        className={style.registerInputs}
+                        className={style.input}
                         id='password1'
                         placeholder='***********'
                         name='password1'
                         type='password'></input>
                 </div>
 
-                <button className={style.registerBtn}>Register</button>
+                <button className={style.btn}>Register</button>
+                <p className={style.loginText}>
+                    If you have a registration, login{" "}
+                    <a className={style.loginLink} href='/login'>
+                        {" "}
+                        here
+                    </a>{" "}
+                </p>
             </form>
         </section>
     );
