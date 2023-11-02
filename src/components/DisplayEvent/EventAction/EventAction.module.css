@@ -106,19 +106,73 @@
     margin-top: 2rem;
 }
 
+.btnDiv {
+    display: flex;
+}
+
 @media only screen and (min-width: 2570px) {
+    .title {
+        font-size: 7rem;
+    }
+
     .finalTitle {
         font-size: 7rem;
         margin-top: 10rem;
     }
 
-    .text {
+    .text, .points, .question, .input {
         font-size: 4rem !important;
     }
 
+    .hintBtn, .wrongLabel, .hintText {
+        font-size: 2rem;
+    }
+
+    .label {
+        top: -30px;
+        font-size: 2rem;
+    }
+
+    .input {
+        height: 100px;
+    }
 }
 
 @media only screen and (max-width: 400px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .points, .question {
+        font-size: 1rem;
+    }
+
+    .points {
+        margin: 1rem 0 0 0;
+    }
+
+    .question {
+        margin: 0 0 1rem 0;
+    }
+
+    .hintText {
+        margin-bottom: 10rem;
+    }
+
+    .btnDiv {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .btn {
+        margin-top: 1rem;
+    }
+
+    .loginSection {
+        width: 100%;
+        margin: 1.5rem 0 0 0;
+    }
+
     .endMsg {
         margin-top: 3rem;
     }
