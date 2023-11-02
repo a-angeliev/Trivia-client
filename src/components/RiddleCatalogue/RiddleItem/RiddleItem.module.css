@@ -67,3 +67,63 @@
 .bold {
   font-weight: bold;
 }
+
+.mobile {
+  display: none
+}
+
+@media only screen and (max-width: 400px) {
+  .desktop {
+    display: none
+  }
+
+  .mobile {
+    display: block
+  }
+
+  .riddleItem {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .registerSection {
+    width: 100%;
+    margin-top: 4rem;
+  }
+
+  .registerForm {
+    width: 85%;
+  }
+
+  .numeration>h1 {
+    font-size: 3rem;
+    margin-top: 1.5rem;
+  }
+
+  .riddleDescription>h2 {
+    text-align: center;
+    text-decoration: underline;
+    padding-top: 0;
+  }
+
+  .riddleDescription>p {
+    text-align: justify;
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .bottomRow {
+    padding: 0;
+  }
+
+  .additionalInfo {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .additionalInfo>p {
+    font-size: 18px;
+    margin: 0;
+  }
+}

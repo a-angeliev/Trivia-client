@@ -31,16 +31,26 @@ export default function RiddleItem({ riddle, id }) {
                         </section>
 
                         {user.token ? (
-                            <Link className={style.btn} to={`/riddles/${riddle.id}/event`}>
+                            <Link className={`${style.desktop} ${style.btn}`} to={`/riddles/${riddle.id}/event`}>
                                 Buy
                             </Link>
                         ) : (
-                            <Link className={style.btn} to={`/login`}>
+                            <Link className={`${style.desktop} ${style.btn}`} to={`/login`}>
                                 Buy
                             </Link>
                         )}
                     </section>
                 </section>
+
+                {user.token ? (
+                    <Link className={`${style.mobile} ${style.btn}`} to={`/riddles/${riddle.id}/event`}>
+                        Buy
+                    </Link>
+                ) : (
+                    <Link className={`${style.mobile} ${style.btn}`} to={`/login`}>
+                        Buy
+                    </Link>
+                )}
             </section>
         </section>
     );

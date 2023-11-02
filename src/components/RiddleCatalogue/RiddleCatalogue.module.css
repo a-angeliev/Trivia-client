@@ -10,3 +10,14 @@
   min-height: 60vh;
   margin: 2rem 0rem 6rem 0rem;
 }
+
+@media only screen and (max-width: 400px) {
+  .catalogue {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .catalogueWrapper {
+    margin-bottom: 1rem;
+  }
+}
