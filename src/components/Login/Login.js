@@ -61,7 +61,7 @@ export default function Login() {
                     </a>{" "}
                 </p>
             </form>
-            <img className={style.img} src='./login-page-asset.svg' alt='login page asset'></img>
+            <img className={style.img} src='/images/login-page-asset.svg' alt='login page asset'></img>
             <button className={`${style.btn} ${style.mobile}`}>Login</button>
         </section>
     );

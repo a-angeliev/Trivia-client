@@ -16,7 +16,7 @@ export default function AdminRiddleItem({ riddle }) {
                 <td className={style.td5}>${riddle.price}</td>
                 <td className={`${style.desktop} ${style.td6}`}>
                     <Link to={`/admin-panel/details/${riddle.id}`}>
-                        <img className={style.imgDots} src={"./menu-dots.png"} alt='img'></img>
+                        <img className={style.imgDots} src={"/images/menu-dots.png"} alt='img'></img>
                     </Link>
                 </td>
             </tr>

@@ -21,7 +21,10 @@ export default function DisplayEventStartCheck(props) {
             <div className={style.startActionWrapper}>
                 <h1 className={style.title}>You are about to start the quiz</h1>
                 <p className={style.startActionP}>{props.massage}</p>
-                <img className={`${style.mobile} ${style.pictureAsset}`} src='./start.svg' alt='start asset'></img>
+                <img
+                    className={`${style.mobile} ${style.pictureAsset}`}
+                    src='/images/start.svg'
+                    alt='start asset'></img>
 
                 <div className={style.btnDiv}>
                     <button className={style.btn} onClick={onClick}>
@@ -31,7 +34,10 @@ export default function DisplayEventStartCheck(props) {
                         go back
                     </button>
                 </div>
-                <img className={`${style.desktop} ${style.pictureAsset}`} src='./start.svg' alt='start asset'></img>
+                <img
+                    className={`${style.desktop} ${style.pictureAsset}`}
+                    src='/images/start.svg'
+                    alt='start asset'></img>
             </div>
         </>
     );

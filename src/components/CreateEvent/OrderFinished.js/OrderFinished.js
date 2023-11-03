@@ -13,7 +13,7 @@ export const OrderFinished = () => {
             </p>
             <img
                 className={`${style.mobile} ${style.asset}`}
-                src='./congratulations.svg'
+                src='/images/congratulations.svg'
                 alt='page congratulation asset'></img>
 
             <div className={style.btnDiv}>
@@ -27,7 +27,7 @@ export const OrderFinished = () => {
 
             <img
                 className={`${style.desktop} ${style.asset}`}
-                src='./congratulations.svg'
+                src='/images/congratulations.svg'
                 alt='page congratulation asset'></img>
         </div>
     );

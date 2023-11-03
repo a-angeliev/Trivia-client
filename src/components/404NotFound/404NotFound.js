@@ -9,7 +9,7 @@ export const NotFount = () => {
                 stumble upon it, please give us a call. Maybe we can throw it a surprise party and convince it to come
                 back! In the meantime, feel free to explore our other pages and see if you can find some hidden gems.
             </p>
-            <img className={style.asset} src='./404.svg' alt='404'></img>
+            <img className={style.asset} src='/images/404.svg' alt='404'></img>
         </div>
     );
 };

@@ -10,14 +10,14 @@ export default function Home() {
             <section className={style.homeBg}>
                 <section className={style.titleSection}>
                     <p className={style.titleP}>Join today with</p>
-                    <img className={style.logoYellow} src='./logo-yellow.svg' alt='yellow logo'></img>
+                    <img className={style.logoYellow} src='/images/logo-yellow.svg' alt='yellow logo'></img>
 
                     <button className={`${style.desktop} ${style.btn}`} onClick={() => navigate("/riddles")}>
                         Let's start
                     </button>
                 </section>
                 <section className={style.homeImgSection}>
-                    <img className={style.homeImg} src='./home-asset-1.svg' alt='home asset'></img>
+                    <img className={style.homeImg} src='/images/home-asset-1.svg' alt='home asset'></img>
                 </section>
 
                 <button className={`${style.mobile} ${style.btn}`} onClick={() => navigate("/riddles")}>
@@ -26,7 +26,7 @@ export default function Home() {
             </section>
             <section className={style.secondHome}>
                 <section className={`${style.desktop} ${style.sectionImg}`}>
-                    <img src={"./home-asset-2.svg"} alt='home asset 2' />
+                    <img src={"/images/home-asset-2.svg"} alt='home asset 2' />
                 </section>
                 <section className={style.sectionDesc}>
                     <h2 className={style.secondTitle}>Why to choose us?</h2>
@@ -39,7 +39,7 @@ export default function Home() {
                         aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor.
                     </p>
                     <section className={`${style.mobile} ${style.sectionImg}`}>
-                        <img src={"./home-asset-2.svg"} alt='home asset 2' />
+                        <img src={"/images/home-asset-2-mobile.svg"} alt='home asset 2' />
                     </section>
                     <button className={`${style.mobileBtn} ${style.btn}`} onClick={() => navigate("/riddles")}>
                         Let's start
