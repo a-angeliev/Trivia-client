@@ -22,3 +22,24 @@
 .asset {
     width: 30%;
 }
+
+@media only screen and (max-width: 400px) {
+
+    .wrapper {
+        margin-top: 3rem;
+    }
+
+    .title {
+        font-size: 3rem;
+    }
+
+    .text {
+        text-align: justify;
+        width: 90%;
+        font-size: 17px;
+    }
+
+    .asset {
+        width: 100%;
+    }
+}
