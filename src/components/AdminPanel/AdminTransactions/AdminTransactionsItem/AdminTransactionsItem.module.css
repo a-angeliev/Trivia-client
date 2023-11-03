@@ -1,12 +1,4 @@
-.desktop {
-    display: block
-}
-
 @media only screen and (max-width: 400px) {
-    .mobile {
-        display: block;
-    }
-
     .desktop {
         display: none;
     }
