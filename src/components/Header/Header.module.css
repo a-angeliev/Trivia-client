@@ -103,7 +103,7 @@ header {
     position: absolute;
     top: 50px;
     right: 30px;
-    width: 26px;
+    width: 30px;
     height: 26px;
     cursor: pointer;
     z-index: 2;
@@ -115,7 +115,7 @@ header {
     display: block;
     position: absolute;
     width: 100%;
-    height: 2px;
+    height: 3px;
     background-color: black;
     transition-duration: .25s;
   }
