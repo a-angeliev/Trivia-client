@@ -95,8 +95,12 @@ header {
     right: 0 !important;
   }
 
+  .menuToggle:checked~.menuBtn {
+    position: fixed !important;
+  }
+
   .menuBtn {
-    position: fixed;
+    position: absolute;
     top: 50px;
     right: 30px;
     width: 26px;
