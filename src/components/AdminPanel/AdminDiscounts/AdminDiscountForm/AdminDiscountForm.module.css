@@ -59,3 +59,23 @@
 .hide {
     display: none;
 }
+
+@media only screen and (min-width: 2570px) {}
+
+
+@media only screen and (max-width: 400px) {
+
+    .btnDiv, .dateInputWhapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dateInputWhapper {
+        gap: 0;
+    }
+
+    .form, .input, .label, .rules {
+        font-size: 14px;
+    }
+
+}

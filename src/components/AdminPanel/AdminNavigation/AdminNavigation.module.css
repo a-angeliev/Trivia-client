@@ -30,3 +30,23 @@
 .adminNavLink:hover {
     color: #ffc814;
 }
+
+@media only screen and (max-width: 400px) {
+    .adminNavDiv {
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .divider {
+        margin: 0rem 0.5rem;
+    }
+
+    .adminNavLink {
+        font-size: 1.2rem;
+    }
+
+    .adminNavUl {
+        padding: 0;
+    }
+
+}

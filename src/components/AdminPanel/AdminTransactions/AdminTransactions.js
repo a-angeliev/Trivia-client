@@ -18,9 +18,9 @@ export default function AdminTransaction() {
                                 <th>Id</th>
                                 <th>Transaction ID</th>
                                 <th>Amount</th>
-                                <th>Description</th>
-                                <th>Email</th>
-                                <th>Update time</th>
+                                <th className={style.desktop}>Description</th>
+                                <th className={style.desktop}>Email</th>
+                                <th className={style.desktop}>Update time</th>
                             </tr>
                         </thead>
                         <tbody>

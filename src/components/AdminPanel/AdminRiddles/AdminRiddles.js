@@ -19,10 +19,10 @@ export default function AdminRiddles() {
                             <tr>
                                 <th>Id</th>
                                 <th>Title</th>
-                                <th>Description</th>
+                                <th className={style.desktop}>Description</th>
                                 <th>Questions</th>
                                 <th>Price</th>
-                                <th></th>
+                                <th className={style.desktop}></th>
                             </tr>
                         </thead>
                         <tbody>

@@ -52,6 +52,7 @@
 }
 
 .btnDiv {
+    display: flex;
     text-align: center;
     margin-top: 3rem;
 }
@@ -78,4 +79,43 @@
 
 .textarea {
     height: 10rem;
+}
+
+.mobile {
+    display: none
+}
+
+@media only screen and (min-width: 2570px) {}
+
+
+@media only screen and (max-width: 400px) {
+    .mobile {
+        display: block;
+    }
+
+    .btnDiv, .row, .mobilePriceDiv {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .removeBtn {
+        right: 20px;
+    }
+
+    .form, .input, .label, .rules {
+        font-size: 14px;
+    }
+
+    .mobileQuestion {
+        padding-right: 4rem;
+    }
+
+    .questionPair {
+        color: black;
+        padding-bottom: 0;
+    }
+
+    .row {
+        gap: 0;
+    }
 }

@@ -144,12 +144,13 @@ export const RiddleForm = (props) => {
     const inputRow = (input, index) => {
         return (
             <div key={index} className={style.row}>
+                <h2 className={`${style.mobile} ${style.questionPair}`}>{index + 1}</h2>
                 <div className={style.inputDiv}>
                     <label className={style.label} htmlFor='question'>
                         Question
                     </label>
                     <input
-                        className={`${style.input}`}
+                        className={`${style.input} ${style.mobileQuestion}`}
                         onChange={(event) => handleFormChange(index, event)}
                         name='question'
                         placeholder='Question'
@@ -243,7 +244,7 @@ export const RiddleForm = (props) => {
                         </p>
                     </div>
 
-                    <div className={style.gameInfo}>
+                    <div className={`${style.mobilePriceDiv}  ${style.gameInfo}`}>
                         <div className={style.inputDiv}>
                             <label className={style.label} htmlFor='price'>
                                 Price

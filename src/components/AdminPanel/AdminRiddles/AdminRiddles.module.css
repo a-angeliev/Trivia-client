@@ -68,79 +68,32 @@
     background: #F8F8F8;
 }
 
-@media (max-width: 767px) {
-    .flTable {
+.mobile {
+    display: none
+}
+
+@media only screen and (min-width: 2570px) {}
+
+
+@media only screen and (max-width: 400px) {
+    .mobile {
         display: block;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    .adminRiddleSelectionWrapper {
         width: 100%;
+        padding: 0 1rem;
     }
 
-    .tableWrapper:before {
-        display: block;
-        text-align: right;
-        content: "Scroll horizontally >";
-        font-size: 11px;
-        color: white;
-        padding: 0 0 10px;
-    }
-
-    .flTable thead, .flTable tbody, .flTable thead th {
-        display: block;
-    }
-
-    .flTable thead th:last-child {
-        border-bottom: none;
-    }
-
-    .flTable thead {
-        float: left;
-    }
-
-    .flTable tbody {
-        width: auto;
-        position: relative;
-        overflow-x: auto;
+    .flTable, .flTable td {
+        font-size: 14px;
     }
 
     .flTable td, .flTable th {
-        text-overflow: ellipsis;
-        vertical-align: middle;
-        box-sizing: border-box;
-        overflow-x: hidden;
-        overflow-y: auto;
-        width: 120px;
-        height: 60px;
-        font-size: 13px;
-        padding: 20px .625em .625em .625em;
-    }
-
-    .flTable thead th {
-        text-align: left;
-        border-bottom: 1px solid #f7f7f9;
-    }
-
-    .flTable tbody tr {
-        display: table-cell;
-    }
-
-    .flTable tbody tr:nth-child(odd) {
-        background: none;
-    }
-
-    .flTable tr:nth-child(even) {
-        background: transparent;
-    }
-
-    .flTable tr td:nth-child(odd) {
-        background: #F8F8F8;
-        border-right: 1px solid #E6E4E4;
-    }
-
-    .flTable tr td:nth-child(even) {
-        border-right: 1px solid #E6E4E4;
-    }
-
-    .flTable tbody td {
-        display: block;
-        text-align: center;
+        padding: 5px;
     }
 }

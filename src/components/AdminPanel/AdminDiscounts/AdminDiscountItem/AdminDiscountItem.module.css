@@ -1,12 +1,53 @@
-.imgDots{
-    width: 50px;
-    height: 50px;
+.imgDots {
+  width: 50px;
+  height: 50px;
 }
 
-@keyframes spin{
-    from{transform: rotate(0deg);}
-    to {transform: rotate(360deg);}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
-.imgDots:hover{
+
+.imgDots:hover {
   animation: spin 2s infinite;
+}
+
+
+.mobile {
+  display: none
+}
+
+@media only screen and (max-width: 400px) {
+  .mobile {
+    display: table-row;
+  }
+
+  .desktop {
+    display: none
+  }
+
+  .td2 {
+    width: 50%;
+  }
+
+  .t4 {
+    width: 5%;
+  }
+
+  .tdDesc {
+    text-align: justify;
+    text-overflow: ellipsis;
+    height: 100px;
+  }
+
+  .tdDesc>p {
+    overflow: hidden;
+    padding: 2px 5px;
+    max-height: 160px;
+  }
 }
