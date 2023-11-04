@@ -15,7 +15,7 @@ export default function AdminDiscountItem(props) {
                 <td>{props.discounts.ended_on}</td>
                 <td>
                     <Link to={`/admin-panel/discount/${props.discounts.id}`}>
-                        <img className={style.imgDots} src='/menu-dots.png' alt='img'></img>
+                        <img className={style.imgDots} src='/images/menu-dots.png' alt='img'></img>
                     </Link>
                 </td>
             </tr>
